@@ -202,6 +202,7 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
   <button class="tb on" data-tab="p" onclick="goTab('p')">Projeção W1</button>
   <button class="tb" data-tab="conv" onclick="goTab('conv')">Matriz de Conversão</button>
   <button class="tb" data-tab="proj" onclick="goTab('proj')">Projeções</button>
+  <button class="tb" data-tab="live" onclick="goTab('live')">Métricas de Live</button>
   <button class="tb" data-tab="s" onclick="goTab('s')">Análise de Estresse</button>
 </div>
 <div id="tc-p" class="tc on"></div>
@@ -648,5 +649,272 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
   </div>
 </div>
 </div>
+<style>
+#live-page{max-width:1100px;margin:0 auto;padding:48px 48px 100px}
+.live-sec{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#B4B0AC;margin:2.5rem 0 1rem}
+.live-ref-wrap{background:#131313;border:.5px solid rgba(201,168,76,.2);border-radius:14px;padding:20px 24px;margin-bottom:24px}
+.live-ref-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.live-ref-item{background:#1A1A1A;border:.5px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 14px}
+.live-ref-lbl{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#C4BFB8;margin-bottom:4px}
+.live-ref-val{font-size:17px;font-weight:500;color:#F2EFE8;font-variant-numeric:tabular-nums}
+.live-ref-sub{font-size:10px;color:#C4BFB8;margin-top:2px}
+.live-params-wrap{background:#111;border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:20px 24px;margin-bottom:24px}
+.live-scenarios-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.ls-card{border-radius:14px;padding:22px;border:.5px solid rgba(255,255,255,.1)}
+.ls-card.s70{border-color:rgba(201,76,76,.3);background:rgba(201,76,76,.04)}
+.ls-card.s85{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.04)}
+.ls-card.s100{border-color:rgba(90,158,106,.3);background:rgba(90,158,106,.04)}
+.ls-badge{display:inline-flex;align-items:center;margin-bottom:16px;font-size:11px;font-weight:500;padding:4px 12px;border-radius:100px}
+.ls-badge.s70{background:rgba(201,76,76,.15);color:#E07070;border:.5px solid rgba(201,76,76,.3)}
+.ls-badge.s85{background:rgba(201,168,76,.15);color:#E8C97B;border:.5px solid rgba(201,168,76,.3)}
+.ls-badge.s100{background:rgba(90,158,106,.15);color:#82C98F;border:.5px solid rgba(90,158,106,.3)}
+.ls-metric{padding:10px 0;border-bottom:.5px solid rgba(255,255,255,.07)}
+.ls-metric:last-child{border-bottom:none;padding-bottom:0}
+.ls-lbl{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#C4BFB8;margin-bottom:3px}
+.ls-val{font-size:20px;font-weight:500;color:#F2EFE8;font-variant-numeric:tabular-nums}
+.ls-val.big{font-size:28px}
+.ls-val.gold{color:#C9A84C}
+.ls-val.green{color:#82D490}
+.ls-sub{font-size:10px;color:#C4BFB8;margin-top:2px}
+</style>
+
+<div id="tc-live" class="tc">
+<div id="live-page">
+
+  <div style="margin-bottom:40px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+      <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">Baseado em dados históricos reais</span>
+      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+    </div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:32px;font-weight:400;margin-bottom:8px">Métricas de <em style="font-style:italic;color:#E8D5A3">Live</em> — W1</h2>
+    <p style="font-size:13px;color:#C4BFB8;max-width:660px;line-height:1.7">Show-up e conversão projetados com base nas taxas reais do <strong style="color:#F2EFE8;font-weight:500">3° CPL YouTube — Ascensão e Ruptura</strong>. Três cenários em relação à meta de inscritos do W1 — resultado Assiny até 23:59.</p>
+  </div>
+
+  <!-- REFERÊNCIA -->
+  <p class="live-sec">Referência histórica — 3° CPL YouTube · Ascensão e Ruptura</p>
+  <div class="live-ref-wrap">
+    <div style="font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;display:flex;align-items:center;gap:8px">
+      <span style="display:inline-block;width:20px;height:.5px;background:#C9A84C;opacity:.5"></span>
+      Benchmark de show-up e conversão
+      <span style="display:inline-block;width:20px;height:.5px;background:#C9A84C;opacity:.5"></span>
+    </div>
+    <div class="live-ref-grid">
+      <div class="live-ref-item">
+        <div class="live-ref-lbl">Base de leads inscrita</div>
+        <div class="live-ref-val">10.817</div>
+        <div class="live-ref-sub">leads totais no lançamento</div>
+      </div>
+      <div class="live-ref-item">
+        <div class="live-ref-lbl">Show-up pico · YouTube</div>
+        <div class="live-ref-val" style="color:#90C8F0">6.622</div>
+        <div class="live-ref-sub">espectadores simultâneos no pico</div>
+      </div>
+      <div class="live-ref-item">
+        <div class="live-ref-lbl">Taxa de show-up</div>
+        <div class="live-ref-val" style="color:#90C8F0">61,2%</div>
+        <div class="live-ref-sub">6.622 ÷ 10.817 leads</div>
+      </div>
+      <div class="live-ref-item">
+        <div class="live-ref-lbl">Vendas Assiny até 23:59</div>
+        <div class="live-ref-val" style="color:#C9A84C">151</div>
+        <div class="live-ref-sub">R$ 419.712,62 · ticket médio R$2.779</div>
+      </div>
+      <div class="live-ref-item">
+        <div class="live-ref-lbl">Vendas c/ UTM YouTube</div>
+        <div class="live-ref-val" style="color:#B09EE8">114</div>
+        <div class="live-ref-sub">R$ 322.360,12 · clicou pela live</div>
+      </div>
+      <div class="live-ref-item">
+        <div class="live-ref-lbl">Conversão s/ show-up</div>
+        <div class="live-ref-val" style="color:#82D490">2,28%</div>
+        <div class="live-ref-sub">151 vendas ÷ 6.622 show-up · 1,40% s/ leads</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARÂMETROS -->
+  <p class="live-sec">Parâmetros de projeção — ajuste e veja os cenários atualizando</p>
+  <div class="live-params-wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:start">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+          <span style="font-size:11px;font-weight:500;color:#D4D0CA">Taxa de show-up</span>
+          <span style="font-size:15px;font-weight:500;color:#4A90C4"><span id="live-showup-disp">61,2</span>%</span>
+        </div>
+        <div style="font-size:10px;color:#A4A09C;margin-bottom:8px">Referência Ascensão: 61,2%</div>
+        <input type="range" class="ss" id="live-showup-sl" min="20" max="90" step="0.5" value="61.2" style="width:100%;accent-color:#4A90C4;cursor:pointer">
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:#A4A09C;margin-top:4px"><span>20%</span><span>90%</span></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+          <span style="font-size:11px;font-weight:500;color:#D4D0CA">Conv. Assiny s/ show-up</span>
+          <span style="font-size:15px;font-weight:500;color:#C9A84C"><span id="live-conv-disp">2,28</span>%</span>
+        </div>
+        <div style="font-size:10px;color:#A4A09C;margin-bottom:8px">Referência Ascensão: 2,28% s/ show-up</div>
+        <input type="range" class="ss" id="live-conv-sl" min="0.5" max="5" step="0.05" value="2.28" style="width:100%;accent-color:#C9A84C;cursor:pointer">
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:#A4A09C;margin-top:4px"><span>0,5%</span><span>5,0%</span></div>
+      </div>
+      <div style="background:#1A1A1A;border:.5px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 16px">
+        <div style="font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#C4BFB8;margin-bottom:8px">Meta de leads W1 (base fixa)</div>
+        <div style="font-size:26px;font-weight:500;color:#F2EFE8;font-variant-numeric:tabular-nums;margin-bottom:10px">10.927</div>
+        <div style="font-size:11px;color:#C4BFB8;line-height:2">
+          <span style="color:#E07070;font-size:9px">■</span> 70% → <strong style="color:#E0DDD8">7.649</strong> leads<br>
+          <span style="color:#E8C97B;font-size:9px">■</span> 85% → <strong style="color:#E0DDD8">9.288</strong> leads<br>
+          <span style="color:#82C98F;font-size:9px">■</span> 100% → <strong style="color:#E0DDD8">10.927</strong> leads
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-top:16px">
+      <button onclick="resetLive()" style="background:rgba(201,168,76,.12);border:.5px solid rgba(201,168,76,.25);color:#C9A84C;padding:6px 14px;border-radius:6px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">Resetar para referência</button>
+    </div>
+  </div>
+
+  <!-- 3 CENÁRIOS -->
+  <p class="live-sec">Projeção por cenário — resultado Assiny até 23:59</p>
+  <div class="live-scenarios-grid">
+
+    <div class="ls-card s70">
+      <span class="ls-badge s70">70% da meta · Conservador</span>
+      <div class="ls-metric">
+        <div class="ls-lbl">Leads inscritos</div>
+        <div class="ls-val" id="ls-leads-70">7.649</div>
+        <div class="ls-sub">70% de 10.927</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Show-up estimado</div>
+        <div class="ls-val" id="ls-showup-70">4.682</div>
+        <div class="ls-sub" id="ls-showup-pct-70">61,2% dos leads</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Vendas Assiny projetadas</div>
+        <div class="ls-val big gold" id="ls-vendas-70">107</div>
+        <div class="ls-sub" id="ls-conv-leads-70">1,40% s/ leads · 2,28% s/ show-up</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Faturamento Assiny</div>
+        <div class="ls-val gold" id="ls-fat-70">R$ 293.537</div>
+        <div class="ls-sub">ticket R$2.743,34</div>
+      </div>
+    </div>
+
+    <div class="ls-card s85">
+      <span class="ls-badge s85">85% da meta · Realista</span>
+      <div class="ls-metric">
+        <div class="ls-lbl">Leads inscritos</div>
+        <div class="ls-val" id="ls-leads-85">9.288</div>
+        <div class="ls-sub">85% de 10.927</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Show-up estimado</div>
+        <div class="ls-val" id="ls-showup-85">5.688</div>
+        <div class="ls-sub" id="ls-showup-pct-85">61,2% dos leads</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Vendas Assiny projetadas</div>
+        <div class="ls-val big gold" id="ls-vendas-85">130</div>
+        <div class="ls-sub" id="ls-conv-leads-85">1,40% s/ leads · 2,28% s/ show-up</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Faturamento Assiny</div>
+        <div class="ls-val gold" id="ls-fat-85">R$ 356.634</div>
+        <div class="ls-sub">ticket R$2.743,34</div>
+      </div>
+    </div>
+
+    <div class="ls-card s100">
+      <span class="ls-badge s100">100% da meta · Otimista</span>
+      <div class="ls-metric">
+        <div class="ls-lbl">Leads inscritos</div>
+        <div class="ls-val" id="ls-leads-100">10.927</div>
+        <div class="ls-sub">100% de 10.927</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Show-up estimado</div>
+        <div class="ls-val" id="ls-showup-100">6.690</div>
+        <div class="ls-sub" id="ls-showup-pct-100">61,2% dos leads</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Vendas Assiny projetadas</div>
+        <div class="ls-val big green" id="ls-vendas-100">153</div>
+        <div class="ls-sub" id="ls-conv-leads-100">1,40% s/ leads · 2,28% s/ show-up</div>
+      </div>
+      <div class="ls-metric">
+        <div class="ls-lbl">Faturamento Assiny</div>
+        <div class="ls-val green" id="ls-fat-100">R$ 419.731</div>
+        <div class="ls-sub">ticket R$2.743,34</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:#131313;border:.5px solid rgba(255,255,255,.07);border-radius:10px;padding:14px 18px;font-size:11px;color:#A4A09C;line-height:1.9">
+    <strong style="color:#C4BFB8;font-weight:500">Metodologia —</strong>
+    Taxa de show-up = pico simultâneo YouTube (<strong style="color:#C4BFB8">6.622</strong>) ÷ leads totais (<strong style="color:#C4BFB8">10.817</strong>) = <strong style="color:#C4BFB8">61,2%</strong>.
+    Conversão = vendas Assiny até 23:59 (<strong style="color:#C4BFB8">151</strong>) ÷ show-up pico (<strong style="color:#C4BFB8">6.622</strong>) = <strong style="color:#C4BFB8">2,28%</strong>.
+    Ticket projetado = R$2.743,34 (Assiny W1).
+    <strong style="color:#C4BFB8"> · </strong>
+    Não inclui TMB nem Hotmart.
+    Referência: Ascensão e Ruptura — 3° CPL YouTube.
+  </div>
+
+</div>
+</div>
+
+<script>
+(function(){
+  var META   = 10927;
+  var TICKET = 2743.34;
+  var PCTS   = [0.70, 0.85, 1.00];
+  var SUFS   = ['70','85','100'];
+
+  function fmt(n)  { return Math.round(n).toLocaleString('pt-BR'); }
+  function fmtR(n) { return 'R$ ' + Math.round(n).toLocaleString('pt-BR'); }
+  function fmtP(n) { return n.toFixed(2).replace('.',',') + '%'; }
+
+  function calcLive(){
+    var su = parseFloat(document.getElementById('live-showup-sl').value) / 100;
+    var cv = parseFloat(document.getElementById('live-conv-sl').value)   / 100;
+
+    document.getElementById('live-showup-disp').textContent = (su*100).toFixed(1).replace('.',',');
+    document.getElementById('live-conv-disp').textContent   = (cv*100).toFixed(2).replace('.',',');
+
+    PCTS.forEach(function(pct, i){
+      var s   = SUFS[i];
+      var lds = Math.round(META * pct);
+      var shw = Math.round(lds * su);
+      var vnd = Math.round(shw * cv);
+      var fat = vnd * TICKET;
+      var cl  = lds > 0 ? vnd / lds * 100 : 0;
+
+      document.getElementById('ls-leads-'      + s).textContent = fmt(lds);
+      document.getElementById('ls-showup-'     + s).textContent = fmt(shw);
+      document.getElementById('ls-showup-pct-' + s).textContent = (su*100).toFixed(1).replace('.',',') + '% dos leads';
+      document.getElementById('ls-vendas-'     + s).textContent = fmt(vnd);
+      document.getElementById('ls-conv-leads-' + s).textContent = fmtP(cl) + ' s/ leads · ' + fmtP(cv*100) + ' s/ show-up';
+      document.getElementById('ls-fat-'        + s).textContent = fmtR(fat);
+    });
+  }
+  window.calcLive  = calcLive;
+  window.resetLive = function(){
+    document.getElementById('live-showup-sl').value = 61.2;
+    document.getElementById('live-conv-sl').value   = 2.28;
+    calcLive();
+  };
+
+  document.getElementById('live-showup-sl').addEventListener('input', calcLive);
+  document.getElementById('live-conv-sl').addEventListener('input', calcLive);
+
+  var _g = window.goTab;
+  window.goTab = function(tab){
+    _g(tab);
+    var el = document.getElementById('tc-live');
+    if(el) el.className = tab === 'live' ? 'tc on' : 'tc';
+    if(tab === 'live') calcLive();
+  };
+
+  setTimeout(calcLive, 300);
+})();
+</script>
 </body>
 </html>
