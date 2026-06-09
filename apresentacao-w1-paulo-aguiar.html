@@ -1416,6 +1416,7 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
   <!-- SUB-NAV -->
   <div class="rt-subtabs">
     <button class="rt-subtab active" data-sub="debrief" onclick="goSub('debrief')">📊 Debriefing geral</button>
+    <button class="rt-subtab" data-sub="esperado" onclick="goSub('esperado')">💰 Esperado a receber</button>
     <button class="rt-subtab" data-sub="projlive" onclick="goSub('projlive')">📈 Métricas de Live · Projeção</button>
     <button class="rt-subtab" data-sub="realizado" onclick="goSub('realizado')">🎥 Lives Realizadas</button>
   </div>
@@ -1435,14 +1436,30 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
         <div class="rt-sub">vs 269 projetado <span class="rt-delta down">▼ 1,1%</span></div>
       </div>
       <div class="rt-card win">
+        <div class="rt-lbl">Faturamento bruto (recebido)</div>
+        <div class="rt-val gold">R$ 529.973,03</div>
+        <div class="rt-sub">+ R$ 84.067 esperado TMB futuro</div>
+      </div>
+      <div class="rt-card win">
+        <div class="rt-lbl">Margem em contribuição</div>
+        <div class="rt-val green">R$ 361.351,95</div>
+        <div class="rt-sub">vs R$280.156 projetado <span class="rt-delta up">▲ 29,0%</span></div>
+      </div>
+    </div>
+      <div class="rt-card win">
+        <div class="rt-lbl">Vendas geral</div>
+        <div class="rt-val">266</div>
+        <div class="rt-sub">vs 269 projetado <span class="rt-delta down">▼ 1,1%</span></div>
+      </div>
+      <div class="rt-card win">
         <div class="rt-lbl">Faturamento bruto</div>
         <div class="rt-val gold">R$ 519.834</div>
         <div class="rt-sub">vs R$454.008 projetado <span class="rt-delta up">▲ 14,5%</span></div>
       </div>
       <div class="rt-card win">
         <div class="rt-lbl">Margem em contribuição</div>
-        <div class="rt-val green">R$ 321.790</div>
-        <div class="rt-sub">vs R$280.156 projetado <span class="rt-delta up">▲ 14,9%</span></div>
+        <div class="rt-val green">R$ 361.352</div>
+        <div class="rt-sub">vs R$280.156 projetado <span class="rt-delta up">▲ 29,0%</span></div>
       </div>
     </div>
 
@@ -1475,6 +1492,17 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
         <tr class="rt-total"><td>Total geral</td><td>10.927</td><td>8.464</td><td>77,46%</td><td style="color:#E07070">−2.463</td></tr>
       </tbody>
     </table>
+    <p class="rt-sec">Matriz de conversão real — Leads → Vendas por cluster × canal</p>
+    <div style="background:#111;border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;margin-bottom:8px;overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:11px;font-family:'DM Sans',sans-serif;font-variant-numeric:tabular-nums">
+        <thead>
+          <tr>
+            <th style="padding:8px 10px;text-align:left;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Cluster</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Yay-forms</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Email</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Grupos</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">WhatsApp 1x1</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Área de Membros</th><th style="padding:8px 10px;text-align:center;color:#C9A84C;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(201,168,76,.3);background:#131313">Total cluster</th></tr></thead><tbody><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">7D</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">370<span style="color:#555;margin:0 2px">→</span>7</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,9%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">19<span style="color:#555;margin:0 2px">→</span>1</div><div style="color:#82D490;font-size:12px;font-weight:500">5,3%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">109<span style="color:#555;margin:0 2px">→</span>11</div><div style="color:#82D490;font-size:12px;font-weight:500">10,1%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">48<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">290<span style="color:#555;margin:0 2px">→</span>9</div><div style="color:#E8C97B;font-size:12px;font-weight:500">3,1%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">836<span style="color:#555;margin:0 2px">→</span>28</div><div style="color:#C9A84C;font-size:12px;font-weight:500">3,35%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">14D</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">302<span style="color:#555;margin:0 2px">→</span>13</div><div style="color:#E8C97B;font-size:12px;font-weight:500">4,3%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">47<span style="color:#555;margin:0 2px">→</span>3</div><div style="color:#82D490;font-size:12px;font-weight:500">6,4%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">253<span style="color:#555;margin:0 2px">→</span>21</div><div style="color:#82D490;font-size:12px;font-weight:500">8,3%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">78<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,6%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">241<span style="color:#555;margin:0 2px">→</span>11</div><div style="color:#E8C97B;font-size:12px;font-weight:500">4,6%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">921<span style="color:#555;margin:0 2px">→</span>50</div><div style="color:#C9A84C;font-size:12px;font-weight:500">5,43%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">30D</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">107<span style="color:#555;margin:0 2px">→</span>9</div><div style="color:#82D490;font-size:12px;font-weight:500">8,4%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">109<span style="color:#555;margin:0 2px">→</span>9</div><div style="color:#82D490;font-size:12px;font-weight:500">8,3%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">439<span style="color:#555;margin:0 2px">→</span>32</div><div style="color:#82D490;font-size:12px;font-weight:500">7,3%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">244<span style="color:#555;margin:0 2px">→</span>8</div><div style="color:#E8C97B;font-size:12px;font-weight:500">3,3%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">302<span style="color:#555;margin:0 2px">→</span>18</div><div style="color:#82D490;font-size:12px;font-weight:500">6,0%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">1201<span style="color:#555;margin:0 2px">→</span>76</div><div style="color:#C9A84C;font-size:12px;font-weight:500">6,33%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">Antigos</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">181<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,1%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">289<span style="color:#555;margin:0 2px">→</span>6</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,1%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">798<span style="color:#555;margin:0 2px">→</span>23</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,9%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">978<span style="color:#555;margin:0 2px">→</span>16</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,6%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">256<span style="color:#555;margin:0 2px">→</span>12</div><div style="color:#E8C97B;font-size:12px;font-weight:500">4,7%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">2502<span style="color:#555;margin:0 2px">→</span>59</div><div style="color:#C9A84C;font-size:12px;font-weight:500">2,36%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">NA</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">38<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">361<span style="color:#555;margin:0 2px">→</span>4</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,1%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">1587<span style="color:#555;margin:0 2px">→</span>24</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,5%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">801<span style="color:#555;margin:0 2px">→</span>11</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,4%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">128<span style="color:#555;margin:0 2px">→</span>1</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,8%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">2915<span style="color:#555;margin:0 2px">→</span>40</div><div style="color:#C9A84C;font-size:12px;font-weight:500">1,37%</div></div></td></tr><tr style="background:#181818"><td style="padding:10px;color:#C9A84C;font-weight:500;border-top:.5px solid rgba(201,168,76,.3)">Total canal</td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">998<span style="color:#555;margin:0 2px">→</span>31</div><div style="color:#C9A84C;font-size:12px;font-weight:500">3,11%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">825<span style="color:#555;margin:0 2px">→</span>23</div><div style="color:#C9A84C;font-size:12px;font-weight:500">2,79%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">3186<span style="color:#555;margin:0 2px">→</span>111</div><div style="color:#C9A84C;font-size:12px;font-weight:500">3,48%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">2149<span style="color:#555;margin:0 2px">→</span>37</div><div style="color:#C9A84C;font-size:12px;font-weight:500">1,72%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">1217<span style="color:#555;margin:0 2px">→</span>51</div><div style="color:#C9A84C;font-size:12px;font-weight:500">4,19%</div></div></td><td style="padding:10px;text-align:center;background:rgba(201,168,76,.15);border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#F2EFE8;font-size:12px;font-weight:500">8375<span style="color:#888;margin:0 2px">→</span>253</div><div style="color:#C9A84C;font-size:13px;font-weight:500">3,02%</div></div></td></tr></tbody></table>
+    </div>
+    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6">
+      Cada célula mostra: <strong style="color:#D4D0CA">leads</strong> → <strong style="color:#D4D0CA">vendas</strong> e a <strong style="color:#D4D0CA">% de conversão</strong> (vendas ÷ leads). Vendas consolidadas das 3 plataformas (Assiny + Hotmart + TMB). Cluster <strong style="color:#D4D0CA">NA / Bases Antigas</strong>: leads e vendas sem track foram redistribuídos 50/50 entre Grupos e WhatsApp 1x1 (canais únicos possíveis de captação). Cores: <span style="color:#82D490">verde ≥5%</span> · <span style="color:#E8C97B">amarelo ≥3%</span> · <span style="color:#E8B07B">laranja &gt;0%</span>.
+    </div>
+
 
     <p class="rt-sec">Vendas por data × plataforma</p>
     <div style="background:#111;border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:24px;margin-bottom:24px">
@@ -1506,27 +1534,207 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
       </table>
     </div>
 
-    <p class="rt-sec">Custos detalhados — Realizado vs Projetado</p>
+    <p class="rt-sec">Custos detalhados — Realizado</p>
     <div class="rt-finblock">
-      <div class="rt-finrow head"><div>Custo</div><div>Projetado</div><div>Realizado</div><div>Delta</div></div>
-      <div class="rt-finrow custo"><div>Taxa · imposto · reembolso <span style="font-size:10px;color:#C4BFB8;font-weight:300">(27,5% sobre bruto)</span></div><div>R$ 124.852,32</div><div>R$ 142.954,30</div><div style="color:#E07070">+R$ 18.101,98</div></div>
-      <div class="rt-finrow custo"><div>AwSales + Disparos</div><div>R$ 49.000,00</div><div>R$ 59.038,84</div><div style="color:#E07070">+R$ 10.038,84</div></div>
-      <div class="rt-finrow custo"><div>SMS Flash + Ligação</div><div>—</div><div>R$ 4.880,00</div><div style="color:#E07070">+R$ 4.880,00</div></div>
-      <div class="rt-finrow total"><div>Custo total</div><div>R$ 173.852,32</div><div>R$ 206.873,14</div><div style="color:#E07070">+R$ 33.020,82 (+19,0%)</div></div>
+      <div class="rt-finrow head"><div>Custo</div><div>Projetado</div><div>Realizado</div><div>Detalhe</div></div>
+      <div class="rt-finrow custo">
+        <div>Taxa Assiny</div>
+        <div>—</div>
+        <div>R$ 53.697,58</div>
+        <div style="color:#C4BFB8">11,76% s/ bruto Assiny</div>
+      </div>
+      <div class="rt-finrow custo">
+        <div>Taxa Hotmart</div>
+        <div>—</div>
+        <div>R$ 5.647,66</div>
+        <div style="color:#C4BFB8">26,36% s/ bruto Hotmart</div>
+      </div>
+      <div class="rt-finrow custo">
+        <div>Taxa TMB (5% admin · só entrada)</div>
+        <div>—</div>
+        <div>R$ 2.380,60</div>
+        <div style="color:#C4BFB8">5,00% s/ entrada bruta</div>
+      </div>
+      <div class="rt-finrow custo">
+        <div>Imposto 11% (sobre bruto total)</div>
+        <div>—</div>
+        <div>R$ 58.297,03</div>
+        <div style="color:#C4BFB8">11,00% s/ R$ 529.973,03</div>
+      </div>
+      <div class="rt-finrow custo">
+        <div>SMS Flash + Ligação</div>
+        <div>—</div>
+        <div>R$ 4.880,00</div>
+        <div style="color:#C4BFB8">não orçado</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.06)">
+        <div style="color:#B09EE8">▼ AwSales (cliente paga) · detalhamento</div>
+        <div>R$ 49.000,00</div>
+        <div>R$ 43.718,21</div>
+        <div style="color:#E07070">−R$ 5.281,79</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.03);padding-left:34px">
+        <div style="color:#D4D0CA;font-size:11px;font-weight:400">└ Captação - Alunos</div>
+        <div>—</div>
+        <div style="font-size:12px">R$ 3.473,28</div>
+        <div style="color:#A4A09C;font-size:11px">7,9% do AwSales</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.03);padding-left:34px">
+        <div style="color:#D4D0CA;font-size:11px;font-weight:400">└ Captação - Não Alunos</div>
+        <div>—</div>
+        <div style="font-size:12px">R$ 2.567,70</div>
+        <div style="color:#A4A09C;font-size:11px">5,9% do AwSales</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.03);padding-left:34px">
+        <div style="color:#D4D0CA;font-size:11px;font-weight:400">└ Entrada de Grupos</div>
+        <div>—</div>
+        <div style="font-size:12px">R$ 3.332,34</div>
+        <div style="color:#A4A09C;font-size:11px">7,6% do AwSales</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.03);padding-left:34px">
+        <div style="color:#D4D0CA;font-size:11px;font-weight:400">└ Antecipação + Show-up (Live Aula)</div>
+        <div>—</div>
+        <div style="font-size:12px">R$ 5.516,54</div>
+        <div style="color:#A4A09C;font-size:11px">12,6% do AwSales</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.03);padding-left:34px">
+        <div style="color:#D4D0CA;font-size:11px;font-weight:400">└ Show-up Live Vendas (Boleto)</div>
+        <div>—</div>
+        <div style="font-size:12px">R$ 4.255,56</div>
+        <div style="color:#A4A09C;font-size:11px">9,7% do AwSales</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.03);padding-left:34px">
+        <div style="color:#D4D0CA;font-size:11px;font-weight:400">└ Venda Ativa - Pitch</div>
+        <div>—</div>
+        <div style="font-size:12px">R$ 10.211,91</div>
+        <div style="color:#A4A09C;font-size:11px">23,4% do AwSales</div>
+      </div>
+      <div class="rt-finrow custo" style="background:rgba(176,158,232,.03);padding-left:34px">
+        <div style="color:#D4D0CA;font-size:11px;font-weight:400">└ IA de Vendas (always-on)</div>
+        <div>—</div>
+        <div style="font-size:12px">R$ 14.360,88</div>
+        <div style="color:#A4A09C;font-size:11px">32,8% do AwSales</div>
+      </div>
+      <div class="rt-finrow total">
+        <div>Custo total</div>
+        <div>R$ 173.852,32</div>
+        <div>R$ 168.621,08</div>
+        <div>—</div>
+      </div>
     </div>
 
     <p class="rt-sec">Fechamento — Margem em contribuição</p>
     <div class="rt-finblock">
-      <div class="rt-finrow head"><div>Item</div><div>Projetado</div><div>Realizado</div><div>Delta</div></div>
-      <div class="rt-finrow"><div>Vendas Assiny</div><div>135</div><div>167</div><div style="color:#82D490">+32</div></div>
-      <div class="rt-finrow"><div>Faturamento Assiny</div><div>R$ 370.350,90</div><div>R$ 456.446,20</div><div style="color:#82D490">+R$ 86.095</div></div>
-      <div class="rt-finrow"><div>Vendas TMB</div><div>134</div><div>88</div><div style="color:#E07070">−46</div></div>
-      <div class="rt-finrow"><div>Faturamento TMB</div><div>R$ 83.657,54</div><div>R$ 47.611,95</div><div style="color:#E07070">−R$ 36.046</div></div>
-      <div class="rt-finrow bonus"><div>Faturamento Hotmart (bônus)</div><div>—</div><div>R$ 15.776,22</div><div style="color:#82D490">+R$ 15.776</div></div>
-      <div class="rt-finrow total"><div>Faturamento bruto total</div><div>R$ 454.008,44</div><div>R$ 519.834,37</div><div style="color:#82D490">+R$ 65.826 (+14,5%)</div></div>
-      <div class="rt-finrow margem"><div>Resultado em margem</div><div>R$ 280.156,12</div><div>R$ 321.790,54</div><div style="color:#82D490">+R$ 41.634 (+14,9%)</div></div>
+      <div class="rt-finrow head"><div>Item</div><div>Projetado</div><div>Recebido hoje</div><div>Esperado total</div></div>
+      <div class="rt-finrow"><div>Vendas Assiny</div><div>135</div><div>167</div><div>167</div></div>
+      <div class="rt-finrow"><div>Faturamento Assiny (bruto)</div><div>R$ 370.350,90</div><div>R$ 456.446,20</div><div>R$ 456.446,20</div></div>
+      <div class="rt-finrow"><div>Vendas TMB</div><div>134</div><div>88</div><div>88</div></div>
+      <div class="rt-finrow"><div>Faturamento TMB (bruto)</div><div>R$ 83.657,54</div><div>R$ 47.611,95</div><div>R$ 131.679,05</div></div>
+      <div class="rt-finrow bonus"><div>Faturamento Hotmart (bruto)</div><div>—</div><div>R$ 21.423,88</div><div>R$ 21.423,88</div></div>
+      <div class="rt-finrow bonus"><div>PIX direto (líquido)</div><div>—</div><div>R$ 4.491,00</div><div>R$ 4.491,00</div></div>
+      <div class="rt-finrow total"><div>Faturamento bruto total</div><div>R$ 454.008,44</div><div>R$ 529.973,03</div><div>R$ 614.040,13</div></div>
+      <div class="rt-finrow margem"><div>Resultado em margem</div><div>R$ 280.156,12</div><div>R$ 361.351,95</div><div>R$ 416.647,69</div></div>
+    </div>
     </div>
 
+  </div>
+
+
+  <!-- SUB-VIEW: ESPERADO A RECEBER -->
+  <div class="rt-subview" id="rt-esperado">
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Projeção do total que entrará na conta ao longo do ciclo completo da campanha. Inclui as parcelas futuras da TMB calculadas como <strong style="color:#F2EFE8">entrada já paga + 40% do valor real do produto</strong> (R$ 2.388,27 × 40% × 88 vendas) <strong style="color:#F2EFE8">líquido após 5% de taxa administrativa</strong>.</p>
+
+    <div class="rt-summary">
+      <div class="rt-card win">
+        <div class="rt-lbl">Faturamento bruto esperado</div>
+        <div class="rt-val gold">R$ 614.040,13</div>
+        <div class="rt-sub">+ R$ 84.067,10 vs recebido hoje</div>
+      </div>
+      <div class="rt-card win">
+        <div class="rt-lbl">Líquido após taxas plataforma</div>
+        <div class="rt-val">R$ 548.110,94</div>
+        <div class="rt-sub">taxas A+H+T: R$ 65.929,19</div>
+      </div>
+      <div class="rt-card miss">
+        <div class="rt-lbl">Imposto 11%</div>
+        <div class="rt-val red">R$ 67.544,41</div>
+        <div class="rt-sub">sobre bruto total</div>
+      </div>
+      <div class="rt-card win">
+        <div class="rt-lbl">Margem em contribuição esperada</div>
+        <div class="rt-val green">R$ 416.647,69</div>
+        <div class="rt-sub">67,9% sobre bruto</div>
+      </div>
+    </div>
+
+    <p class="rt-sec">Faturamento esperado por plataforma</p>
+    <div class="rt-finblock">
+      <div class="rt-finrow head"><div>Plataforma</div><div>Bruto</div><div>Taxa</div><div>Líquido</div></div>
+      <div class="rt-finrow">
+        <div>Assiny <span style="font-size:10px;color:#C4BFB8;font-weight:300">· 167 vendas (já antecipado)</span></div>
+        <div>R$ 456.446,20</div>
+        <div style="color:#E07070">R$ 53.697,58 (11,76%)</div>
+        <div style="color:#82D490">R$ 402.748,62</div>
+      </div>
+      <div class="rt-finrow">
+        <div>Hotmart <span style="font-size:10px;color:#C4BFB8;font-weight:300">· 11 vendas (já antecipado)</span></div>
+        <div>R$ 21.423,88</div>
+        <div style="color:#E07070">R$ 5.647,66 (26,36%)</div>
+        <div style="color:#82D490">R$ 15.776,22</div>
+      </div>
+      <div class="rt-finrow">
+        <div>TMB <span style="font-size:10px;color:#C4BFB8;font-weight:300">· 88 vendas (entrada + 40% futuro)</span></div>
+        <div>R$ 131.679,05</div>
+        <div style="color:#E07070">R$ 6.583,95 (5% adm)</div>
+        <div style="color:#82D490">R$ 125.095,10</div>
+      </div>
+      <div class="rt-finrow">
+        <div>PIX direto <span style="font-size:10px;color:#C4BFB8;font-weight:300">· 2 vendas (sem taxa plataforma)</span></div>
+        <div>R$ 4.491,00</div>
+        <div style="color:#C4BFB8">—</div>
+        <div style="color:#82D490">R$ 4.491,00</div>
+      </div>
+      <div class="rt-finrow total">
+        <div>Total</div>
+        <div>R$ 614.040,13</div>
+        <div style="color:#E07070">R$ 65.929,19</div>
+        <div style="color:#82D490">R$ 548.110,94</div>
+      </div>
+    </div>
+
+    <p class="rt-sec">Detalhe TMB — Recebido hoje vs Esperado</p>
+    <div class="rt-finblock">
+      <div class="rt-finrow head"><div>Item</div><div>Bruto</div><div>Líquido (após 5%)</div><div>Status</div></div>
+      <div class="rt-finrow">
+        <div>Entrada (parcela 0) já recebida</div>
+        <div>R$ 47.611,95</div>
+        <div>R$ 45.231,35</div>
+        <div style="color:#82D490">✓ Recebido</div>
+      </div>
+      <div class="rt-finrow">
+        <div>40% × R$ 2.388,27 × 88 vendas</div>
+        <div>R$ 84.067,10</div>
+        <div>R$ 79.863,75</div>
+        <div style="color:#E8C97B">⏳ Pendente</div>
+      </div>
+      <div class="rt-finrow total">
+        <div>TMB esperado total</div>
+        <div>R$ 131.679,05</div>
+        <div>R$ 125.095,10</div>
+        <div>—</div>
+      </div>
+    </div>
+
+    <p class="rt-sec">Custos esperados (campanha completa)</p>
+    <div class="rt-finblock">
+      <div class="rt-finrow head"><div>Custo</div><div>Valor</div><div></div><div></div></div>
+      <div class="rt-finrow custo"><div>Taxas plataformas (A+H+T)</div><div>R$ 65.929,19</div><div></div><div></div></div>
+      <div class="rt-finrow custo"><div>Imposto 11% sobre bruto total</div><div>R$ 67.544,41</div><div></div><div></div></div>
+      <div class="rt-finrow custo"><div>AwSales + Disparos</div><div>R$ 59.038,84</div><div></div><div></div></div>
+      <div class="rt-finrow custo"><div>SMS Flash + Ligação</div><div>R$ 4.880,00</div><div></div><div></div></div>
+      <div class="rt-finrow total"><div>Total custos esperados</div><div>R$ 197.392,45</div><div></div><div></div></div>
+      <div class="rt-finrow margem"><div>Margem esperada</div><div>R$ 416.647,69 (67,9%)</div><div></div><div></div></div>
+    </div>
   </div>
 
   <!-- SUB-VIEW: MÉTRICAS DE LIVE (PROJEÇÃO) -->
