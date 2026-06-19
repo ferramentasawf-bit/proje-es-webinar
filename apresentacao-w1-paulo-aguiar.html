@@ -313,11 +313,13 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
   <button class="tb" data-tab="proj" onclick="goTab('proj')">Projeções</button>
   <button class="tb" data-tab="s" onclick="goTab('s')">Análise de Estresse</button>
   <button class="tb" data-tab="result" onclick="goTab('result')">Resultado W1</button>
+  <button class="tb" data-tab="resultw2" onclick="goTab('resultw2')">Resultado parcial W2</button>
 </div>
 <div id="tc-p" class="tc on"></div>
 <div id="tc-conv" class="tc"></div>
 <div id="tc-proj" class="tc"></div>
 <div id="tc-result" class="tc"></div>
+<div id="tc-resultw2" class="tc"></div>
 <div id="tc-s" class="tc">
   <div id="sp">
     <div style="margin-bottom:40px">
@@ -1122,8 +1124,8 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
     var aF = [273192.86, 115260.52, 18383.08, 32977.14, 11280.32, 2964.02, 8892.06, 0];
     var tC = [0, 49, 26, 10, 3, 0, 4, 1];
     var tF = [0, 25547.27, 15151.54, 5317.8, 1595.34, 0, 2127.12, 531.78];
-    var hC = [3, 5, 1, 0, 0, 2, 0, 0];
-    var hF = [6092.54, 7092.24, 2148.34, 0, 0, 443.1, 0, 0];
+    var hC = [6, 5];
+    var hF = [11681.79, 12087.8];
 
     var opts = {
       responsive: true,
@@ -1576,6 +1578,151 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
         h+='<tr><td>'+labels[i]+'</td><td>'+aC[i]+'</td><td>R$ '+aF[i].toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+tC[i]+'</td><td>R$ '+tF[i].toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+hC[i]+'</td><td>R$ '+hF[i].toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td style="color:#F2EFE8;font-weight:500">'+dia+'</td><td style="color:#F2EFE8;font-weight:500">R$ '+fat.toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td></tr>';
       }
       h+='<tr class="rt-total"><td>Total</td><td>'+tA+'</td><td>R$ '+tFA.toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+tT+'</td><td>R$ '+tFT.toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+tH+'</td><td>R$ '+tFH.toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+(tA+tT+tH)+'</td><td>R$ '+(tFA+tFT+tFH).toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td></tr>';
+      tbody.innerHTML=h;
+    }
+    built2 = true;
+  }
+})();
+</script>
+
+<div id="tc-resultw2-content">
+<div id="resultw2-page" style="max-width:1100px;margin:0 auto;padding:48px 48px 100px">
+  <div class="rt-header">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div style="height:1px;width:28px;background:#82D490;opacity:.5"></div>
+      <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#82D490;opacity:.8">Debriefing parcial · W2</span>
+      <div style="height:1px;width:28px;background:#82D490;opacity:.5"></div>
+    </div>
+    <h2>Resultado parcial <em>W2</em></h2>
+    <p>Resultado da captação e vendas até agora do segundo webinar. <strong style="color:#F2EFE8">Não inclui boleto (TMB) nem custos</strong> — só Assiny + Hotmart de momento. A campanha rodou tráfego pago no Meta pela primeira vez.</p>
+  </div>
+
+  <div class="rt-summary" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+    <div class="rt-card miss"><div class="rt-lbl">Leads captados</div><div class="rt-val red">13.051</div><div class="rt-sub">vs 14.646 projetado <span class="rt-delta down">▼ 10,9%</span></div></div>
+    <div class="rt-card win"><div class="rt-lbl">Vendas geral</div><div class="rt-val">101</div><div class="rt-sub">90 Assiny · 11 Hotmart</div></div>
+    <div class="rt-card win"><div class="rt-lbl">Faturamento bruto (sem boleto)</div><div class="rt-val gold">R$ 272.460,77</div><div class="rt-sub">Assiny: R$ 248.691 · Hotmart: R$ 23.770</div></div>
+    <div class="rt-card win"><div class="rt-lbl">Conversão geral</div><div class="rt-val gold">0,77%</div><div class="rt-sub">101 vendas ÷ 13.051 leads totais</div></div>
+    <div class="rt-card win"><div class="rt-lbl">Ticket médio geral</div><div class="rt-val gold">R$ 2.697,63</div><div class="rt-sub">Sobre 101 vendas</div></div>
+  </div>
+
+  <div class="rt-subtabs">
+    <button class="rt-subtab active" data-sub="w2geral" onclick="goSubW2('w2geral')">📊 Resultado Geral</button>
+    <button class="rt-subtab" data-sub="w2interno" onclick="goSubW2('w2interno')">👥 Resultado Interno</button>
+    <button class="rt-subtab" data-sub="w2trafego" onclick="goSubW2('w2trafego')">🎯 Resultado Tráfego Pago</button>
+  </div>
+
+  <div class="rt-subview active" id="rt-w2geral">
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Visão geral da campanha: vendas consolidadas Assiny + Hotmart por dia. <strong style="color:#F2EFE8">Boleto (TMB) ainda não incluso</strong>.</p>
+    <div style="background:#111;border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:24px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+        <div><div style="font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#C4BFB8;margin-bottom:12px">Vendas por dia · transações</div><canvas id="chart-w2-count" height="260"></canvas></div>
+        <div><div style="font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#C4BFB8;margin-bottom:12px">Faturamento por dia · R$ bruto</div><canvas id="chart-w2-fat" height="260"></canvas></div>
+      </div>
+      <table class="rt-table" style="font-size:12px">
+        <thead><tr><th>Data</th><th style="color:#B09EE8">Assiny — vendas</th><th style="color:#B09EE8">Assiny — R$</th><th style="color:#E8B07B">Hotmart — vendas</th><th style="color:#E8B07B">Hotmart — R$</th><th style="color:#C9A84C">Total dia</th><th style="color:#C9A84C">R$ total</th></tr></thead>
+        <tbody id="w2-vendas-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="rt-subview" id="rt-w2interno">
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Debriefing dos canais orgânicos / próprios: alunos da base (7D, 14D, 30D, Antigos) + NA / Bases Antigas. <strong style="color:#F2EFE8">Não inclui tráfego pago do Meta</strong> (ver aba ao lado).</p>
+    <p class="rt-sec">Captação por cluster de data — Realizado vs Orçado</p>
+    <table class="rt-table"><thead><tr><th>Cluster</th><th>Orçado</th><th>Realizado</th><th>% atingido</th><th>Delta</th></tr></thead><tbody><tr><td>Aluno 7D</td><td>896</td><td>704</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:78.57142857142857%"></span></span>78,57%</td><td style="color:#E07070">-192</td></tr><tr><td>Aluno 14D</td><td>901</td><td>889</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:98.66814650388457%"></span></span>98,67%</td><td style="color:#E07070">-12</td></tr><tr><td>Aluno 30D</td><td>1.636</td><td>931</td><td><span class="rt-pct-bar"><span class="rt-pct-fill bad" style="width:56.907090464547686%"></span></span>56,91%</td><td style="color:#E07070">-705</td></tr><tr><td>Aluno Antigo</td><td>3.013</td><td>2.439</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:80.94922004646531%"></span></span>80,95%</td><td style="color:#E07070">-574</td></tr><tr><td>NA / Bases Antigas</td><td>2.200</td><td>2.187</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:99.4090909090909%"></span></span>99,41%</td><td style="color:#E07070">-13</td></tr><tr class="rt-total"><td>Total</td><td>8.646</td><td>7.150</td><td>82,70%</td><td style="color:#E07070">-1.496</td></tr></tbody></table>
+    <p class="rt-sec">Captação por canal — Realizado vs Orçado</p>
+    <table class="rt-table"><thead><tr><th>Canal</th><th>Orçado</th><th>Realizado</th><th>% atingido</th><th>Delta</th></tr></thead><tbody><tr><td>Yay-forms</td><td>1.082</td><td>685</td><td><span class="rt-pct-bar"><span class="rt-pct-fill bad" style="width:63.30868761552681%"></span></span>63,31%</td><td style="color:#E07070">-397</td></tr><tr><td>Email</td><td>839</td><td>244</td><td><span class="rt-pct-bar"><span class="rt-pct-fill bad" style="width:29.082240762812873%"></span></span>29,08%</td><td style="color:#E07070">-595</td></tr><tr><td>Grupos</td><td>3.126</td><td>1.635</td><td><span class="rt-pct-bar"><span class="rt-pct-fill bad" style="width:52.30326295585412%"></span></span>52,30%</td><td style="color:#E07070">-1.491</td></tr><tr><td>WhatsApp 1x1</td><td>2.231</td><td>3.021</td><td><span class="rt-pct-bar"><span class="rt-pct-fill " style="width:100%"></span></span>135,41%</td><td style="color:#82D490">+790</td></tr><tr><td>Área de Membros</td><td>1.365</td><td>1.159</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:84.9084249084249%"></span></span>84,91%</td><td style="color:#E07070">-206</td></tr><tr><td>Instagram</td><td>—</td><td>152</td><td>—</td><td style="color:#82D490">+152</td></tr><tr><td style="color:#C4BFB8;font-style:italic">Sem track</td><td>—</td><td>254</td><td>—</td><td style="color:#C4BFB8">+254</td></tr><tr class="rt-total"><td>Total</td><td>8.643</td><td>6.896</td><td>79,79%</td><td style="color:#E07070">-1.747</td></tr></tbody></table>
+    <p class="rt-sec">Matriz de conversão — Leads → Vendas por cluster × canal</p>
+    <div style="background:#111;border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:11px;font-family:DM Sans,sans-serif;font-variant-numeric:tabular-nums"><thead><tr><th style="padding:8px 10px;text-align:left;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Cluster</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Yay-forms</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Email</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Grupos</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">WhatsApp 1x1</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Área de Membros</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Instagram</th><th style="padding:8px 10px;text-align:center;color:#C9A84C;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(201,168,76,.3);background:#131313">Total</th></tr></thead><tbody><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">7D</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">248<span style="color:#555;margin:0 2px">→</span>3</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,2%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">19<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">80<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,5%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">113<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,8%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">239<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,8%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">1<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">700<span style="color:#555;margin:0 2px">→</span>9</div><div style="color:#C9A84C;font-size:12px;font-weight:500">1,29%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">14D</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">209<span style="color:#555;margin:0 2px">→</span>4</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,9%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">35<span style="color:#555;margin:0 2px">→</span>1</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,9%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">234<span style="color:#555;margin:0 2px">→</span>6</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,6%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">174<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,1%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">233<span style="color:#555;margin:0 2px">→</span>4</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,7%</div></div></td><td style="padding:8px 10px;text-align:center;color:#444;border-bottom:.5px solid rgba(255,255,255,.07)">—</td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">885<span style="color:#555;margin:0 2px">→</span>17</div><div style="color:#C9A84C;font-size:12px;font-weight:500">1,92%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">30D</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">112<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,8%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">24<span style="color:#555;margin:0 2px">→</span>1</div><div style="color:#E8C97B;font-size:12px;font-weight:500">4,2%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">222<span style="color:#555;margin:0 2px">→</span>7</div><div style="color:#E8C97B;font-size:12px;font-weight:500">3,2%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">329<span style="color:#555;margin:0 2px">→</span>7</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,1%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">233<span style="color:#555;margin:0 2px">→</span>6</div><div style="color:#E8B07B;font-size:12px;font-weight:500">2,6%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">1<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">921<span style="color:#555;margin:0 2px">→</span>23</div><div style="color:#C9A84C;font-size:12px;font-weight:500">2,50%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">Antigos</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">49<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">57<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">414<span style="color:#555;margin:0 2px">→</span>5</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,2%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">1541<span style="color:#555;margin:0 2px">→</span>12</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,8%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">280<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,7%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">7<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">2348<span style="color:#555;margin:0 2px">→</span>19</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,81%</div></div></td></tr><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">NA</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">67<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">109<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">685<span style="color:#555;margin:0 2px">→</span>5</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,7%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">864<span style="color:#555;margin:0 2px">→</span>0</div><div style="color:#C4BFB8;font-size:12px;font-weight:500">0,0%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">174<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#E8B07B;font-size:12px;font-weight:500">1,1%</div></div></td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">143<span style="color:#555;margin:0 2px">→</span>1</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,7%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">2042<span style="color:#555;margin:0 2px">→</span>8</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,39%</div></div></td></tr><tr style="background:#181818"><td style="padding:10px;color:#C9A84C;font-weight:500;border-top:.5px solid rgba(201,168,76,.3)">Total canal</td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">685<span style="color:#555;margin:0 2px">→</span>9</div><div style="color:#C9A84C;font-size:12px;font-weight:500">1,31%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">244<span style="color:#555;margin:0 2px">→</span>2</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,82%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">1635<span style="color:#555;margin:0 2px">→</span>25</div><div style="color:#C9A84C;font-size:12px;font-weight:500">1,53%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">3021<span style="color:#555;margin:0 2px">→</span>23</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,76%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">1159<span style="color:#555;margin:0 2px">→</span>16</div><div style="color:#C9A84C;font-size:12px;font-weight:500">1,38%</div></div></td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">152<span style="color:#555;margin:0 2px">→</span>1</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,66%</div></div></td><td style="padding:10px;text-align:center;background:rgba(201,168,76,.15);border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#F2EFE8;font-size:12px;font-weight:500">6896<span style="color:#888;margin:0 2px">→</span>76</div><div style="color:#C9A84C;font-size:13px;font-weight:500">1,10%</div></div></td></tr></tbody></table></div>
+    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6">Cada célula: <strong style="color:#D4D0CA">leads → vendas</strong> e <strong style="color:#D4D0CA">conversão %</strong>. Vendas consolidadas Assiny + Hotmart. Cores: <span style="color:#82D490">verde ≥5%</span> · <span style="color:#E8C97B">amarelo ≥3%</span> · <span style="color:#E8B07B">laranja &gt;0%</span>.</div>
+  </div>
+
+  <div class="rt-subview" id="rt-w2trafego">
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Debriefing do tráfego pago no Meta — primeira vez que rodamos. Inclui sources <strong style="color:#F2EFE8">ig + meta + fb</strong>. O <em>Instagram orgânico</em> (source = "instagram") fica na aba de Resultado Interno.</p>
+    <p class="rt-sec">Captação — Realizado vs Orçado</p>
+    <table class="rt-table"><thead><tr><th>Cluster</th><th>Orçado</th><th>Realizado</th><th>% atingido</th><th>Delta</th></tr></thead><tbody><tr><td>Tráfego</td><td>6.000</td><td>5.901</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:98.35000000000001%"></span></span>98,35%</td><td style="color:#E07070">-99</td></tr><tr class="rt-total"><td>Total</td><td>6.000</td><td>5.901</td><td>98,35%</td><td style="color:#E07070">-99</td></tr></tbody></table>
+    <p class="rt-sec">Captação por canal</p>
+    <table class="rt-table"><thead><tr><th>Canal</th><th>Orçado</th><th>Realizado</th><th>% atingido</th><th>Delta</th></tr></thead><tbody><tr><td>Meta Ads</td><td>6.000</td><td>5.901</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:98.35000000000001%"></span></span>98,35%</td><td style="color:#E07070">-99</td></tr><tr class="rt-total"><td>Total</td><td>6.000</td><td>5.901</td><td>98,35%</td><td style="color:#E07070">-99</td></tr></tbody></table>
+    <p class="rt-sec">Matriz de conversão — Tráfego pago</p>
+    <div style="background:#111;border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:11px;font-family:DM Sans,sans-serif;font-variant-numeric:tabular-nums"><thead><tr><th style="padding:8px 10px;text-align:left;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Cluster</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Meta Ads</th><th style="padding:8px 10px;text-align:center;color:#C9A84C;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(201,168,76,.3);background:#131313">Total</th></tr></thead><tbody><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">Tráfego</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">5901<span style="color:#555;margin:0 2px">→</span>4</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,1%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">5901<span style="color:#555;margin:0 2px">→</span>4</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,07%</div></div></td></tr><tr style="background:#181818"><td style="padding:10px;color:#C9A84C;font-weight:500;border-top:.5px solid rgba(201,168,76,.3)">Total canal</td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">5901<span style="color:#555;margin:0 2px">→</span>4</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,07%</div></div></td><td style="padding:10px;text-align:center;background:rgba(201,168,76,.15);border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#F2EFE8;font-size:12px;font-weight:500">5901<span style="color:#888;margin:0 2px">→</span>4</div><div style="color:#C9A84C;font-size:13px;font-weight:500">0,07%</div></div></td></tr></tbody></table></div>
+    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6">Leads de tráfego pago são considerados <strong style="color:#D4D0CA">leads frios</strong> — primeiro contato com a marca. Custos da campanha serão adicionados em uma próxima atualização.</div>
+  </div>
+
+  <div style="background:#131313;border:.5px solid rgba(201,168,76,.2);border-radius:12px;padding:16px 20px;margin-top:24px;font-size:12px;color:#D4D0CA;line-height:1.7">
+    <strong style="color:#C9A84C;font-weight:500">⏳ Parcial:</strong> Esta aba mostra o resultado atual sem boleto (TMB) e sem custos. As vendas TMB e os custos serão adicionados em uma próxima atualização.
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  var built = document.getElementById('tc-resultw2-content');
+  var target = document.getElementById('tc-resultw2');
+  if(built && target){
+    while(built.firstChild) target.appendChild(built.firstChild);
+    built.parentNode.removeChild(built);
+  }
+  window.goSubW2 = function(sub){
+    var page = document.getElementById('resultw2-page');
+    if(!page) return;
+    page.querySelectorAll('.rt-subtab').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-sub') === sub);
+    });
+    page.querySelectorAll('.rt-subview').forEach(function(v){
+      v.classList.toggle('active', v.id === 'rt-' + sub);
+    });
+    if(sub === 'w2geral') setTimeout(buildW2Charts, 100);
+  };
+  var _g = window.goTab;
+  window.goTab = function(tab){
+    _g(tab);
+    var el = document.getElementById('tc-resultw2');
+    if(el) el.className = tab === 'resultw2' ? 'tc on' : 'tc';
+    if(tab === 'resultw2') setTimeout(buildW2Charts, 100);
+  };
+  var built2 = false;
+  function buildW2Charts(){
+    if(built2) return;
+    if(typeof Chart === 'undefined') { setTimeout(buildW2Charts, 200); return; }
+    var labels = ["18/06", "19/06"];
+    var aC = [73, 17];
+    var aF = [203188.42, 45502.76];
+    var hC = [7, 5];
+    var hF = [35451.38, 12087.8];
+    var opts = {
+      responsive: true, interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { labels: { color: '#E0DDD8', font: { size: 11 }, boxWidth: 14, padding: 12 } }, tooltip: { backgroundColor: '#181818', borderColor: 'rgba(255,255,255,.1)', borderWidth: 1, titleColor: '#C9A84C', bodyColor: '#E0DDD8' } },
+      scales: { x: { stacked: true, grid: { color: 'rgba(255,255,255,.06)' }, ticks: { color: '#D4D0CA', font: { size: 10 } } }, y: { stacked: true, grid: { color: 'rgba(255,255,255,.06)' }, ticks: { color: '#D4D0CA', font: { size: 10 } } } }
+    };
+    var ctxC = document.getElementById('chart-w2-count');
+    if(ctxC) new Chart(ctxC.getContext('2d'), {
+      type: 'bar',
+      data: { labels: labels, datasets: [
+        { label: 'Assiny', data: aC, backgroundColor: 'rgba(176,158,232,.85)', borderRadius: 4 },
+        { label: 'Hotmart', data: hC, backgroundColor: 'rgba(201,136,76,.85)', borderRadius: 4 }
+      ]},
+      options: opts
+    });
+    var optsFat = JSON.parse(JSON.stringify(opts));
+    optsFat.scales.y.ticks.callback = function(v){ return 'R$ '+(v/1000).toFixed(0)+'k'; };
+    optsFat.plugins.tooltip.callbacks = { label: function(c){ return ' '+c.dataset.label+': R$ '+c.parsed.y.toLocaleString('pt-BR',{minimumFractionDigits:2}); } };
+    var ctxF = document.getElementById('chart-w2-fat');
+    if(ctxF) new Chart(ctxF.getContext('2d'), {
+      type: 'bar',
+      data: { labels: labels, datasets: [
+        { label: 'Assiny', data: aF, backgroundColor: 'rgba(176,158,232,.85)', borderRadius: 4 },
+        { label: 'Hotmart', data: hF, backgroundColor: 'rgba(201,136,76,.85)', borderRadius: 4 }
+      ]},
+      options: optsFat
+    });
+    var tbody = document.getElementById('w2-vendas-tbody');
+    if(tbody){
+      var h='',tA=0,tFA=0,tH=0,tFH=0;
+      for(var i=0;i<labels.length;i++){
+        var dia=aC[i]+hC[i], fat=aF[i]+hF[i];
+        tA+=aC[i];tFA+=aF[i];tH+=hC[i];tFH+=hF[i];
+        h+='<tr><td>'+labels[i]+'</td><td>'+aC[i]+'</td><td>R$ '+aF[i].toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+hC[i]+'</td><td>R$ '+hF[i].toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td style="color:#F2EFE8;font-weight:500">'+dia+'</td><td style="color:#F2EFE8;font-weight:500">R$ '+fat.toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td></tr>';
+      }
+      h+='<tr class="rt-total"><td>Total</td><td>'+tA+'</td><td>R$ '+tFA.toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+tH+'</td><td>R$ '+tFH.toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td><td>'+(tA+tH)+'</td><td>R$ '+(tFA+tFH).toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td></tr>';
       tbody.innerHTML=h;
     }
     built2 = true;
