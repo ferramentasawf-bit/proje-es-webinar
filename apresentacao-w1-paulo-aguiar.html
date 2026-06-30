@@ -314,12 +314,103 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
   <button class="tb" data-tab="s" onclick="goTab('s')">Análise de Estresse</button>
   <button class="tb" data-tab="result" onclick="goTab('result')">Resultado W1</button>
   <button class="tb" data-tab="resultw2" onclick="goTab('resultw2')">Resultado W2</button>
+  <button class="tb" data-tab="projw3" onclick="goTab('projw3')">Projeção W3</button>
 </div>
 <div id="tc-p" class="tc on"></div>
 <div id="tc-conv" class="tc"></div>
 <div id="tc-proj" class="tc"></div>
 <div id="tc-result" class="tc"></div>
 <div id="tc-resultw2" class="tc"></div>
+<div id="tc-projw3" class="tc">
+<div id="projw3-page" style="max-width:1100px;margin:0 auto;padding:48px 48px 100px">
+  <div class="rt-header">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+      <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">Projeção · Próxima Campanha</span>
+      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+    </div>
+    <h2>Projeção <em>W3</em></h2>
+    <p>Cenário projetado para o terceiro webinar baseado no comportamento consolidado de W1 + W2. <strong style="color:#F2EFE8">Conversões dos clusters 7D/14D foram majoradas em 10%</strong> (espaço de estresse positivo) e <strong style="color:#F2EFE8">30D/Antigos/NA reduzidas em 50%</strong> (já receberam pitch nas campanhas anteriores).</p>
+  </div>
+
+  <div class="rt-subtabs">
+    <button class="rt-subtab active" data-sub="w3interno" onclick="goSubW3('w3interno')">📊 Canais Internos</button>
+    <button class="rt-subtab" data-sub="w3trafego" onclick="goSubW3('w3trafego')">🎯 Tráfego Pago</button>
+  </div>
+
+  <!-- CANAIS INTERNOS -->
+  <div class="rt-subview active" id="rt-w3interno">
+    <p class="rt-sec">Premissas — Volume de base × % de captação</p>
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Partindo da base disponível por cluster, aplicamos uma <strong style="color:#F2EFE8">% de captação melhorada</strong> sobre cada cluster — calibrada a partir de W1 e W2 com espaço de melhoria.</p>
+    <table class="rt-table" style="max-width:680px">
+      <thead><tr><th>Cluster</th><th>Base disponível</th><th>% captação</th><th>Leads projetados</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>770</td><td>0,70%</td><td><strong style="color:#82D490">539</strong></td></tr><tr><td>Aluno 14D</td><td>770</td><td>0,75%</td><td><strong style="color:#82D490">578</strong></td></tr><tr><td>Aluno 30D</td><td>1.826</td><td>0,55%</td><td><strong style="color:#82D490">1.004</strong></td></tr><tr><td>Aluno Antigo</td><td>17.886</td><td>0,21%</td><td><strong style="color:#82D490">3.756</strong></td></tr><tr><td>NA</td><td>20.000</td><td>0,11%</td><td><strong style="color:#82D490">2.200</strong></td></tr><tr class="rt-total"><td>Total</td><td>41.252</td><td>—</td><td>8.077</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Distribuição dos leads — por cluster × canal</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#82D490">Total</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>238</td><td>12</td><td>71</td><td>31</td><td>188</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">540</td></tr><tr><td>Aluno 14D</td><td>189</td><td>29</td><td>159</td><td>49</td><td>151</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">577</td></tr><tr><td>Aluno 30D</td><td>89</td><td>91</td><td>368</td><td>204</td><td>252</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">1.004</td></tr><tr><td>Aluno Antigo</td><td>272</td><td>434</td><td>1.199</td><td>1.468</td><td>384</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">3.757</td></tr><tr><td>NA</td><td>28</td><td>277</td><td>1.201</td><td>595</td><td>98</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">2.199</td></tr><tr class="rt-total"><td>Total</td><td>816</td><td>843</td><td>2.998</td><td>2.347</td><td>1.073</td><td>8.077</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Conversões projetadas — por cluster × canal</p>
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px"><strong style="color:#82D490">7D e 14D: +10%</strong> sobre média W1+W2 (espaço de melhoria). <strong style="color:#E07070">30D, Antigos e NA: −50%</strong> (já estressados, conversão tende a cair).</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total cluster</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td><span style="color:#E8B07B">2,85%</span></td><td><span style="color:#E8B07B">2,89%</span></td><td><span style="color:#82D490">8,68%</span></td><td><span style="color:#E8C97B">3,42%</span></td><td><span style="color:#E8B07B">2,90%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">2,00%</td></tr><tr><td>Aluno 14D</td><td><span style="color:#82D490">5,17%</span></td><td><span style="color:#82D490">8,05%</span></td><td><span style="color:#82D490">8,36%</span></td><td><span style="color:#E8B07B">2,62%</span></td><td><span style="color:#E8C97B">4,87%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">3,05%</td></tr><tr><td>Aluno 30D</td><td><span style="color:#E8C97B">3,42%</span></td><td><span style="color:#E8C97B">3,76%</span></td><td><span style="color:#E8C97B">3,47%</span></td><td><span style="color:#E8B07B">2,18%</span></td><td><span style="color:#E8B07B">2,62%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">1,79%</td></tr><tr><td>Aluno Antigo</td><td><span style="color:#E8B07B">0,65%</span></td><td><span style="color:#E8B07B">0,87%</span></td><td><span style="color:#E8B07B">1,36%</span></td><td><span style="color:#E8B07B">0,87%</span></td><td><span style="color:#E8B07B">1,31%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">0,61%</td></tr><tr><td>NA</td><td><span style="color:#A4A09C">0,00%</span></td><td><span style="color:#E8B07B">0,64%</span></td><td><span style="color:#E8B07B">0,76%</span></td><td><span style="color:#E8B07B">0,40%</span></td><td><span style="color:#E8B07B">0,66%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">0,45%</td></tr><tr class="rt-total"><td>Conv. Total</td><td colspan="5" style="text-align:center;color:#A4A09C;font-size:11px">conversão geral por canal aplicada sobre os leads</td><td>1,70%</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Compradores projetados — por cluster × canal</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>7</td><td>0</td><td>6</td><td>1</td><td>5</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">19</td></tr><tr><td>Aluno 14D</td><td>10</td><td>2</td><td>13</td><td>1</td><td>7</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">33</td></tr><tr><td>Aluno 30D</td><td>3</td><td>3</td><td>13</td><td>4</td><td>7</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">30</td></tr><tr><td>Aluno Antigo</td><td>2</td><td>4</td><td>16</td><td>13</td><td>5</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">40</td></tr><tr><td>NA</td><td>0</td><td>2</td><td>9</td><td>2</td><td>1</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">14</td></tr><tr class="rt-total"><td>Total</td><td>22</td><td>11</td><td>57</td><td>21</td><td>25</td><td>136</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Faturamento projetado — por cluster × canal</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>R$ 16.846</td><td>R$ 888</td><td>R$ 12.705</td><td>R$ 0</td><td>R$ 12.141</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 42.581</td></tr><tr><td>Aluno 14D</td><td>R$ 25.782</td><td>R$ 4.197</td><td>R$ 33.675</td><td>R$ 3.797</td><td>R$ 12.307</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 79.758</td></tr><tr><td>Aluno 30D</td><td>R$ 6.642</td><td>R$ 8.566</td><td>R$ 25.679</td><td>R$ 9.242</td><td>R$ 17.633</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 67.761</td></tr><tr><td>Aluno Antigo</td><td>R$ 2.774</td><td>R$ 5.966</td><td>R$ 29.777</td><td>R$ 16.753</td><td>R$ 9.095</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 64.365</td></tr><tr><td>NA</td><td>R$ 0</td><td>R$ 2.837</td><td>R$ 9.660</td><td>R$ 1.897</td><td>R$ 346</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 14.742</td></tr><tr class="rt-total"><td>Total</td><td>R$ 52.044</td><td>R$ 22.454</td><td>R$ 111.497</td><td>R$ 31.689</td><td>R$ 51.523</td><td>R$ 269.206,76</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Resultado projetado — Margem em contribuição</p>
+    <div class="rt-finblock" style="max-width:580px">
+      <div class="rt-finrow head"><div>Item</div><div>Valor</div></div>
+      <div class="rt-finrow"><div>Faturamento bruto</div><div>R$ 272.122,63</div></div>
+      <div class="rt-finrow custo"><div>(−) Taxas plataforma (12%)</div><div>R$ 32.654,72</div></div>
+      <div class="rt-finrow custo"><div>(−) Disparos + AwSales</div><div>R$ 30.000,00</div></div>
+      <div class="rt-finrow custo"><div>(−) SMS Flash + Ligação</div><div>R$ 3.500,00</div></div>
+      <div class="rt-finrow total"><div>Resultado em margem</div><div>R$ 205.967,91</div></div>
+      <div class="rt-finrow custo"><div>(−) Imposto 11%</div><div>R$ 29.933,49</div></div>
+      <div class="rt-finrow margem"><div>Resultado real</div><div>R$ 176.034,42</div></div>
+    </div>
+
+    <div class="rt-grid rt-grid-3" style="margin-top:24px">
+      <div class="rt-card"><div class="rt-lbl">Leads projetados</div><div class="rt-val gold">8.077</div><div class="rt-sub">só canais internos</div></div>
+      <div class="rt-card"><div class="rt-lbl">Compradores projetados</div><div class="rt-val gold">138</div><div class="rt-sub">conversão geral 1,70%</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Margem em contribuição</div><div class="rt-val green">R$ 176.034</div><div class="rt-sub">após impostos e custos</div></div>
+    </div>
+  </div>
+
+  <!-- TRÁFEGO PAGO -->
+  <div class="rt-subview" id="rt-w3trafego">
+    <div style="background:#131313;border:.5px solid rgba(201,168,76,.2);border-radius:12px;padding:32px;margin-top:24px;text-align:center">
+      <div style="font-size:48px;margin-bottom:12px">🚧</div>
+      <h3 style="font-size:18px;color:#F2EFE8;margin-bottom:8px">Estrutura em construção</h3>
+      <p style="font-size:13px;color:#A4A09C;line-height:1.7;max-width:480px;margin:0 auto">A projeção de tráfego pago será adicionada após a definição das premissas de investimento, CPL e CPA esperados para o W3.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function goSubW3(id){
+    document.querySelectorAll('#projw3-page .rt-subtab').forEach(b=>b.classList.toggle('active', b.dataset.sub===id));
+    document.querySelectorAll('#projw3-page .rt-subview').forEach(v=>v.classList.toggle('active', v.id==='rt-'+id));
+  }
+  window.goSubW3 = goSubW3;
+})();
+</script>
+</div>
 <div id="tc-s" class="tc">
   <div id="sp">
     <div style="margin-bottom:40px">
@@ -1299,8 +1390,9 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
       <div class="rt-card miss"><div class="rt-lbl">Leads captados</div><div class="rt-val red">8.464</div><div class="rt-sub">vs 10.927 projetado <span class="rt-delta down">▼ 22,5%</span></div></div>
       <div class="rt-card win"><div class="rt-lbl">Vendas geral</div><div class="rt-val">273</div><div class="rt-sub">vs 269 projetado <span class="rt-delta up">▲ 1,5%</span></div></div>
       <div class="rt-card win"><div class="rt-lbl">Faturamento bruto (recebido)</div><div class="rt-val gold">R$ 539.135,73</div><div class="rt-sub">+ R$ 68.735 esperado TMB futuro</div></div>
-      <div class="rt-card win"><div class="rt-lbl">Margem em contribuição</div><div class="rt-val green">R$ 374.930,57</div><div class="rt-sub">vs R$280.156 projetado <span class="rt-delta up">▲ 33,8%</span></div></div>
       <div class="rt-card win"><div class="rt-lbl">Conversão geral</div><div class="rt-val gold">3,23%</div><div class="rt-sub">273 vendas ÷ 8.452 leads</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Ticket médio geral</div><div class="rt-val gold">R$ 1.974,86</div><div class="rt-sub">Sobre 273 vendas</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Margem em contribuição</div><div class="rt-val green">R$ 374.930,57</div><div class="rt-sub">vs R$280.156 projetado <span class="rt-delta up">▲ 33,8%</span></div></div>
     </div>
 
     
@@ -1633,7 +1725,7 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
     <p>Fechamento completo do segundo webinar — captação, vendas, faturamento e margem em contribuição. <strong style="color:#F2EFE8">Inclui Assiny + Hotmart + TMB e todos os custos da campanha.</strong> Foi a primeira vez que rodamos tráfego pago no Meta.</p>
   </div>
 
-  <div class="rt-summary" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+  <div class="rt-summary" style="grid-template-columns:repeat(6,minmax(0,1fr))">
     <div class="rt-card miss"><div class="rt-lbl">Leads captados</div><div class="rt-val red">13.051</div><div class="rt-sub">vs 14.646 projetado <span class="rt-delta down">▼ 10,9%</span></div></div>
     <div class="rt-card win"><div class="rt-lbl">Vendas geral</div><div class="rt-val">218</div><div class="rt-sub">143 Assiny · 21 Hotmart · 54 TMB</div></div>
     <div class="rt-card win"><div class="rt-lbl">Faturamento bruto</div><div class="rt-val gold">R$ 446.571,10</div><div class="rt-sub">A: R$ 393.445 · H: R$ 39.020 · T: R$ 14.106</div></div>
@@ -1748,15 +1840,42 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
   </div>
 
   <div class="rt-subview" id="rt-w2trafego">
-    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Debriefing do tráfego pago no Meta — primeira vez que rodamos. Inclui sources <strong style="color:#F2EFE8">ig + meta + fb</strong>. O <em>Instagram orgânico</em> (source = "instagram") fica na aba de Resultado Interno.</p>
-    <p class="rt-sec">Captação — Realizado vs Orçado</p>
-    <table class="rt-table"><thead><tr><th>Cluster</th><th>Orçado</th><th>Realizado</th><th>% atingido</th><th>Delta</th></tr></thead><tbody><tr><td>Tráfego</td><td>6.000</td><td>5.901</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:98.35000000000001%"></span></span>98,35%</td><td style="color:#E07070">-99</td></tr><tr class="rt-total"><td>Total</td><td>6.000</td><td>5.901</td><td>98,35%</td><td style="color:#E07070">-99</td></tr></tbody></table>
-    <p class="rt-sec">Captação por canal</p>
-    <table class="rt-table"><thead><tr><th>Canal</th><th>Orçado</th><th>Realizado</th><th>% atingido</th><th>Delta</th></tr></thead><tbody><tr><td>Meta Ads</td><td>6.000</td><td>5.901</td><td><span class="rt-pct-bar"><span class="rt-pct-fill warn" style="width:98.35000000000001%"></span></span>98,35%</td><td style="color:#E07070">-99</td></tr><tr class="rt-total"><td>Total</td><td>6.000</td><td>5.901</td><td>98,35%</td><td style="color:#E07070">-99</td></tr></tbody></table>
-    <p class="rt-sec">Matriz de conversão — Tráfego pago</p>
-    <div style="background:#111;border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:11px;font-family:DM Sans,sans-serif;font-variant-numeric:tabular-nums"><thead><tr><th style="padding:8px 10px;text-align:left;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Cluster</th><th style="padding:8px 10px;text-align:center;color:#C4BFB8;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(255,255,255,.12);background:#131313">Meta Ads</th><th style="padding:8px 10px;text-align:center;color:#C9A84C;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9px;border-bottom:.5px solid rgba(201,168,76,.3);background:#131313">Total</th></tr></thead><tbody><tr><td style="padding:8px 10px;color:#F2EFE8;font-weight:500;border-bottom:.5px solid rgba(255,255,255,.07)">Tráfego</td><td style="padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#D4D0CA;font-size:11px">5901<span style="color:#555;margin:0 2px">→</span>11</div><div style="color:#E8B07B;font-size:12px;font-weight:500">0,2%</div></div></td><td style="padding:8px 10px;text-align:center;background:rgba(201,168,76,.06);border-bottom:.5px solid rgba(255,255,255,.07)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">5901<span style="color:#555;margin:0 2px">→</span>11</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,19%</div></div></td></tr><tr style="background:#181818"><td style="padding:10px;color:#C9A84C;font-weight:500;border-top:.5px solid rgba(201,168,76,.3)">Total canal</td><td style="padding:10px;text-align:center;border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#E0DDD8;font-size:11px;font-weight:500">5901<span style="color:#555;margin:0 2px">→</span>11</div><div style="color:#C9A84C;font-size:12px;font-weight:500">0,19%</div></div></td><td style="padding:10px;text-align:center;background:rgba(201,168,76,.15);border-top:.5px solid rgba(201,168,76,.3)"><div style="line-height:1.4"><div style="color:#F2EFE8;font-size:12px;font-weight:500">5901<span style="color:#888;margin:0 2px">→</span>11</div><div style="color:#C9A84C;font-size:13px;font-weight:500">0,19%</div></div></td></tr></tbody></table></div>
-    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6">Leads de tráfego pago são considerados <strong style="color:#D4D0CA">leads frios</strong> — primeiro contato com a marca. Custos da campanha serão adicionados em uma próxima atualização.</div>
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Análise isolada do tráfego pago no Meta Ads. Inclui sources <strong style="color:#F2EFE8">ig + meta + fb</strong>. O <em>Instagram orgânico</em> (source = "instagram") fica na aba de Resultado Interno.</p>
+
+    <p class="rt-sec">Visão geral — Investimento × Captação × Vendas</p>
+    <div class="rt-grid rt-grid-3" style="margin-bottom:20px">
+      <div class="rt-card"><div class="rt-lbl">Investimento</div><div class="rt-val gold">R$ 18.206,82</div><div class="rt-sub">total gasto no Meta Ads</div></div>
+      <div class="rt-card"><div class="rt-lbl">Leads captados</div><div class="rt-val">5.901</div><div class="rt-sub">45,2% do total da campanha</div></div>
+      <div class="rt-card"><div class="rt-lbl">Vendas geradas</div><div class="rt-val">11</div><div class="rt-sub">5,0% das vendas totais</div></div>
+    </div>
+
+    <p class="rt-sec">Indicadores de performance</p>
+    <div class="rt-grid rt-grid-3" style="margin-bottom:24px">
+      <div class="rt-card"><div class="rt-lbl">CPL · Custo por Lead</div><div class="rt-val gold">R$ 3,09</div><div class="rt-sub">R$ 18.206,82 ÷ 5.901 leads</div></div>
+      <div class="rt-card"><div class="rt-lbl">CPA · Custo por Aquisição</div><div class="rt-val gold">R$ 1.655,17</div><div class="rt-sub">R$ 18.206,82 ÷ 11 vendas</div></div>
+      <div class="rt-card miss"><div class="rt-lbl">Taxa de conversão</div><div class="rt-val red">0,19%</div><div class="rt-sub">11 vendas ÷ 5.901 leads</div></div>
+    </div>
+
+    <p class="rt-sec">Retorno direto do Meta — Vendas exclusivas do canal</p>
+    <div class="rt-finblock">
+      <div class="rt-finrow head"><div>Item</div><div>Vendas</div><div>Bruto</div><div>Líquido</div></div>
+      <div class="rt-finrow"><div>Assiny (Meta)</div><div>4</div><div>R$ 11.312,26</div><div>R$ 9.791,19</div></div>
+      <div class="rt-finrow"><div>Hotmart (Meta)</div><div>0</div><div>R$ 0,00</div><div>R$ 0,00</div></div>
+      <div class="rt-finrow"><div>TMB (Meta)</div><div>7</div><div>R$ 1.393,14</div><div>R$ 1.393,14</div></div>
+      <div class="rt-finrow total"><div>Total recebido do Meta</div><div>11</div><div>R$ 12.705,40</div><div>R$ 11.184,33</div></div>
+      <div class="rt-finrow custo"><div>(−) Investimento Meta Ads</div><div></div><div></div><div>R$ 18.206,82</div></div>
+      <div class="rt-finrow margem" style="background:rgba(224,112,112,.1)"><div style="color:#E07070">Retorno direto (líq − investimento)</div><div></div><div></div><div style="color:#E07070">R$ -7.022,49</div></div>
+    </div>
+
+    <div class="rt-grid rt-grid-3" style="margin-top:20px">
+      <div class="rt-card"><div class="rt-lbl">ROAS bruto</div><div class="rt-val red">0,70x</div><div class="rt-sub">R$ 12.705,40 ÷ R$ 18.206,82</div></div>
+      <div class="rt-card"><div class="rt-lbl">ROAS líquido</div><div class="rt-val red">0,61x</div><div class="rt-sub">R$ 11.184,33 ÷ R$ 18.206,82</div></div>
+      <div class="rt-card"><div class="rt-lbl">Ticket médio (Meta)</div><div class="rt-val">R$ 1.155,04</div><div class="rt-sub">bruto sobre 11 vendas</div></div>
+    </div>
+
+    <div style="background:#131313;border:.5px solid rgba(224,112,112,.2);border-radius:12px;padding:16px 20px;margin-top:24px;font-size:12px;color:#D4D0CA;line-height:1.7">
+      <strong style="color:#E07070;font-weight:500">⚠ Leitura:</strong> Por ser a <strong style="color:#F2EFE8">primeira rodada de tráfego pago</strong>, a campanha gerou <strong>retorno direto negativo</strong> — R$ 11.184,33 líquido contra R$ 18.206,82 investido, com prejuízo direto de R$ 7.022,49. Parte do valor desta primeira rodada está no <strong style="color:#D4D0CA">aprendizado de público e criativos</strong>, e leads frios capturados aqui podem converter em campanhas futuras (Meta Ads costuma ter ciclo de retorno mais longo que canal orgânico). Vale revisar segmentação e oferta antes do próximo W para reduzir CPA e melhorar conversão.
+    </div>
   </div>
 
   
