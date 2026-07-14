@@ -314,8 +314,9 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
   <button class="tb" data-tab="s" onclick="goTab('s')">Análise de Estresse</button>
   <button class="tb" data-tab="result" onclick="goTab('result')">Resultado W1</button>
   <button class="tb" data-tab="resultw2" onclick="goTab('resultw2')">Resultado W2</button>
-  <button class="tb" data-tab="projw3" onclick="goTab('projw3')">Projeção W3</button>
+  
   <button class="tb" data-tab="resultw3" onclick="goTab('resultw3')">Resultado W03</button>
+  <button class="tb" data-tab="projw4" onclick="goTab('projw4')">Projeção W4</button>
 </div>
 <div id="tc-p" class="tc on"></div>
 <div id="tc-conv" class="tc"></div>
@@ -323,355 +324,78 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
 <div id="tc-result" class="tc"></div>
 <div id="tc-resultw2" class="tc"></div>
 <div id="tc-resultw3" class="tc"></div>
-<div id="tc-projw3" class="tc">
-<div id="projw3-page" style="max-width:1100px;margin:0 auto;padding:48px 48px 100px">
-  <div class="rt-header">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
-      <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">Projeção · Próxima Campanha</span>
-      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
-    </div>
-    <h2>Projeção <em>W3</em></h2>
-    <p>Cenário projetado para o terceiro webinar baseado no comportamento consolidado de W1 + W2. <strong style="color:#F2EFE8">Conversões dos clusters 7D/14D foram majoradas em 10%</strong> (espaço de estresse positivo) e <strong style="color:#F2EFE8">30D/Antigos/NA reduzidas em 50%</strong> (já receberam pitch nas campanhas anteriores).</p>
-  </div>
-
+<div id="tc-projw4" class="tc">
+<div id="projw4-page" style="max-width:1100px;margin:0 auto;padding:48px 48px 100px">
+  <div style="margin-bottom:28px"><div style="font-size:26px;color:#F2EFE8;font-weight:600;letter-spacing:-.02em">Projeção W4</div><div style="font-size:13px;color:#A4A09C;margin-top:6px">Projeção pré-lançamento do W4 — canais internos e tráfego pago. Vira histórico depois que o W4 rodar.</div></div>
   <div class="rt-subtabs">
-    <button class="rt-subtab active" data-sub="w3interno" onclick="goSubW3('w3interno')">📊 Canais Internos</button>
-    <button class="rt-subtab" data-sub="w3trafego" onclick="goSubW3('w3trafego')">🎯 Tráfego Pago</button>
+    <button class="rt-subtab active" data-sub="p4int" onclick="goSubP4('p4int')">📊 Canais Internos</button>
+    <button class="rt-subtab" data-sub="p4traf" onclick="goSubP4('p4traf')">🎯 Tráfego Pago</button>
   </div>
-
-  <!-- CANAIS INTERNOS -->
-  <div class="rt-subview active" id="rt-w3interno">
-    <p class="rt-sec">Premissas — Volume de base × % de captação</p>
-    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Partindo da base disponível por cluster, aplicamos uma <strong style="color:#F2EFE8">% de captação melhorada</strong> sobre cada cluster — calibrada a partir de W1 e W2 com espaço de melhoria. <strong style="color:#82D490">Aquisição voltou a melhorar e ampliou o universo do cluster 7D.</strong></p>
-    <table class="rt-table" style="max-width:680px">
-      <thead><tr><th>Cluster</th><th>Base disponível</th><th>% captação</th><th>Leads projetados</th></tr></thead>
-      <tbody><tr><td>Aluno 7D</td><td>1.925</td><td>0,70%</td><td><strong style="color:#82D490">1.348</strong></td></tr><tr><td>Aluno 14D</td><td>770</td><td>0,75%</td><td><strong style="color:#82D490">578</strong></td></tr><tr><td>Aluno 30D</td><td>1.826</td><td>0,55%</td><td><strong style="color:#82D490">1.004</strong></td></tr><tr><td>Aluno Antigo</td><td>17.886</td><td>0,21%</td><td><strong style="color:#82D490">3.756</strong></td></tr><tr><td>NA</td><td>20.000</td><td>0,11%</td><td><strong style="color:#82D490">2.200</strong></td></tr><tr class="rt-total"><td>Total</td><td>42.407</td><td>—</td><td>8.886</td></tr></tbody>
-    </table>
-
-    <p class="rt-sec" style="margin-top:32px">Distribuição dos leads — por cluster × canal</p>
-    <table class="rt-table" style="font-size:11px">
-      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#82D490">Total</th></tr></thead>
-      <tbody><tr><td>Aluno 7D</td><td>594</td><td>31</td><td>177</td><td>77</td><td>469</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">1.348</td></tr><tr><td>Aluno 14D</td><td>189</td><td>29</td><td>159</td><td>49</td><td>151</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">577</td></tr><tr><td>Aluno 30D</td><td>89</td><td>91</td><td>368</td><td>204</td><td>252</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">1.004</td></tr><tr><td>Aluno Antigo</td><td>272</td><td>434</td><td>1.199</td><td>1.468</td><td>384</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">3.757</td></tr><tr><td>NA</td><td>28</td><td>277</td><td>1.201</td><td>595</td><td>98</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">2.199</td></tr><tr class="rt-total"><td>Total</td><td>1.172</td><td>862</td><td>3.104</td><td>2.393</td><td>1.354</td><td>8.885</td></tr></tbody>
-    </table>
-
-    <p class="rt-sec" style="margin-top:32px">Conversões projetadas — por cluster × canal</p>
-    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px"><strong style="color:#82D490">7D e 14D: +10%</strong> sobre média W1+W2 (espaço de melhoria). <strong style="color:#E07070">30D, Antigos e NA: −50%</strong> (já estressados, conversão tende a cair).</p>
-    <table class="rt-table" style="font-size:11px">
-      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total cluster</th></tr></thead>
-      <tbody><tr><td>Aluno 7D</td><td><span style="color:#E8B07B">2,85%</span></td><td><span style="color:#E8B07B">2,89%</span></td><td><span style="color:#82D490">8,68%</span></td><td><span style="color:#E8C97B">3,42%</span></td><td><span style="color:#E8B07B">2,90%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">4,15%</td></tr><tr><td>Aluno 14D</td><td><span style="color:#82D490">5,17%</span></td><td><span style="color:#82D490">8,05%</span></td><td><span style="color:#82D490">8,36%</span></td><td><span style="color:#E8B07B">2,62%</span></td><td><span style="color:#E8C97B">4,87%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">5,81%</td></tr><tr><td>Aluno 30D</td><td><span style="color:#82D490">5,62%</span></td><td><span style="color:#82D490">6,17%</span></td><td><span style="color:#82D490">5,70%</span></td><td><span style="color:#E8C97B">3,58%</span></td><td><span style="color:#E8C97B">4,29%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">5,07%</td></tr><tr><td>Aluno Antigo</td><td><span style="color:#E8B07B">0,97%</span></td><td><span style="color:#E8B07B">1,28%</span></td><td><span style="color:#E8B07B">2,01%</span></td><td><span style="color:#E8B07B">1,29%</span></td><td><span style="color:#E8B07B">1,93%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">1,50%</td></tr><tr><td>NA</td><td><span style="color:#A4A09C">0,00%</span></td><td><span style="color:#E8B07B">0,84%</span></td><td><span style="color:#E8B07B">1,00%</span></td><td><span style="color:#E8B07B">0,52%</span></td><td><span style="color:#E8B07B">0,87%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">0,65%</td></tr><tr class="rt-total"><td>Conv. Total</td><td colspan="5" style="text-align:center;color:#A4A09C;font-size:11px">conversão geral por canal aplicada sobre os leads</td><td>2,37%</td></tr></tbody>
-    </table>
-
-    <p class="rt-sec" style="margin-top:32px">Compradores projetados — por cluster × canal</p>
-    <table class="rt-table" style="font-size:11px">
-      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total</th></tr></thead>
-      <tbody><tr><td>Aluno 7D</td><td>17</td><td>1</td><td>15</td><td>3</td><td>14</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">50</td></tr><tr><td>Aluno 14D</td><td>10</td><td>2</td><td>13</td><td>1</td><td>7</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">33</td></tr><tr><td>Aluno 30D</td><td>5</td><td>6</td><td>21</td><td>7</td><td>11</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">50</td></tr><tr><td>Aluno Antigo</td><td>3</td><td>6</td><td>24</td><td>19</td><td>7</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">59</td></tr><tr><td>NA</td><td>0</td><td>2</td><td>12</td><td>3</td><td>1</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">18</td></tr><tr class="rt-total"><td>Total</td><td>35</td><td>17</td><td>85</td><td>33</td><td>40</td><td>210</td></tr></tbody>
-    </table>
-
-    <p class="rt-sec" style="margin-top:32px">Faturamento projetado — por cluster × canal</p>
-    <table class="rt-table" style="font-size:11px">
-      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total</th></tr></thead>
-      <tbody><tr><td>Aluno 7D</td><td>R$ 42.165</td><td>R$ 2.221</td><td>R$ 31.907</td><td>R$ 7.633</td><td>R$ 33.895</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 117.821</td></tr><tr><td>Aluno 14D</td><td>R$ 23.481</td><td>R$ 5.366</td><td>R$ 29.294</td><td>R$ 3.041</td><td>R$ 14.499</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 75.681</td></tr><tr><td>Aluno 30D</td><td>R$ 10.351</td><td>R$ 14.307</td><td>R$ 42.267</td><td>R$ 14.780</td><td>R$ 27.255</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 108.959</td></tr><tr><td>Aluno Antigo</td><td>R$ 2.739</td><td>R$ 8.829</td><td>R$ 48.206</td><td>R$ 34.082</td><td>R$ 14.377</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 108.233</td></tr><tr><td>NA</td><td>R$ 0</td><td>R$ 2.652</td><td>R$ 15.497</td><td>R$ 2.167</td><td>R$ 1.388</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 21.704</td></tr><tr class="rt-total"><td>Total</td><td>R$ 78.736</td><td>R$ 33.376</td><td>R$ 167.171</td><td>R$ 61.703</td><td>R$ 91.413</td><td>R$ 432.399,19</td></tr></tbody>
-    </table>
-
-    <p class="rt-sec" style="margin-top:32px">Resultado projetado — Margem em contribuição</p>
-    <div class="rt-finblock" style="max-width:580px">
-      <div class="rt-finrow head"><div>Item</div><div>Valor</div></div>
-      <div class="rt-finrow"><div>Faturamento bruto</div><div>R$ 432.721,25</div></div>
-      <div class="rt-finrow custo"><div>(−) Taxas plataforma (12%)</div><div>R$ 51.926,55</div></div>
-      <div class="rt-finrow custo"><div>(−) Disparos + AwSales</div><div>R$ 30.000,00</div></div>
-      <div class="rt-finrow custo"><div>(−) SMS Flash + Ligação</div><div>R$ 3.500,00</div></div>
-      <div class="rt-finrow total"><div>Resultado em margem</div><div>R$ 347.294,70</div></div>
-      <div class="rt-finrow custo"><div>(−) Imposto 11%</div><div>R$ 47.599,34</div></div>
-      <div class="rt-finrow margem"><div>Resultado real</div><div>R$ 299.695,36</div></div>
+  <div class="rt-subview active" id="rt-p4int">
+    <div class="rt-grid rt-grid-3" style="margin-bottom:14px">
+      <div class="rt-card"><div class="rt-lbl">Leads projetados</div><div class="rt-val">9.331</div><div class="rt-sub">soma dos canais internos</div></div>
+      <div class="rt-card"><div class="rt-lbl">Compradores</div><div class="rt-val" style="color:#B09EE8">367</div><div class="rt-sub">conversão geral 5,61%</div></div>
+      <div class="rt-card"><div class="rt-lbl">Faturamento projetado</div><div class="rt-val gd">R$ 646.516,64</div><div class="rt-sub">bruto</div></div>
     </div>
-
-    <div class="rt-grid rt-grid-3" style="margin-top:24px">
-      <div class="rt-card"><div class="rt-lbl">Leads projetados</div><div class="rt-val gold">8.886</div><div class="rt-sub">só canais internos</div></div>
-      <div class="rt-card"><div class="rt-lbl">Compradores projetados</div><div class="rt-val gold">210</div><div class="rt-sub">conversão geral 2,37%</div></div>
-      <div class="rt-card win"><div class="rt-lbl">Margem em contribuição</div><div class="rt-val green">R$ 299.695</div><div class="rt-sub">após impostos e custos</div></div>
+    <div class="rt-grid rt-grid-3" style="margin-bottom:22px">
+      <div class="rt-card win"><div class="rt-lbl">Resultado em margem</div><div class="rt-val gd">R$ 525.434,64</div><div class="rt-sub">após taxas, disparos, SMS</div></div>
+      <div class="rt-card"><div class="rt-lbl">Imposto (−11%)</div><div class="rt-val" style="color:#E07070">−R$ 71.116,83</div><div class="rt-sub">sobre a margem</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Resultado real projetado</div><div class="rt-val" style="color:#82D490">R$ 454.317,81</div><div class="rt-sub">líquido final</div></div>
     </div>
+    <p class="rt-sec">Premissas por cluster</p>
+    <table class="rt-table" style="font-size:12px;max-width:680px"><thead><tr><th>Cluster</th><th>Média + melhoria</th><th>Base (qtd)</th><th>Leads projetados</th></tr></thead><tbody>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>0,7</td><td>2.100</td><td>1.470</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>0,75</td><td>2.100</td><td>1.575</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>0,35</td><td>4.339</td><td>1.519</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>0,11</td><td>17.886</td><td>1.967</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>0,14</td><td>20.000</td><td>2.800</td></tr>
+      <tr class="rt-total"><td>Total</td><td>—</td><td>46.425</td><td>9.331</td></tr></tbody></table>
+    <p class="rt-sec" style="margin-top:24px">Leads projetados — cluster × canal</p>
+    <div style="overflow-x:auto"><table class="rt-table" style="font-size:11px;min-width:760px"><thead><tr><th>Cluster</th><th>Yay-form</th><th>Email</th><th>WhatsApp</th><th>AwSales</th><th>Área de Membros</th><th>Instagram</th><th>YouTube</th><th style="color:#C9A84C">Total</th></tr></thead><tbody>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>433</td><td>39</td><td>176</td><td>202</td><td>611</td><td>8</td><td>1</td><td style="color:#F2EFE8;font-weight:500">1.470</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>405</td><td>61</td><td>393</td><td>235</td><td>480</td><td>1</td><td>1</td><td style="color:#F2EFE8;font-weight:500">1.575</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>130</td><td>85</td><td>450</td><td>445</td><td>404</td><td>3</td><td>2</td><td style="color:#F2EFE8;font-weight:500">1.519</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>74</td><td>144</td><td>509</td><td>966</td><td>260</td><td>7</td><td>7</td><td style="color:#F2EFE8;font-weight:500">1.967</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>66</td><td>191</td><td>1.113</td><td>882</td><td>191</td><td>323</td><td>54</td><td style="color:#F2EFE8;font-weight:500">2.800</td></tr>
+      <tr class="rt-total"><td>Total</td><td>1.108</td><td>520</td><td>2.639</td><td>2.710</td><td>1.946</td><td>343</td><td>65</td><td>9.331</td></tr>
+    </tbody></table></div>
+    <p class="rt-sec" style="margin-top:24px">Compradores projetados — cluster × canal</p>
+    <div style="overflow-x:auto"><table class="rt-table" style="font-size:11px;min-width:760px"><thead><tr><th>Cluster</th><th>Yay-form</th><th>Email</th><th>WhatsApp</th><th>AwSales</th><th>Área de Membros</th><th>Instagram</th><th>YouTube</th><th style="color:#C9A84C">Total</th></tr></thead><tbody>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>21</td><td>2</td><td>18</td><td>9</td><td>37</td><td>—</td><td>—</td><td style="color:#F2EFE8;font-weight:500">87</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>20</td><td>5</td><td>37</td><td>10</td><td>23</td><td>—</td><td>—</td><td style="color:#F2EFE8;font-weight:500">95</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>8</td><td>8</td><td>32</td><td>21</td><td>23</td><td>—</td><td>—</td><td style="color:#F2EFE8;font-weight:500">92</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>1</td><td>3</td><td>17</td><td>19</td><td>8</td><td>1</td><td>1</td><td style="color:#F2EFE8;font-weight:500">49</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>1</td><td>2</td><td>21</td><td>8</td><td>2</td><td>7</td><td>2</td><td style="color:#F2EFE8;font-weight:500">44</td></tr>
+      <tr class="rt-total"><td>Total</td><td>52</td><td>21</td><td>124</td><td>67</td><td>93</td><td>8</td><td>3</td><td>367</td></tr>
+    </tbody></table></div>
+    <p class="rt-sec" style="margin-top:24px">Faturamento e conversão projetados por cluster</p>
+    <table class="rt-table" style="font-size:12px;max-width:680px"><thead><tr><th>Cluster</th><th>Leads</th><th>Compradores</th><th>Conversão</th><th>Faturamento</th></tr></thead><tbody>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>1.470</td><td>87</td><td>5,9%</td><td>R$ 148.540,27</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>1.575</td><td>95</td><td>6,0%</td><td>R$ 187.899,16</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>1.519</td><td>92</td><td>6,1%</td><td>R$ 183.157,22</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>1.967</td><td>49</td><td>2,5%</td><td>R$ 78.305,42</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>2.800</td><td>44</td><td>1,6%</td><td>R$ 48.614,57</td></tr>
+      <tr class="rt-total"><td>Total</td><td>9.331</td><td>367</td><td>3,9%</td><td>R$ 646.516,64</td></tr></tbody></table>
+    <p class="rt-sec" style="margin-top:24px">Do faturamento ao resultado real</p>
+    <table class="rt-table" style="font-size:12px;max-width:520px"><tbody>
+      <tr><td>Faturamento bruto</td><td style="text-align:right;color:#F2EFE8;font-weight:400">R$ 646.516,64</td></tr>
+      <tr><td>Taxas (−12%)</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 77.582,00</td></tr>
+      <tr><td>Disparos + AwSales</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 40.000,00</td></tr>
+      <tr><td>SMS Flash + Ligação</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 3.500,00</td></tr>
+      <tr class="rt-total"><td>Resultado em margem</td><td style="text-align:right;color:#82D490;font-weight:600">R$ 525.434,64</td></tr>
+      <tr><td>Imposto (−11%)</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 71.116,83</td></tr>
+      <tr class="rt-total"><td>Resultado real</td><td style="text-align:right;color:#82D490;font-weight:600">R$ 454.317,81</td></tr>
+    </tbody></table>
   </div>
-
-  <!-- TRÁFEGO PAGO -->
-  <div class="rt-subview" id="rt-w3trafego">
-
-    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Projeção do tráfego pago para o W3 em duas camadas. <strong style="color:#F2EFE8">Primeiro</strong>, a metodologia teórica baseada no histórico consolidado — usando a <strong style="color:#F2EFE8">nova base scorada</strong> (21.298 leads) para representatividade e volume, cruzada com compradores FDS reais das 3 plataformas. <strong style="color:#F2EFE8">Depois</strong>, a calibração com os dados reais dos leads do Meta na campanha C01.</p>
-    
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
-      <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">1ª Camada de Análise</span>
-      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+  <div class="rt-subview" id="rt-p4traf">
+    <div style="background:#131313;border:.5px dashed rgba(201,168,76,.35);border-radius:12px;padding:40px;text-align:center;margin-top:20px">
+      <div style="font-size:15px;color:#C9A84C;font-weight:500;margin-bottom:8px">🎯 Projeção de Tráfego Pago — aguardando dados</div>
+      <div style="font-size:13px;color:#A4A09C;line-height:1.7;max-width:520px;margin:0 auto">Assim que você me passar o print do gerador de Meta, eu monto aqui a projeção de tráfego pago do W4 (leads, CPL, vendas e faturamento projetados), no mesmo padrão da projeção de canais internos ao lado.</div>
     </div>
-    <h3 style="font-size:22px;color:#F2EFE8;font-family:'DM Serif Display',serif;margin-bottom:12px">Cálculo teórico — Base scorada + compradores FDS reais</h3>
-    
-    <div style="background:#131313;border:.5px solid rgba(201,168,76,.15);border-radius:12px;padding:20px 24px;margin-bottom:20px">
-      <div style="font-size:13px;color:#C9A84C;font-weight:500;margin-bottom:12px">📂 Passo 1 — Bases utilizadas</div>
-      <table style="width:100%;font-size:12px;color:#D4D0CA;border-collapse:collapse">
-        <thead><tr style="border-bottom:.5px solid rgba(255,255,255,.1)"><th style="text-align:left;padding:6px 0;color:#A4A09C;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Arquivo</th><th style="text-align:right;padding:6px 0;color:#A4A09C;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Registros</th><th style="text-align:left;padding:6px 0 6px 16px;color:#A4A09C;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.05em">O que tem</th></tr></thead>
-        <tbody>
-          <tr style="border-bottom:.5px solid rgba(255,255,255,.05)"><td style="padding:8px 0">Base scorada consolidada</td><td style="text-align:right;color:#C9A84C">21.298</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Leads com FAIXA (A-F) do LeadScore refinado</td></tr>
-          <tr style="border-bottom:.5px solid rgba(255,255,255,.05)"><td style="padding:8px 0">Compradores Assiny FDS</td><td style="text-align:right;color:#C9A84C">641</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Transações pagas (status = paid)</td></tr>
-          <tr style="border-bottom:.5px solid rgba(255,255,255,.05)"><td style="padding:8px 0">Compradores Hotmart FDS</td><td style="text-align:right;color:#C9A84C">71</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Aprovado + Completo (transações únicas)</td></tr>
-          <tr><td style="padding:8px 0">Compradores TMB FDS</td><td style="text-align:right;color:#C9A84C">394</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Pedidos únicos (parcela 0, recebido)</td></tr>
-        </tbody>
-      </table>
-      <div style="font-size:11px;color:#A4A09C;margin-top:12px;line-height:1.7"><strong style="color:#D4D0CA">Chave de cruzamento:</strong> email do cliente. A representatividade e volume de leads vêm da <strong style="color:#D4D0CA">base scorada</strong> (21.298 leads). Os compradores e faturamento vêm exclusivamente das transações FDS reais das 3 plataformas — cruzando email pra descobrir a faixa. <strong style="color:#D4D0CA">Total: 1.106 compradores FDS reais.</strong></div>
-    </div>
-    
-    <p class="rt-sec" style="margin-top:32px">Passo 2 — Representatividade de cada faixa</p>
-    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Distribuição dos 21.298 leads scorados da base consolidada. <strong style="color:#F2EFE8">Esse é o universo real de leads</strong> que compõem o funil de captação.</p>
-    <table class="rt-table" style="max-width:520px">
-      <thead><tr><th>Faixa</th><th>Leads</th><th>% Representatividade</th></tr></thead>
-      <tbody><tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>2.155</td><td>10,1%</td></tr><tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>6.422</td><td>30,2%</td></tr><tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>5.513</td><td>25,9%</td></tr><tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>4.028</td><td>18,9%</td></tr><tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>1.811</td><td>8,5%</td></tr><tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>1.369</td><td>6,4%</td></tr><tr class="rt-total"><td>Total</td><td>21.298</td><td>100,0%</td></tr></tbody>
-    </table>
-    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6">A cada 100 leads captados, na média <strong style="color:#D4D0CA">10 são A · 30 são B · 26 são C</strong> e o restante distribuído entre D, E e F.</div>
-    
-    <p class="rt-sec" style="margin-top:32px">Passo 3 — Cruzamento compradores FDS com faixa</p>
-    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Cada comprador FDS das 3 plataformas teve seu email buscado na base scorada pra recuperar a faixa de LeadScore. <strong style="color:#F2EFE8">Compradores sem match na base scorada ficaram fora dos cálculos seguintes</strong>.</p>
-    <table class="rt-table" style="max-width:560px">
-      <thead><tr><th>Faixa</th><th>Compradores</th><th>%</th><th>Faturamento</th></tr></thead>
-      <tbody><tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>128</td><td>11,6%</td><td>R$ 338.173</td></tr><tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>278</td><td>25,1%</td><td>R$ 707.216</td></tr><tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>205</td><td>18,5%</td><td>R$ 516.684</td></tr><tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>97</td><td>8,8%</td><td>R$ 243.549</td></tr><tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>38</td><td>3,4%</td><td>R$ 97.585</td></tr><tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>16</td><td>1,4%</td><td>R$ 35.364</td></tr><tr><td><span style="color:#A4A09C;font-weight:500">Sem pesquisa</span></td><td>344</td><td>31,1%</td><td>R$ 853.390</td></tr><tr class="rt-total"><td>Total</td><td>1106</td><td>100,0%</td><td>R$ 2.791.960</td></tr></tbody>
-    </table>
-    <div style="font-size:11px;color:#E8B07B;padding:8px 14px;line-height:1.6;background:rgba(232,176,123,.05);border-left:2px solid #E8B07B;margin-top:8px"><strong>⚠ Limitação:</strong> 31,1% dos compradores não foram encontrados na base scorada. Cálculo de conversão e CPL usa apenas os 762 compradores com faixa identificada.</div>
-    
-    <p class="rt-sec" style="margin-top:32px">Passos 4 a 7 — Conversão, Ticket Médio, Valor/Lead e CPL Máximo</p>
-    <div style="background:#131313;border:.5px solid rgba(201,168,76,.15);border-radius:12px;padding:20px 24px;margin-bottom:20px">
-      <div style="font-size:13px;color:#C9A84C;font-weight:500;margin-bottom:12px">📐 Fórmulas aplicadas</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:12px;color:#D4D0CA;line-height:1.7">
-        <div style="background:#0A0A0A;border:.5px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px">
-          <div style="color:#A4A09C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Ticket Médio (TM)</div>
-          <div style="font-family:'JetBrains Mono',monospace;color:#F2EFE8">Faturamento ÷ Compradores</div>
-        </div>
-        <div style="background:#0A0A0A;border:.5px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px">
-          <div style="color:#A4A09C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Conversão</div>
-          <div style="font-family:'JetBrains Mono',monospace;color:#F2EFE8">(Compradores ÷ Leads) × 100</div>
-        </div>
-        <div style="background:#0A0A0A;border:.5px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px">
-          <div style="color:#A4A09C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Valor por Lead</div>
-          <div style="font-family:'JetBrains Mono',monospace;color:#F2EFE8">Conversão × Ticket Médio</div>
-        </div>
-        <div style="background:#0A0A0A;border:.5px solid rgba(201,168,76,.2);border-radius:8px;padding:12px 14px">
-          <div style="color:#C9A84C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">CPL Máximo (ROAS 3)</div>
-          <div style="font-family:'JetBrains Mono',monospace;color:#C9A84C">Valor por Lead ÷ 3</div>
-        </div>
-      </div>
-    </div>
-    <table class="rt-table" style="font-size:12px">
-      <thead><tr><th>Faixa</th><th>Leads</th><th>Compradores</th><th>Conversão</th><th>Ticket Médio</th><th>Valor/Lead</th><th style="color:#C9A84C">CPL Máx (ROAS 3)</th></tr></thead>
-      <tbody><tr>
-      <td><span style="color:#82D490;font-weight:500">A</span></td>
-      <td>2.155</td>
-      <td>128</td>
-      <td><span style="color:#82D490;font-weight:500">5,94%</span></td>
-      <td>R$ 2.642</td>
-      <td>R$ 156,92</td>
-      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 52,31</td>
-    </tr><tr>
-      <td><span style="color:#B0D88A;font-weight:500">B</span></td>
-      <td>6.422</td>
-      <td>278</td>
-      <td><span style="color:#E8C97B;font-weight:500">4,33%</span></td>
-      <td>R$ 2.544</td>
-      <td>R$ 110,12</td>
-      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 36,71</td>
-    </tr><tr>
-      <td><span style="color:#E8C97B;font-weight:500">C</span></td>
-      <td>5.513</td>
-      <td>205</td>
-      <td><span style="color:#E8C97B;font-weight:500">3,72%</span></td>
-      <td>R$ 2.520</td>
-      <td>R$ 93,72</td>
-      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 31,24</td>
-    </tr><tr>
-      <td><span style="color:#E8B07B;font-weight:500">D</span></td>
-      <td>4.028</td>
-      <td>97</td>
-      <td><span style="color:#E8B07B;font-weight:500">2,41%</span></td>
-      <td>R$ 2.511</td>
-      <td>R$ 60,46</td>
-      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 20,15</td>
-    </tr><tr>
-      <td><span style="color:#E09A7B;font-weight:500">E</span></td>
-      <td>1.811</td>
-      <td>38</td>
-      <td><span style="color:#E8B07B;font-weight:500">2,10%</span></td>
-      <td>R$ 2.568</td>
-      <td>R$ 53,88</td>
-      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 17,96</td>
-    </tr><tr>
-      <td><span style="color:#E07070;font-weight:500">F</span></td>
-      <td>1.369</td>
-      <td>16</td>
-      <td><span style="color:#E8B07B;font-weight:500">1,17%</span></td>
-      <td>R$ 2.210</td>
-      <td>R$ 25,83</td>
-      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 8,61</td>
-    </tr></tbody>
-    </table>
-    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Leitura:</strong> "Valor/Lead" é quanto cada lead daquela faixa gera em média de receita FDS. "CPL Máx" é o teto pra capturar 1 lead daquela faixa mantendo ROAS 3.</div>
-    
-    <p class="rt-sec" style="margin-top:32px">Observações importantes — Base histórica</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      <div style="background:#131313;border:.5px solid rgba(232,176,123,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
-        <div style="color:#E8B07B;font-weight:500;margin-bottom:6px">⚠ Compradores sem match</div>
-        31,1% dos compradores não foram encontrados na base scorada — esses ficaram fora dos cálculos por não terem faixa atribuída.
-      </div>
-      <div style="background:#131313;border:.5px solid rgba(232,176,123,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
-        <div style="color:#E8B07B;font-weight:500;margin-bottom:6px">⚠ Amostra pequena em F</div>
-        Só 16 compradores em F. Conversão pode ter viés estatístico. Tratar com cautela.
-      </div>
-      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
-        <div style="color:#82D490;font-weight:500;margin-bottom:6px">✓ Ticket praticamente uniforme</div>
-        Todas as faixas têm TM entre R$ 2.210 e R$ 2.642. LeadScore separa por <strong>probabilidade de comprar</strong>, não por quanto gasta.
-      </div>
-      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
-        <div style="color:#82D490;font-weight:500;margin-bottom:6px">✓ LeadScore validado</div>
-        Faixa A converte 5,94% vs F 1,17% — <strong>5,1x</strong> mais. O scoring está separando as camadas corretamente.
-      </div>
-    </div>
-    
-    <div style="border-top:1px solid rgba(201,168,76,.2);margin-top:48px;padding-top:32px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
-        <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">2ª Camada de Análise</span>
-        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
-      </div>
-      <h3 style="font-size:22px;color:#F2EFE8;font-family:'DM Serif Display',serif;margin-bottom:12px">Análise específica — Leads do Meta Ads</h3>
-      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">A 1ª camada usa a <strong style="color:#F2EFE8">base histórica consolidada</strong> (compradores de qualquer canal). Esta 2ª camada isola apenas os <strong style="color:#F2EFE8">leads do Meta que possuem LeadScore</strong> — os que responderam ao quiz e receberam faixa (marcados por <code style="color:#C9A84C">origem_meta</code> na base scorada). São <strong style="color:#F2EFE8">4.611 leads Meta com faixa</strong>, contra os 709 respondentes da estimativa anterior — 6,5× mais base, e sem o viés de auto-seleção que inflava a conversão.</p>
-
-      <div class="rt-grid rt-grid-3" style="margin-bottom:20px">
-        <div class="rt-card"><div class="rt-lbl">Leads Meta scorados</div><div class="rt-val">4.611</div><div class="rt-sub">com faixa (responderam quiz)</div></div>
-        <div class="rt-card"><div class="rt-lbl">Compradores Meta FDS</div><div class="rt-val gold">40</div><div class="rt-sub">cruzados nas 3 plataformas</div></div>
-        <div class="rt-card"><div class="rt-lbl">Conversão (scorados)</div><div class="rt-val">0,87%</div><div class="rt-sub">vs 3,49% da base interna</div></div>
-      </div>
-
-      <p class="rt-sec" style="margin-top:24px">Conversão real do Meta — por faixa do LeadScore</p>
-      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Mesmas colunas da 1ª camada. Base = 4.611 leads Meta scorados. Conversão = compradores Meta da faixa ÷ leads Meta da faixa. TM = faturamento ÷ compradores.</p>
-      <table class="rt-table" style="font-size:12px">
-        <thead><tr><th>Faixa</th><th>Leads</th><th>Repr.</th><th>Compradores</th><th>Conversão</th><th>Ticket Médio</th><th>Valor/Lead</th><th style="color:#C9A84C">CPL Máx (ROAS 3)</th></tr></thead>
-        <tbody>
-        <tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>118</td><td>2,6%</td><td>2</td><td><span style="color:#E8B07B;font-weight:500">1,69%</span></td><td>R$ 1.629</td><td>R$ 27,60</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 9,20</td></tr>
-        <tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>1.085</td><td>23,5%</td><td>13</td><td><span style="color:#E8B07B;font-weight:500">1,20%</span></td><td>R$ 2.071</td><td>R$ 24,81</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 8,27</td></tr>
-        <tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>1.170</td><td>25,4%</td><td>11</td><td><span style="color:#E8B07B;font-weight:500">0,94%</span></td><td>R$ 1.309</td><td>R$ 12,31</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 4,10</td></tr>
-        <tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>1.077</td><td>23,4%</td><td>8</td><td><span style="color:#E8B07B;font-weight:500">0,74%</span></td><td>R$ 1.802</td><td>R$ 13,38</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 4,46</td></tr>
-        <tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>538</td><td>11,7%</td><td>4</td><td><span style="color:#E8B07B;font-weight:500">0,74%</span></td><td>R$ 1.785</td><td>R$ 13,27</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 4,42</td></tr>
-        <tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>623</td><td>13,5%</td><td>2</td><td><span style="color:#E8B07B;font-weight:500">0,32%</span></td><td>R$ 768</td><td>R$ 2,46</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 0,82</td></tr>
-        <tr class="rt-total"><td>Total</td><td>4.611</td><td>100,0%</td><td>40</td><td>0,87%</td><td>R$ 1.692</td><td>R$ 14,68</td><td style="color:#C9A84C">R$ 4,89</td></tr>
-        </tbody>
-      </table>
-      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Cautela estatística:</strong> por faixa, a amostra de compradores é pequena (2 a 13 pessoas), então cada linha isolada é ruído. O número robusto pra operar é o <strong style="color:#F2EFE8">agregado (R$ 4,89)</strong>, não o CPL faixa a faixa.</div>
-
-      <p class="rt-sec" style="margin-top:32px">Os dois CPLs — scorado vs bruto (ponto do Hugo)</p>
-      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">O CPL da tabela acima é o teto por lead <strong style="color:#F2EFE8">scorado</strong> (que respondeu a pesquisa, converte ~0,87%). Mas no Meta você paga por lead <strong style="color:#F2EFE8">bruto</strong> captado — e o lead que <strong style="color:#F2EFE8">não</strong> responde ainda compra, só que numa taxa bem menor: <strong style="color:#F2EFE8">0,21%</strong> (observado no W2, tráfego sem score e sem otimização de evento A/B/C). O valor de um lead bruto é a mistura dos dois grupos:</p>
-      <div style="background:#131313;border:.5px solid rgba(201,168,76,.25);border-radius:12px;padding:18px 22px;margin-bottom:16px">
-        <div style="font-size:14px;color:#C9A84C;font-family:'DM Serif Display',serif;text-align:center;margin-bottom:6px">Valor/lead bruto = Ticket × [ resposta × 0,87% + (1 − resposta) × 0,21% ]</div>
-        <div style="font-size:12px;color:#A4A09C;text-align:center;line-height:1.6">CPL bruto máx = valor/lead ÷ 3. A 60% de resposta: <strong style="color:#82D490">R$ 3,41</strong> por lead bruto.<br>Como o lead sem score também converte, existe um <strong style="color:#F2EFE8">piso</strong>: mesmo com resposta baixíssima o valor/lead não cai abaixo de ~R$ 3,55 (CPL ~R$ 1,18). O teto, esse sim, vem da taxa de resposta.</div>
-      </div>
-      <p style="font-size:12px;color:#D4D0CA;margin-bottom:8px">Sensibilidade do CPL bruto por taxa de resposta (agregado, ROAS 3):</p>
-      <table class="rt-table" style="font-size:12px;max-width:520px">
-        <thead><tr><th>Taxa de resposta</th><th style="color:#C9A84C">CPL bruto máx</th><th style="color:#A4A09C">se sem-score valesse 0</th></tr></thead>
-        <tbody>
-        <tr><td>15% <span style="color:#A4A09C">(observado na C01)</span></td><td>R$ 1,74</td><td style="color:#A4A09C">R$ 0,73</td></tr>
-        <tr><td>30%</td><td>R$ 2,30</td><td style="color:#A4A09C">R$ 1,47</td></tr>
-        <tr><td>45%</td><td>R$ 2,85</td><td style="color:#A4A09C">R$ 2,20</td></tr>
-        <tr class="rt-total"><td>60% (premissa W3)</td><td style="color:#82D490">R$ 3,41</td><td style="color:#A4A09C">R$ 2,94</td></tr>
-        <tr><td>75%</td><td>R$ 3,97</td><td style="color:#A4A09C">R$ 3,67</td></tr>
-        </tbody>
-      </table>
-      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6;background:rgba(201,168,76,.05);border-left:2px solid #C9A84C;margin-top:8px"><strong style="color:#D4D0CA">Leitura:</strong> a coluna cinza é o modelo antigo, que assumia lead sem score = zero venda. Incluindo a conversão real de 0,21% dos não-respondentes, o CPL bruto sobe e ganha piso — o cenário de resposta baixa é menos catastrófico. Ainda assim, subir a taxa de resposta é a alavanca que mais move o CPL tolerável. <em>(Ticket de R$ 1.692 aplicado aos dois grupos; refinar quando houver ticket separado dos compradores sem score.)</em></div>
-
-      <p class="rt-sec" style="margin-top:32px">Comparativo — base interna vs lead Meta</p>
-      <table class="rt-table" style="font-size:12px">
-        <thead><tr><th>Faixa</th><th>Conv. Interno</th><th>Conv. Meta</th><th>Diferença</th><th>CPL Máx Interno</th><th>CPL Máx Meta</th></tr></thead>
-        <tbody>
-        <tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>5,94%</td><td>1,69%</td><td><span style="color:#E07070">-71,5%</span></td><td>R$ 52,31</td><td>R$ 9,20</td></tr>
-        <tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>4,33%</td><td>1,20%</td><td><span style="color:#E07070">-72,3%</span></td><td>R$ 36,71</td><td>R$ 8,27</td></tr>
-        <tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>3,72%</td><td>0,94%</td><td><span style="color:#E07070">-74,7%</span></td><td>R$ 31,24</td><td>R$ 4,10</td></tr>
-        <tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>2,41%</td><td>0,74%</td><td><span style="color:#E07070">-69,3%</span></td><td>R$ 20,15</td><td>R$ 4,46</td></tr>
-        <tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>2,10%</td><td>0,74%</td><td><span style="color:#E07070">-64,8%</span></td><td>R$ 17,96</td><td>R$ 4,42</td></tr>
-        <tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>1,17%</td><td>0,32%</td><td><span style="color:#E07070">-72,6%</span></td><td>R$ 8,61</td><td>R$ 0,82</td></tr>
-        </tbody>
-      </table>
-      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Leitura:</strong> olhando toda a base de leads Meta scorados (não só os respondentes engajados), o Meta converte ~1/3 da base interna em todas as faixas, e com ticket menor. A estimativa anterior (4-5%) media só quem se autoselecionou — por isso parecia próxima do interno.</div>
-
-      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:12px;padding:20px 24px;margin-top:24px">
-        <div style="font-size:13px;color:#82D490;font-weight:500;margin-bottom:8px">💡 Insight estratégico</div>
-        <div style="font-size:13px;color:#D4D0CA;line-height:1.7">
-          Com a base completa de leads Meta scorados, o lead frio do Meta converte perto de <strong style="color:#F2EFE8">1/3 da base interna</strong> — a leitura otimista anterior vinha do viés de auto-seleção da pesquisa. A alavanca do W3 não é "o lead Meta é bom", é <strong style="color:#F2EFE8">a taxa de resposta da pesquisa</strong>, que define diretamente o CPL bruto que você pode pagar.
-          <ul style="margin:8px 0 0 18px;color:#D4D0CA">
-            <li>Meta operacional: CPL bruto ≤ <strong style="color:#82D490">R$ 3,41</strong> a 60% de resposta (com piso ~R$ 1,18 do lead sem score) — validar a taxa real antes de escalar</li>
-            <li>Elevar a taxa de resposta é o que mais move o CPL tolerável (ver sensibilidade)</li>
-            <li>Pixel disparando "Lead" apenas para faixas A, B, C — pra Meta otimizar audiência</li>
-            <li>Após o W3, recalibrar com os CPLs reais por faixa do Meta</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div style="border-top:1px solid rgba(201,168,76,.2);margin-top:48px;padding-top:32px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
-        <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">Meta de Captação — W3</span>
-        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
-      </div>
-      <h3 style="font-size:22px;color:#F2EFE8;font-family:'DM Serif Display',serif;margin-bottom:12px">Cenários de captação — orçamento R$ 30k</h3>
-      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">O modelo encadeia: <strong style="color:#F2EFE8">orçamento ÷ CPL = leads</strong> → leads distribuídos entre scorados (que respondem a pesquisa) e sem-score → cada grupo converte na sua taxa (0,87% e 0,21%) → × ticket de R$ 1.692 = faturamento. Os dois botões que movem tudo são o <strong style="color:#F2EFE8">CPL</strong> (quantos leads o orçamento compra) e a <strong style="color:#F2EFE8">taxa de resposta</strong> (quanto da base cai no grupo que converte melhor).</p>
-
-      <div class="rt-grid rt-grid-3" style="margin-bottom:20px">
-        <div class="rt-card"><div class="rt-lbl">Pessimista</div><div class="rt-val red">R$ 22,4k</div><div class="rt-sub">~4.286 leads · ROAS 0,75</div></div>
-        <div class="rt-card"><div class="rt-lbl">Realista</div><div class="rt-val gold">R$ 49,6k</div><div class="rt-sub">~6.667 leads · ROAS 1,65</div></div>
-        <div class="rt-card"><div class="rt-lbl">Otimista</div><div class="rt-val" style="color:#82D490">R$ 102,2k</div><div class="rt-sub">~10.000 leads · ROAS 3,41</div></div>
-      </div>
-
-      <table class="rt-table" style="font-size:12px">
-        <thead><tr><th>Cenário</th><th>CPL bruto</th><th>Resposta</th><th>Leads</th><th>Conv. média</th><th>Compradores</th><th>Faturamento</th><th style="color:#C9A84C">ROAS</th></tr></thead>
-        <tbody>
-        <tr><td><span style="color:#E07070;font-weight:500">Pessimista</span></td><td>R$ 7,00</td><td>15%</td><td>4.286</td><td>0,31%</td><td>13</td><td>R$ 22.374</td><td style="background:rgba(224,112,112,.08);color:#E07070;font-weight:500">0,75</td></tr>
-        <tr><td><span style="color:#E8C97B;font-weight:500">Realista</span></td><td>R$ 4,50</td><td>35%</td><td>6.667</td><td>0,44%</td><td>29</td><td>R$ 49.626</td><td style="background:rgba(232,201,123,.08);color:#E8C97B;font-weight:500">1,65</td></tr>
-        <tr><td><span style="color:#82D490;font-weight:500">Otimista</span></td><td>R$ 3,00</td><td>60%</td><td>10.000</td><td>0,60%</td><td>60</td><td>R$ 102.231</td><td style="background:rgba(130,212,144,.1);color:#82D490;font-weight:500">3,41</td></tr>
-        </tbody>
-      </table>
-      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Gasto fixo em R$ 30k nos três.</strong> O que muda é a eficiência: CPL define o volume de leads e a resposta define quantos caem no grupo que converte 4× mais. Faturamento inclui backend (ticket = valor pago médio, R$ 1.692).</div>
-
-      <p class="rt-sec" style="margin-top:32px">Por que só o otimista bate ROAS 3</p>
-      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:12px">Cruzando com o CPL máximo tolerável de cada nível de resposta: no otimista, o CPL de R$ 3,00 fica <strong style="color:#82D490">abaixo</strong> do teto (R$ 3,41 a 60%), então o ROAS passa de 3. No realista, o CPL de R$ 4,50 está <strong style="color:#E07070">acima</strong> do teto daquele nível de resposta (R$ 2,48 a 35%), por isso o ROAS fica em 1,65.</p>
-      <table class="rt-table" style="font-size:12px;max-width:520px">
-        <thead><tr><th>Resposta</th><th style="color:#C9A84C">CPL máx p/ ROAS 3</th><th>CPL do cenário</th></tr></thead>
-        <tbody>
-        <tr><td>15% (pessimista)</td><td>R$ 1,74</td><td><span style="color:#E07070">R$ 7,00</span></td></tr>
-        <tr><td>35% (realista)</td><td>R$ 2,48</td><td><span style="color:#E07070">R$ 4,50</span></td></tr>
-        <tr><td>60% (otimista)</td><td>R$ 3,41</td><td><span style="color:#82D490">R$ 3,00</span></td></tr>
-        </tbody>
-      </table>
-
-      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:12px;padding:20px 24px;margin-top:24px">
-        <div style="font-size:13px;color:#82D490;font-weight:500;margin-bottom:8px">🎯 Meta de captação sugerida</div>
-        <div style="font-size:13px;color:#D4D0CA;line-height:1.7">
-          Trabalhar o cenário realista como base de planejamento: <strong style="color:#F2EFE8">~6.700 leads</strong> com R$ 30k, mirando <strong style="color:#F2EFE8">~29 vendas</strong> e <strong style="color:#F2EFE8">R$ 49,6k</strong> de faturamento. Para chegar ao otimista (ROAS 3+), as duas frentes são:
-          <ul style="margin:8px 0 0 18px;color:#D4D0CA">
-            <li>Baixar o CPL de captação pra faixa de R$ 3 (criativo + otimização de evento pras faixas A/B/C)</li>
-            <li>Subir a taxa de resposta da pesquisa de ~15% pra 60% (incentivo, copy, recall) — é o que mais move o resultado</li>
-            <li>Sem mexer nessas duas, o R$ 30k tende a rodar entre ROAS 0,75 e 1,65 — abaixo do ROAS 3</li>
-          </ul>
-        </div>
-      </div>
-      <div style="font-size:11px;color:#E07070;padding:8px 14px;line-height:1.6;background:rgba(224,112,112,.05);border-left:2px solid #E07070;margin-top:12px"><strong>⚠ Premissas a validar:</strong> os CPLs (R$ 7 / 4,50 / 3) são estimativas — assim que houver o CPL real das campanhas Meta, recentro o cenário realista nele. Conversões (0,87% / 0,21%) e ticket (R$ 1.692) vêm da análise acima.</div>
-    </div>
-
   </div>
 </div>
-
-<script>
-(function(){
-  function goSubW3(id){
-    document.querySelectorAll('#projw3-page .rt-subtab').forEach(b=>b.classList.toggle('active', b.dataset.sub===id));
-    document.querySelectorAll('#projw3-page .rt-subview').forEach(v=>v.classList.toggle('active', v.id==='rt-'+id));
-  }
-  window.goSubW3 = goSubW3;
-})();
-</script>
 </div>
+
 <div id="tc-s" class="tc">
   <div id="sp">
     <div style="margin-bottom:40px">
@@ -2596,11 +2320,332 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
     <div class="rt-card win"><div class="rt-lbl">Conversão geral</div><div class="rt-val">5,78%</div><div class="rt-sub">434 compradores únicos</div></div>
   </div>
   <div class="rt-subtabs">
+    <button class="rt-subtab" data-sub="rw3projint" onclick="goSubRW3('rw3projint')">📋 Projeção · Canais Internos</button>
+    <button class="rt-subtab" data-sub="rw3projtraf" onclick="goSubRW3('rw3projtraf')">📋 Projeção · Tráfego Pago</button>
     <button class="rt-subtab active" data-sub="rw3geral" onclick="goSubRW3('rw3geral')">📊 Resultado Geral</button>
     <button class="rt-subtab" data-sub="rw3interno" onclick="goSubRW3('rw3interno')">👥 Resultado Interno</button>
     <button class="rt-subtab" data-sub="rw3card" onclick="goSubRW3('rw3card')">💳 Interno · Cartão+PIX</button>
     <button class="rt-subtab" data-sub="rw3tmb" onclick="goSubRW3('rw3tmb')">📄 Interno · Boleto</button>
     <button class="rt-subtab" data-sub="rw3trafego" onclick="goSubRW3('rw3trafego')">🎯 Resultado Tráfego Pago</button>
+  </div>
+  <div class="rt-subview" id="rt-rw3projint">
+    <div style="background:#131313;border:.5px solid rgba(201,168,76,.25);border-radius:12px;padding:12px 16px;margin-bottom:18px"><span style="font-size:11px;color:#C9A84C;font-weight:500;letter-spacing:.06em;text-transform:uppercase">📋 Projeção pré-lançamento · Canais Internos</span><div style="font-size:12px;color:#A4A09C;margin-top:4px">O que foi projetado antes do W3 rodar (histórico). Compare com o realizado nas abas de Resultado.</div></div>
+    <p class="rt-sec">Premissas — Volume de base × % de captação</p>
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Partindo da base disponível por cluster, aplicamos uma <strong style="color:#F2EFE8">% de captação melhorada</strong> sobre cada cluster — calibrada a partir de W1 e W2 com espaço de melhoria. <strong style="color:#82D490">Aquisição voltou a melhorar e ampliou o universo do cluster 7D.</strong></p>
+    <table class="rt-table" style="max-width:680px">
+      <thead><tr><th>Cluster</th><th>Base disponível</th><th>% captação</th><th>Leads projetados</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>1.925</td><td>0,70%</td><td><strong style="color:#82D490">1.348</strong></td></tr><tr><td>Aluno 14D</td><td>770</td><td>0,75%</td><td><strong style="color:#82D490">578</strong></td></tr><tr><td>Aluno 30D</td><td>1.826</td><td>0,55%</td><td><strong style="color:#82D490">1.004</strong></td></tr><tr><td>Aluno Antigo</td><td>17.886</td><td>0,21%</td><td><strong style="color:#82D490">3.756</strong></td></tr><tr><td>NA</td><td>20.000</td><td>0,11%</td><td><strong style="color:#82D490">2.200</strong></td></tr><tr class="rt-total"><td>Total</td><td>42.407</td><td>—</td><td>8.886</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Distribuição dos leads — por cluster × canal</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#82D490">Total</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>594</td><td>31</td><td>177</td><td>77</td><td>469</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">1.348</td></tr><tr><td>Aluno 14D</td><td>189</td><td>29</td><td>159</td><td>49</td><td>151</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">577</td></tr><tr><td>Aluno 30D</td><td>89</td><td>91</td><td>368</td><td>204</td><td>252</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">1.004</td></tr><tr><td>Aluno Antigo</td><td>272</td><td>434</td><td>1.199</td><td>1.468</td><td>384</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">3.757</td></tr><tr><td>NA</td><td>28</td><td>277</td><td>1.201</td><td>595</td><td>98</td><td style="background:rgba(130,212,144,.08);color:#82D490;font-weight:500">2.199</td></tr><tr class="rt-total"><td>Total</td><td>1.172</td><td>862</td><td>3.104</td><td>2.393</td><td>1.354</td><td>8.885</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Conversões projetadas — por cluster × canal</p>
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px"><strong style="color:#82D490">7D e 14D: +10%</strong> sobre média W1+W2 (espaço de melhoria). <strong style="color:#E07070">30D, Antigos e NA: −50%</strong> (já estressados, conversão tende a cair).</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total cluster</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td><span style="color:#E8B07B">2,85%</span></td><td><span style="color:#E8B07B">2,89%</span></td><td><span style="color:#82D490">8,68%</span></td><td><span style="color:#E8C97B">3,42%</span></td><td><span style="color:#E8B07B">2,90%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">4,15%</td></tr><tr><td>Aluno 14D</td><td><span style="color:#82D490">5,17%</span></td><td><span style="color:#82D490">8,05%</span></td><td><span style="color:#82D490">8,36%</span></td><td><span style="color:#E8B07B">2,62%</span></td><td><span style="color:#E8C97B">4,87%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">5,81%</td></tr><tr><td>Aluno 30D</td><td><span style="color:#82D490">5,62%</span></td><td><span style="color:#82D490">6,17%</span></td><td><span style="color:#82D490">5,70%</span></td><td><span style="color:#E8C97B">3,58%</span></td><td><span style="color:#E8C97B">4,29%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">5,07%</td></tr><tr><td>Aluno Antigo</td><td><span style="color:#E8B07B">0,97%</span></td><td><span style="color:#E8B07B">1,28%</span></td><td><span style="color:#E8B07B">2,01%</span></td><td><span style="color:#E8B07B">1,29%</span></td><td><span style="color:#E8B07B">1,93%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">1,50%</td></tr><tr><td>NA</td><td><span style="color:#A4A09C">0,00%</span></td><td><span style="color:#E8B07B">0,84%</span></td><td><span style="color:#E8B07B">1,00%</span></td><td><span style="color:#E8B07B">0,52%</span></td><td><span style="color:#E8B07B">0,87%</span></td><td style="background:rgba(201,168,76,.06);color:#C9A84C;font-weight:500">0,65%</td></tr><tr class="rt-total"><td>Conv. Total</td><td colspan="5" style="text-align:center;color:#A4A09C;font-size:11px">conversão geral por canal aplicada sobre os leads</td><td>2,37%</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Compradores projetados — por cluster × canal</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>17</td><td>1</td><td>15</td><td>3</td><td>14</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">50</td></tr><tr><td>Aluno 14D</td><td>10</td><td>2</td><td>13</td><td>1</td><td>7</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">33</td></tr><tr><td>Aluno 30D</td><td>5</td><td>6</td><td>21</td><td>7</td><td>11</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">50</td></tr><tr><td>Aluno Antigo</td><td>3</td><td>6</td><td>24</td><td>19</td><td>7</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">59</td></tr><tr><td>NA</td><td>0</td><td>2</td><td>12</td><td>3</td><td>1</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">18</td></tr><tr class="rt-total"><td>Total</td><td>35</td><td>17</td><td>85</td><td>33</td><td>40</td><td>210</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Faturamento projetado — por cluster × canal</p>
+    <table class="rt-table" style="font-size:11px">
+      <thead><tr><th>Cluster</th><th>yay-form</th><th>email</th><th>whatsapp</th><th>awsales</th><th>área-membros</th><th style="color:#C9A84C">Total</th></tr></thead>
+      <tbody><tr><td>Aluno 7D</td><td>R$ 42.165</td><td>R$ 2.221</td><td>R$ 31.907</td><td>R$ 7.633</td><td>R$ 33.895</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 117.821</td></tr><tr><td>Aluno 14D</td><td>R$ 23.481</td><td>R$ 5.366</td><td>R$ 29.294</td><td>R$ 3.041</td><td>R$ 14.499</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 75.681</td></tr><tr><td>Aluno 30D</td><td>R$ 10.351</td><td>R$ 14.307</td><td>R$ 42.267</td><td>R$ 14.780</td><td>R$ 27.255</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 108.959</td></tr><tr><td>Aluno Antigo</td><td>R$ 2.739</td><td>R$ 8.829</td><td>R$ 48.206</td><td>R$ 34.082</td><td>R$ 14.377</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 108.233</td></tr><tr><td>NA</td><td>R$ 0</td><td>R$ 2.652</td><td>R$ 15.497</td><td>R$ 2.167</td><td>R$ 1.388</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 21.704</td></tr><tr class="rt-total"><td>Total</td><td>R$ 78.736</td><td>R$ 33.376</td><td>R$ 167.171</td><td>R$ 61.703</td><td>R$ 91.413</td><td>R$ 432.399,19</td></tr></tbody>
+    </table>
+
+    <p class="rt-sec" style="margin-top:32px">Resultado projetado — Margem em contribuição</p>
+    <div class="rt-finblock" style="max-width:580px">
+      <div class="rt-finrow head"><div>Item</div><div>Valor</div></div>
+      <div class="rt-finrow"><div>Faturamento bruto</div><div>R$ 432.721,25</div></div>
+      <div class="rt-finrow custo"><div>(−) Taxas plataforma (12%)</div><div>R$ 51.926,55</div></div>
+      <div class="rt-finrow custo"><div>(−) Disparos + AwSales</div><div>R$ 30.000,00</div></div>
+      <div class="rt-finrow custo"><div>(−) SMS Flash + Ligação</div><div>R$ 3.500,00</div></div>
+      <div class="rt-finrow total"><div>Resultado em margem</div><div>R$ 347.294,70</div></div>
+      <div class="rt-finrow custo"><div>(−) Imposto 11%</div><div>R$ 47.599,34</div></div>
+      <div class="rt-finrow margem"><div>Resultado real</div><div>R$ 299.695,36</div></div>
+    </div>
+
+    <div class="rt-grid rt-grid-3" style="margin-top:24px">
+      <div class="rt-card"><div class="rt-lbl">Leads projetados</div><div class="rt-val gold">8.886</div><div class="rt-sub">só canais internos</div></div>
+      <div class="rt-card"><div class="rt-lbl">Compradores projetados</div><div class="rt-val gold">210</div><div class="rt-sub">conversão geral 2,37%</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Margem em contribuição</div><div class="rt-val green">R$ 299.695</div><div class="rt-sub">após impostos e custos</div></div>
+    </div>
+  </div>
+  <div class="rt-subview" id="rt-rw3projtraf">
+    <div style="background:#131313;border:.5px solid rgba(201,168,76,.25);border-radius:12px;padding:12px 16px;margin-bottom:18px"><span style="font-size:11px;color:#C9A84C;font-weight:500;letter-spacing:.06em;text-transform:uppercase">📋 Projeção pré-lançamento · Tráfego Pago</span><div style="font-size:12px;color:#A4A09C;margin-top:4px">O que foi projetado para o Meta antes do W3 rodar (histórico). Compare com o realizado na aba Resultado Tráfego Pago.</div></div>
+
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">Projeção do tráfego pago para o W3 em duas camadas. <strong style="color:#F2EFE8">Primeiro</strong>, a metodologia teórica baseada no histórico consolidado — usando a <strong style="color:#F2EFE8">nova base scorada</strong> (21.298 leads) para representatividade e volume, cruzada com compradores FDS reais das 3 plataformas. <strong style="color:#F2EFE8">Depois</strong>, a calibração com os dados reais dos leads do Meta na campanha C01.</p>
+    
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+      <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">1ª Camada de Análise</span>
+      <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+    </div>
+    <h3 style="font-size:22px;color:#F2EFE8;font-family:'DM Serif Display',serif;margin-bottom:12px">Cálculo teórico — Base scorada + compradores FDS reais</h3>
+    
+    <div style="background:#131313;border:.5px solid rgba(201,168,76,.15);border-radius:12px;padding:20px 24px;margin-bottom:20px">
+      <div style="font-size:13px;color:#C9A84C;font-weight:500;margin-bottom:12px">📂 Passo 1 — Bases utilizadas</div>
+      <table style="width:100%;font-size:12px;color:#D4D0CA;border-collapse:collapse">
+        <thead><tr style="border-bottom:.5px solid rgba(255,255,255,.1)"><th style="text-align:left;padding:6px 0;color:#A4A09C;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Arquivo</th><th style="text-align:right;padding:6px 0;color:#A4A09C;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Registros</th><th style="text-align:left;padding:6px 0 6px 16px;color:#A4A09C;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.05em">O que tem</th></tr></thead>
+        <tbody>
+          <tr style="border-bottom:.5px solid rgba(255,255,255,.05)"><td style="padding:8px 0">Base scorada consolidada</td><td style="text-align:right;color:#C9A84C">21.298</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Leads com FAIXA (A-F) do LeadScore refinado</td></tr>
+          <tr style="border-bottom:.5px solid rgba(255,255,255,.05)"><td style="padding:8px 0">Compradores Assiny FDS</td><td style="text-align:right;color:#C9A84C">641</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Transações pagas (status = paid)</td></tr>
+          <tr style="border-bottom:.5px solid rgba(255,255,255,.05)"><td style="padding:8px 0">Compradores Hotmart FDS</td><td style="text-align:right;color:#C9A84C">71</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Aprovado + Completo (transações únicas)</td></tr>
+          <tr><td style="padding:8px 0">Compradores TMB FDS</td><td style="text-align:right;color:#C9A84C">394</td><td style="padding:8px 0 8px 16px;color:#A4A09C">Pedidos únicos (parcela 0, recebido)</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#A4A09C;margin-top:12px;line-height:1.7"><strong style="color:#D4D0CA">Chave de cruzamento:</strong> email do cliente. A representatividade e volume de leads vêm da <strong style="color:#D4D0CA">base scorada</strong> (21.298 leads). Os compradores e faturamento vêm exclusivamente das transações FDS reais das 3 plataformas — cruzando email pra descobrir a faixa. <strong style="color:#D4D0CA">Total: 1.106 compradores FDS reais.</strong></div>
+    </div>
+    
+    <p class="rt-sec" style="margin-top:32px">Passo 2 — Representatividade de cada faixa</p>
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Distribuição dos 21.298 leads scorados da base consolidada. <strong style="color:#F2EFE8">Esse é o universo real de leads</strong> que compõem o funil de captação.</p>
+    <table class="rt-table" style="max-width:520px">
+      <thead><tr><th>Faixa</th><th>Leads</th><th>% Representatividade</th></tr></thead>
+      <tbody><tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>2.155</td><td>10,1%</td></tr><tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>6.422</td><td>30,2%</td></tr><tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>5.513</td><td>25,9%</td></tr><tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>4.028</td><td>18,9%</td></tr><tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>1.811</td><td>8,5%</td></tr><tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>1.369</td><td>6,4%</td></tr><tr class="rt-total"><td>Total</td><td>21.298</td><td>100,0%</td></tr></tbody>
+    </table>
+    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6">A cada 100 leads captados, na média <strong style="color:#D4D0CA">10 são A · 30 são B · 26 são C</strong> e o restante distribuído entre D, E e F.</div>
+    
+    <p class="rt-sec" style="margin-top:32px">Passo 3 — Cruzamento compradores FDS com faixa</p>
+    <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Cada comprador FDS das 3 plataformas teve seu email buscado na base scorada pra recuperar a faixa de LeadScore. <strong style="color:#F2EFE8">Compradores sem match na base scorada ficaram fora dos cálculos seguintes</strong>.</p>
+    <table class="rt-table" style="max-width:560px">
+      <thead><tr><th>Faixa</th><th>Compradores</th><th>%</th><th>Faturamento</th></tr></thead>
+      <tbody><tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>128</td><td>11,6%</td><td>R$ 338.173</td></tr><tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>278</td><td>25,1%</td><td>R$ 707.216</td></tr><tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>205</td><td>18,5%</td><td>R$ 516.684</td></tr><tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>97</td><td>8,8%</td><td>R$ 243.549</td></tr><tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>38</td><td>3,4%</td><td>R$ 97.585</td></tr><tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>16</td><td>1,4%</td><td>R$ 35.364</td></tr><tr><td><span style="color:#A4A09C;font-weight:500">Sem pesquisa</span></td><td>344</td><td>31,1%</td><td>R$ 853.390</td></tr><tr class="rt-total"><td>Total</td><td>1106</td><td>100,0%</td><td>R$ 2.791.960</td></tr></tbody>
+    </table>
+    <div style="font-size:11px;color:#E8B07B;padding:8px 14px;line-height:1.6;background:rgba(232,176,123,.05);border-left:2px solid #E8B07B;margin-top:8px"><strong>⚠ Limitação:</strong> 31,1% dos compradores não foram encontrados na base scorada. Cálculo de conversão e CPL usa apenas os 762 compradores com faixa identificada.</div>
+    
+    <p class="rt-sec" style="margin-top:32px">Passos 4 a 7 — Conversão, Ticket Médio, Valor/Lead e CPL Máximo</p>
+    <div style="background:#131313;border:.5px solid rgba(201,168,76,.15);border-radius:12px;padding:20px 24px;margin-bottom:20px">
+      <div style="font-size:13px;color:#C9A84C;font-weight:500;margin-bottom:12px">📐 Fórmulas aplicadas</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:12px;color:#D4D0CA;line-height:1.7">
+        <div style="background:#0A0A0A;border:.5px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px">
+          <div style="color:#A4A09C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Ticket Médio (TM)</div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#F2EFE8">Faturamento ÷ Compradores</div>
+        </div>
+        <div style="background:#0A0A0A;border:.5px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px">
+          <div style="color:#A4A09C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Conversão</div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#F2EFE8">(Compradores ÷ Leads) × 100</div>
+        </div>
+        <div style="background:#0A0A0A;border:.5px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px">
+          <div style="color:#A4A09C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Valor por Lead</div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#F2EFE8">Conversão × Ticket Médio</div>
+        </div>
+        <div style="background:#0A0A0A;border:.5px solid rgba(201,168,76,.2);border-radius:8px;padding:12px 14px">
+          <div style="color:#C9A84C;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">CPL Máximo (ROAS 3)</div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#C9A84C">Valor por Lead ÷ 3</div>
+        </div>
+      </div>
+    </div>
+    <table class="rt-table" style="font-size:12px">
+      <thead><tr><th>Faixa</th><th>Leads</th><th>Compradores</th><th>Conversão</th><th>Ticket Médio</th><th>Valor/Lead</th><th style="color:#C9A84C">CPL Máx (ROAS 3)</th></tr></thead>
+      <tbody><tr>
+      <td><span style="color:#82D490;font-weight:500">A</span></td>
+      <td>2.155</td>
+      <td>128</td>
+      <td><span style="color:#82D490;font-weight:500">5,94%</span></td>
+      <td>R$ 2.642</td>
+      <td>R$ 156,92</td>
+      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 52,31</td>
+    </tr><tr>
+      <td><span style="color:#B0D88A;font-weight:500">B</span></td>
+      <td>6.422</td>
+      <td>278</td>
+      <td><span style="color:#E8C97B;font-weight:500">4,33%</span></td>
+      <td>R$ 2.544</td>
+      <td>R$ 110,12</td>
+      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 36,71</td>
+    </tr><tr>
+      <td><span style="color:#E8C97B;font-weight:500">C</span></td>
+      <td>5.513</td>
+      <td>205</td>
+      <td><span style="color:#E8C97B;font-weight:500">3,72%</span></td>
+      <td>R$ 2.520</td>
+      <td>R$ 93,72</td>
+      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 31,24</td>
+    </tr><tr>
+      <td><span style="color:#E8B07B;font-weight:500">D</span></td>
+      <td>4.028</td>
+      <td>97</td>
+      <td><span style="color:#E8B07B;font-weight:500">2,41%</span></td>
+      <td>R$ 2.511</td>
+      <td>R$ 60,46</td>
+      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 20,15</td>
+    </tr><tr>
+      <td><span style="color:#E09A7B;font-weight:500">E</span></td>
+      <td>1.811</td>
+      <td>38</td>
+      <td><span style="color:#E8B07B;font-weight:500">2,10%</span></td>
+      <td>R$ 2.568</td>
+      <td>R$ 53,88</td>
+      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 17,96</td>
+    </tr><tr>
+      <td><span style="color:#E07070;font-weight:500">F</span></td>
+      <td>1.369</td>
+      <td>16</td>
+      <td><span style="color:#E8B07B;font-weight:500">1,17%</span></td>
+      <td>R$ 2.210</td>
+      <td>R$ 25,83</td>
+      <td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 8,61</td>
+    </tr></tbody>
+    </table>
+    <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Leitura:</strong> "Valor/Lead" é quanto cada lead daquela faixa gera em média de receita FDS. "CPL Máx" é o teto pra capturar 1 lead daquela faixa mantendo ROAS 3.</div>
+    
+    <p class="rt-sec" style="margin-top:32px">Observações importantes — Base histórica</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="background:#131313;border:.5px solid rgba(232,176,123,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
+        <div style="color:#E8B07B;font-weight:500;margin-bottom:6px">⚠ Compradores sem match</div>
+        31,1% dos compradores não foram encontrados na base scorada — esses ficaram fora dos cálculos por não terem faixa atribuída.
+      </div>
+      <div style="background:#131313;border:.5px solid rgba(232,176,123,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
+        <div style="color:#E8B07B;font-weight:500;margin-bottom:6px">⚠ Amostra pequena em F</div>
+        Só 16 compradores em F. Conversão pode ter viés estatístico. Tratar com cautela.
+      </div>
+      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
+        <div style="color:#82D490;font-weight:500;margin-bottom:6px">✓ Ticket praticamente uniforme</div>
+        Todas as faixas têm TM entre R$ 2.210 e R$ 2.642. LeadScore separa por <strong>probabilidade de comprar</strong>, não por quanto gasta.
+      </div>
+      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:10px;padding:16px 18px;font-size:12px;color:#D4D0CA;line-height:1.7">
+        <div style="color:#82D490;font-weight:500;margin-bottom:6px">✓ LeadScore validado</div>
+        Faixa A converte 5,94% vs F 1,17% — <strong>5,1x</strong> mais. O scoring está separando as camadas corretamente.
+      </div>
+    </div>
+    
+    <div style="border-top:1px solid rgba(201,168,76,.2);margin-top:48px;padding-top:32px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+        <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">2ª Camada de Análise</span>
+        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+      </div>
+      <h3 style="font-size:22px;color:#F2EFE8;font-family:'DM Serif Display',serif;margin-bottom:12px">Análise específica — Leads do Meta Ads</h3>
+      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">A 1ª camada usa a <strong style="color:#F2EFE8">base histórica consolidada</strong> (compradores de qualquer canal). Esta 2ª camada isola apenas os <strong style="color:#F2EFE8">leads do Meta que possuem LeadScore</strong> — os que responderam ao quiz e receberam faixa (marcados por <code style="color:#C9A84C">origem_meta</code> na base scorada). São <strong style="color:#F2EFE8">4.611 leads Meta com faixa</strong>, contra os 709 respondentes da estimativa anterior — 6,5× mais base, e sem o viés de auto-seleção que inflava a conversão.</p>
+
+      <div class="rt-grid rt-grid-3" style="margin-bottom:20px">
+        <div class="rt-card"><div class="rt-lbl">Leads Meta scorados</div><div class="rt-val">4.611</div><div class="rt-sub">com faixa (responderam quiz)</div></div>
+        <div class="rt-card"><div class="rt-lbl">Compradores Meta FDS</div><div class="rt-val gold">40</div><div class="rt-sub">cruzados nas 3 plataformas</div></div>
+        <div class="rt-card"><div class="rt-lbl">Conversão (scorados)</div><div class="rt-val">0,87%</div><div class="rt-sub">vs 3,49% da base interna</div></div>
+      </div>
+
+      <p class="rt-sec" style="margin-top:24px">Conversão real do Meta — por faixa do LeadScore</p>
+      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">Mesmas colunas da 1ª camada. Base = 4.611 leads Meta scorados. Conversão = compradores Meta da faixa ÷ leads Meta da faixa. TM = faturamento ÷ compradores.</p>
+      <table class="rt-table" style="font-size:12px">
+        <thead><tr><th>Faixa</th><th>Leads</th><th>Repr.</th><th>Compradores</th><th>Conversão</th><th>Ticket Médio</th><th>Valor/Lead</th><th style="color:#C9A84C">CPL Máx (ROAS 3)</th></tr></thead>
+        <tbody>
+        <tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>118</td><td>2,6%</td><td>2</td><td><span style="color:#E8B07B;font-weight:500">1,69%</span></td><td>R$ 1.629</td><td>R$ 27,60</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 9,20</td></tr>
+        <tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>1.085</td><td>23,5%</td><td>13</td><td><span style="color:#E8B07B;font-weight:500">1,20%</span></td><td>R$ 2.071</td><td>R$ 24,81</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 8,27</td></tr>
+        <tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>1.170</td><td>25,4%</td><td>11</td><td><span style="color:#E8B07B;font-weight:500">0,94%</span></td><td>R$ 1.309</td><td>R$ 12,31</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 4,10</td></tr>
+        <tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>1.077</td><td>23,4%</td><td>8</td><td><span style="color:#E8B07B;font-weight:500">0,74%</span></td><td>R$ 1.802</td><td>R$ 13,38</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 4,46</td></tr>
+        <tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>538</td><td>11,7%</td><td>4</td><td><span style="color:#E8B07B;font-weight:500">0,74%</span></td><td>R$ 1.785</td><td>R$ 13,27</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 4,42</td></tr>
+        <tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>623</td><td>13,5%</td><td>2</td><td><span style="color:#E8B07B;font-weight:500">0,32%</span></td><td>R$ 768</td><td>R$ 2,46</td><td style="background:rgba(201,168,76,.08);color:#C9A84C;font-weight:500">R$ 0,82</td></tr>
+        <tr class="rt-total"><td>Total</td><td>4.611</td><td>100,0%</td><td>40</td><td>0,87%</td><td>R$ 1.692</td><td>R$ 14,68</td><td style="color:#C9A84C">R$ 4,89</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Cautela estatística:</strong> por faixa, a amostra de compradores é pequena (2 a 13 pessoas), então cada linha isolada é ruído. O número robusto pra operar é o <strong style="color:#F2EFE8">agregado (R$ 4,89)</strong>, não o CPL faixa a faixa.</div>
+
+      <p class="rt-sec" style="margin-top:32px">Os dois CPLs — scorado vs bruto (ponto do Hugo)</p>
+      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:16px">O CPL da tabela acima é o teto por lead <strong style="color:#F2EFE8">scorado</strong> (que respondeu a pesquisa, converte ~0,87%). Mas no Meta você paga por lead <strong style="color:#F2EFE8">bruto</strong> captado — e o lead que <strong style="color:#F2EFE8">não</strong> responde ainda compra, só que numa taxa bem menor: <strong style="color:#F2EFE8">0,21%</strong> (observado no W2, tráfego sem score e sem otimização de evento A/B/C). O valor de um lead bruto é a mistura dos dois grupos:</p>
+      <div style="background:#131313;border:.5px solid rgba(201,168,76,.25);border-radius:12px;padding:18px 22px;margin-bottom:16px">
+        <div style="font-size:14px;color:#C9A84C;font-family:'DM Serif Display',serif;text-align:center;margin-bottom:6px">Valor/lead bruto = Ticket × [ resposta × 0,87% + (1 − resposta) × 0,21% ]</div>
+        <div style="font-size:12px;color:#A4A09C;text-align:center;line-height:1.6">CPL bruto máx = valor/lead ÷ 3. A 60% de resposta: <strong style="color:#82D490">R$ 3,41</strong> por lead bruto.<br>Como o lead sem score também converte, existe um <strong style="color:#F2EFE8">piso</strong>: mesmo com resposta baixíssima o valor/lead não cai abaixo de ~R$ 3,55 (CPL ~R$ 1,18). O teto, esse sim, vem da taxa de resposta.</div>
+      </div>
+      <p style="font-size:12px;color:#D4D0CA;margin-bottom:8px">Sensibilidade do CPL bruto por taxa de resposta (agregado, ROAS 3):</p>
+      <table class="rt-table" style="font-size:12px;max-width:520px">
+        <thead><tr><th>Taxa de resposta</th><th style="color:#C9A84C">CPL bruto máx</th><th style="color:#A4A09C">se sem-score valesse 0</th></tr></thead>
+        <tbody>
+        <tr><td>15% <span style="color:#A4A09C">(observado na C01)</span></td><td>R$ 1,74</td><td style="color:#A4A09C">R$ 0,73</td></tr>
+        <tr><td>30%</td><td>R$ 2,30</td><td style="color:#A4A09C">R$ 1,47</td></tr>
+        <tr><td>45%</td><td>R$ 2,85</td><td style="color:#A4A09C">R$ 2,20</td></tr>
+        <tr class="rt-total"><td>60% (premissa W3)</td><td style="color:#82D490">R$ 3,41</td><td style="color:#A4A09C">R$ 2,94</td></tr>
+        <tr><td>75%</td><td>R$ 3,97</td><td style="color:#A4A09C">R$ 3,67</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6;background:rgba(201,168,76,.05);border-left:2px solid #C9A84C;margin-top:8px"><strong style="color:#D4D0CA">Leitura:</strong> a coluna cinza é o modelo antigo, que assumia lead sem score = zero venda. Incluindo a conversão real de 0,21% dos não-respondentes, o CPL bruto sobe e ganha piso — o cenário de resposta baixa é menos catastrófico. Ainda assim, subir a taxa de resposta é a alavanca que mais move o CPL tolerável. <em>(Ticket de R$ 1.692 aplicado aos dois grupos; refinar quando houver ticket separado dos compradores sem score.)</em></div>
+
+      <p class="rt-sec" style="margin-top:32px">Comparativo — base interna vs lead Meta</p>
+      <table class="rt-table" style="font-size:12px">
+        <thead><tr><th>Faixa</th><th>Conv. Interno</th><th>Conv. Meta</th><th>Diferença</th><th>CPL Máx Interno</th><th>CPL Máx Meta</th></tr></thead>
+        <tbody>
+        <tr><td><span style="color:#82D490;font-weight:500">A</span></td><td>5,94%</td><td>1,69%</td><td><span style="color:#E07070">-71,5%</span></td><td>R$ 52,31</td><td>R$ 9,20</td></tr>
+        <tr><td><span style="color:#B0D88A;font-weight:500">B</span></td><td>4,33%</td><td>1,20%</td><td><span style="color:#E07070">-72,3%</span></td><td>R$ 36,71</td><td>R$ 8,27</td></tr>
+        <tr><td><span style="color:#E8C97B;font-weight:500">C</span></td><td>3,72%</td><td>0,94%</td><td><span style="color:#E07070">-74,7%</span></td><td>R$ 31,24</td><td>R$ 4,10</td></tr>
+        <tr><td><span style="color:#E8B07B;font-weight:500">D</span></td><td>2,41%</td><td>0,74%</td><td><span style="color:#E07070">-69,3%</span></td><td>R$ 20,15</td><td>R$ 4,46</td></tr>
+        <tr><td><span style="color:#E09A7B;font-weight:500">E</span></td><td>2,10%</td><td>0,74%</td><td><span style="color:#E07070">-64,8%</span></td><td>R$ 17,96</td><td>R$ 4,42</td></tr>
+        <tr><td><span style="color:#E07070;font-weight:500">F</span></td><td>1,17%</td><td>0,32%</td><td><span style="color:#E07070">-72,6%</span></td><td>R$ 8,61</td><td>R$ 0,82</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Leitura:</strong> olhando toda a base de leads Meta scorados (não só os respondentes engajados), o Meta converte ~1/3 da base interna em todas as faixas, e com ticket menor. A estimativa anterior (4-5%) media só quem se autoselecionou — por isso parecia próxima do interno.</div>
+
+      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:12px;padding:20px 24px;margin-top:24px">
+        <div style="font-size:13px;color:#82D490;font-weight:500;margin-bottom:8px">💡 Insight estratégico</div>
+        <div style="font-size:13px;color:#D4D0CA;line-height:1.7">
+          Com a base completa de leads Meta scorados, o lead frio do Meta converte perto de <strong style="color:#F2EFE8">1/3 da base interna</strong> — a leitura otimista anterior vinha do viés de auto-seleção da pesquisa. A alavanca do W3 não é "o lead Meta é bom", é <strong style="color:#F2EFE8">a taxa de resposta da pesquisa</strong>, que define diretamente o CPL bruto que você pode pagar.
+          <ul style="margin:8px 0 0 18px;color:#D4D0CA">
+            <li>Meta operacional: CPL bruto ≤ <strong style="color:#82D490">R$ 3,41</strong> a 60% de resposta (com piso ~R$ 1,18 do lead sem score) — validar a taxa real antes de escalar</li>
+            <li>Elevar a taxa de resposta é o que mais move o CPL tolerável (ver sensibilidade)</li>
+            <li>Pixel disparando "Lead" apenas para faixas A, B, C — pra Meta otimizar audiência</li>
+            <li>Após o W3, recalibrar com os CPLs reais por faixa do Meta</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(201,168,76,.2);margin-top:48px;padding-top:32px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+        <span style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;opacity:.8">Meta de Captação — W3</span>
+        <div style="height:1px;width:28px;background:#C9A84C;opacity:.5"></div>
+      </div>
+      <h3 style="font-size:22px;color:#F2EFE8;font-family:'DM Serif Display',serif;margin-bottom:12px">Cenários de captação — orçamento R$ 30k</h3>
+      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:24px">O modelo encadeia: <strong style="color:#F2EFE8">orçamento ÷ CPL = leads</strong> → leads distribuídos entre scorados (que respondem a pesquisa) e sem-score → cada grupo converte na sua taxa (0,87% e 0,21%) → × ticket de R$ 1.692 = faturamento. Os dois botões que movem tudo são o <strong style="color:#F2EFE8">CPL</strong> (quantos leads o orçamento compra) e a <strong style="color:#F2EFE8">taxa de resposta</strong> (quanto da base cai no grupo que converte melhor).</p>
+
+      <div class="rt-grid rt-grid-3" style="margin-bottom:20px">
+        <div class="rt-card"><div class="rt-lbl">Pessimista</div><div class="rt-val red">R$ 22,4k</div><div class="rt-sub">~4.286 leads · ROAS 0,75</div></div>
+        <div class="rt-card"><div class="rt-lbl">Realista</div><div class="rt-val gold">R$ 49,6k</div><div class="rt-sub">~6.667 leads · ROAS 1,65</div></div>
+        <div class="rt-card"><div class="rt-lbl">Otimista</div><div class="rt-val" style="color:#82D490">R$ 102,2k</div><div class="rt-sub">~10.000 leads · ROAS 3,41</div></div>
+      </div>
+
+      <table class="rt-table" style="font-size:12px">
+        <thead><tr><th>Cenário</th><th>CPL bruto</th><th>Resposta</th><th>Leads</th><th>Conv. média</th><th>Compradores</th><th>Faturamento</th><th style="color:#C9A84C">ROAS</th></tr></thead>
+        <tbody>
+        <tr><td><span style="color:#E07070;font-weight:500">Pessimista</span></td><td>R$ 7,00</td><td>15%</td><td>4.286</td><td>0,31%</td><td>13</td><td>R$ 22.374</td><td style="background:rgba(224,112,112,.08);color:#E07070;font-weight:500">0,75</td></tr>
+        <tr><td><span style="color:#E8C97B;font-weight:500">Realista</span></td><td>R$ 4,50</td><td>35%</td><td>6.667</td><td>0,44%</td><td>29</td><td>R$ 49.626</td><td style="background:rgba(232,201,123,.08);color:#E8C97B;font-weight:500">1,65</td></tr>
+        <tr><td><span style="color:#82D490;font-weight:500">Otimista</span></td><td>R$ 3,00</td><td>60%</td><td>10.000</td><td>0,60%</td><td>60</td><td>R$ 102.231</td><td style="background:rgba(130,212,144,.1);color:#82D490;font-weight:500">3,41</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#A4A09C;padding:8px 14px;line-height:1.6"><strong style="color:#D4D0CA">Gasto fixo em R$ 30k nos três.</strong> O que muda é a eficiência: CPL define o volume de leads e a resposta define quantos caem no grupo que converte 4× mais. Faturamento inclui backend (ticket = valor pago médio, R$ 1.692).</div>
+
+      <p class="rt-sec" style="margin-top:32px">Por que só o otimista bate ROAS 3</p>
+      <p style="font-size:13px;color:#D4D0CA;line-height:1.7;margin-bottom:12px">Cruzando com o CPL máximo tolerável de cada nível de resposta: no otimista, o CPL de R$ 3,00 fica <strong style="color:#82D490">abaixo</strong> do teto (R$ 3,41 a 60%), então o ROAS passa de 3. No realista, o CPL de R$ 4,50 está <strong style="color:#E07070">acima</strong> do teto daquele nível de resposta (R$ 2,48 a 35%), por isso o ROAS fica em 1,65.</p>
+      <table class="rt-table" style="font-size:12px;max-width:520px">
+        <thead><tr><th>Resposta</th><th style="color:#C9A84C">CPL máx p/ ROAS 3</th><th>CPL do cenário</th></tr></thead>
+        <tbody>
+        <tr><td>15% (pessimista)</td><td>R$ 1,74</td><td><span style="color:#E07070">R$ 7,00</span></td></tr>
+        <tr><td>35% (realista)</td><td>R$ 2,48</td><td><span style="color:#E07070">R$ 4,50</span></td></tr>
+        <tr><td>60% (otimista)</td><td>R$ 3,41</td><td><span style="color:#82D490">R$ 3,00</span></td></tr>
+        </tbody>
+      </table>
+
+      <div style="background:#131313;border:.5px solid rgba(130,212,144,.2);border-radius:12px;padding:20px 24px;margin-top:24px">
+        <div style="font-size:13px;color:#82D490;font-weight:500;margin-bottom:8px">🎯 Meta de captação sugerida</div>
+        <div style="font-size:13px;color:#D4D0CA;line-height:1.7">
+          Trabalhar o cenário realista como base de planejamento: <strong style="color:#F2EFE8">~6.700 leads</strong> com R$ 30k, mirando <strong style="color:#F2EFE8">~29 vendas</strong> e <strong style="color:#F2EFE8">R$ 49,6k</strong> de faturamento. Para chegar ao otimista (ROAS 3+), as duas frentes são:
+          <ul style="margin:8px 0 0 18px;color:#D4D0CA">
+            <li>Baixar o CPL de captação pra faixa de R$ 3 (criativo + otimização de evento pras faixas A/B/C)</li>
+            <li>Subir a taxa de resposta da pesquisa de ~15% pra 60% (incentivo, copy, recall) — é o que mais move o resultado</li>
+            <li>Sem mexer nessas duas, o R$ 30k tende a rodar entre ROAS 0,75 e 1,65 — abaixo do ROAS 3</li>
+          </ul>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#E07070;padding:8px 14px;line-height:1.6;background:rgba(224,112,112,.05);border-left:2px solid #E07070;margin-top:12px"><strong>⚠ Premissas a validar:</strong> os CPLs (R$ 7 / 4,50 / 3) são estimativas — assim que houver o CPL real das campanhas Meta, recentro o cenário realista nele. Conversões (0,87% / 0,21%) e ticket (R$ 1.692) vêm da análise acima.</div>
+    </div>
+
   </div>
   <div class="rt-subview active" id="rt-rw3geral">
     <p class="rt-sec">Vendas por dia — Assiny · Hotmart · TMB</p>
@@ -2984,5 +3029,6 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
   }
 })();
 </script>
+<script>window.goSubP4=function(sub){var page=document.getElementById("projw4-page");if(!page)return;page.querySelectorAll(".rt-subtab").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-sub")===sub);});page.querySelectorAll(".rt-subview").forEach(function(v){v.classList.toggle("active",v.id==="rt-"+sub);});};</script>
 </body>
 </html>
