@@ -331,18 +331,29 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
     <button class="rt-subtab active" data-sub="p4int" onclick="goSubP4('p4int')">📊 Canais Internos</button>
     <button class="rt-subtab" data-sub="p4traf" onclick="goSubP4('p4traf')">🎯 Tráfego Pago</button>
   </div>
-  <div class="rt-subview active" id="rt-p4int">
+    <div class="rt-subview active" id="rt-p4int">
+    <p class="rt-sec">Cash collected projetado (na janela) — Cartão+PIX vs Boleto</p>
     <div class="rt-grid rt-grid-3" style="margin-bottom:14px">
-      <div class="rt-card"><div class="rt-lbl">Leads projetados</div><div class="rt-val">9.331</div><div class="rt-sub">soma dos canais internos</div></div>
-      <div class="rt-card"><div class="rt-lbl">Compradores</div><div class="rt-val" style="color:#B09EE8">367</div><div class="rt-sub">conversão geral 5,61%</div></div>
-      <div class="rt-card"><div class="rt-lbl">Faturamento projetado</div><div class="rt-val gd">R$ 646.516,64</div><div class="rt-sub">bruto</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Total cash collected</div><div class="rt-val gd">R$ 716.294,43</div><div class="rt-sub">504 compradores</div></div>
+      <div class="rt-card"><div class="rt-lbl">💳 Cartão + PIX</div><div class="rt-val" style="color:#B09EE8">R$ 660.135,61</div><div class="rt-sub">239 vendas · ticket R$ 2.762,07</div></div>
+      <div class="rt-card"><div class="rt-lbl">📄 Boleto (entrada)</div><div class="rt-val" style="color:#90C8F0">R$ 56.158,82</div><div class="rt-sub">265 vendas · ticket R$ 211,92</div></div>
     </div>
-    <div class="rt-grid rt-grid-3" style="margin-bottom:22px">
-      <div class="rt-card win"><div class="rt-lbl">Resultado em margem</div><div class="rt-val gd">R$ 525.434,64</div><div class="rt-sub">após taxas, disparos, SMS</div></div>
-      <div class="rt-card"><div class="rt-lbl">Imposto (−11%)</div><div class="rt-val" style="color:#E07070">−R$ 71.116,83</div><div class="rt-sub">sobre a margem</div></div>
-      <div class="rt-card win"><div class="rt-lbl">Resultado real projetado</div><div class="rt-val" style="color:#82D490">R$ 454.317,81</div><div class="rt-sub">líquido final</div></div>
-    </div>
-    <p class="rt-sec">Premissas por cluster</p>
+    <table class="rt-table" style="font-size:12px;max-width:680px;margin-bottom:8px"><thead><tr><th>Meio</th><th>Compradores</th><th>Ticket médio</th><th>Cash collected</th><th>% do cash</th></tr></thead><tbody>
+      <tr><td><span style="color:#B09EE8;font-weight:500">Cartão + PIX</span></td><td>239</td><td>R$ 2.762,07</td><td>R$ 660.135,61</td><td>92,2%</td></tr>
+      <tr><td><span style="color:#90C8F0;font-weight:500">Boleto (entrada)</span></td><td>265</td><td>R$ 211,92</td><td>R$ 56.158,82</td><td>7,8%</td></tr>
+      <tr class="rt-total"><td>Total</td><td>504</td><td>R$ 1.421,22</td><td>R$ 716.294,43</td><td>100,0%</td></tr></tbody></table>
+    <div style="font-size:11px;color:#A4A09C;padding:2px 2px 10px">Conversão geral projetada: 504/9.331 = 5,4% (Cartão+PIX 2,6% · Boleto 2,8%).</div>
+    <p class="rt-sec" style="margin-top:20px">Do cash collected ao resultado real (projetado)</p>
+    <table class="rt-table" style="font-size:12px;max-width:520px"><tbody>
+      <tr><td>Cash collected (Cartão+PIX + Boleto entrada)</td><td style="text-align:right;color:#F2EFE8;font-weight:400">R$ 716.294,43</td></tr>
+      <tr><td>Taxas (−12%)</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 85.955,33</td></tr>
+      <tr><td>Disparos + AwSales</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 40.000,00</td></tr>
+      <tr><td>SMS Flash + Ligação</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 3.500,00</td></tr>
+      <tr class="rt-total"><td>Resultado em margem</td><td style="text-align:right;color:#82D490;font-weight:600">R$ 586.839,10</td></tr>
+      <tr><td>Imposto (−11%)</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 78.792,39</td></tr>
+      <tr class="rt-total"><td>Resultado real (cash)</td><td style="text-align:right;color:#82D490;font-weight:600">R$ 508.046,71</td></tr>
+    </tbody></table>
+    <p class="rt-sec" style="margin-top:24px">Premissas por cluster (base de leads compartilhada)</p>
     <table class="rt-table" style="font-size:12px;max-width:680px"><thead><tr><th>Cluster</th><th>Média + melhoria</th><th>Base (qtd)</th><th>Leads projetados</th></tr></thead><tbody>
       <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>0,7</td><td>2.100</td><td>1.470</td></tr>
       <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>0,75</td><td>2.100</td><td>1.575</td></tr>
@@ -357,35 +368,59 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
       <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>130</td><td>85</td><td>450</td><td>445</td><td>404</td><td>3</td><td>2</td><td style="color:#F2EFE8;font-weight:500">1.519</td></tr>
       <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>74</td><td>144</td><td>509</td><td>966</td><td>260</td><td>7</td><td>7</td><td style="color:#F2EFE8;font-weight:500">1.967</td></tr>
       <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>66</td><td>191</td><td>1.113</td><td>882</td><td>191</td><td>323</td><td>54</td><td style="color:#F2EFE8;font-weight:500">2.800</td></tr>
-      <tr class="rt-total"><td>Total</td><td>1.108</td><td>520</td><td>2.639</td><td>2.710</td><td>1.946</td><td>343</td><td>65</td><td>9.331</td></tr>
-    </tbody></table></div>
-    <p class="rt-sec" style="margin-top:24px">Compradores projetados — cluster × canal</p>
+      <tr class="rt-total"><td>Total</td><td>1.108</td><td>520</td><td>2.639</td><td>2.710</td><td>1.946</td><td>343</td><td>65</td><td>9.331</td></tr></tbody></table></div>
+    <div style="background:#131313;border:.5px solid rgba(176,158,232,.25);border-radius:12px;padding:14px 18px;margin:28px 0 16px"><span style="font-size:11px;color:#B09EE8;font-weight:500;letter-spacing:.06em;text-transform:uppercase">💳 Projeção Cartão + PIX</span></div>
+    <p class="rt-sec" style="margin-top:24px">Compradores Cartão+PIX — cluster × canal</p>
     <div style="overflow-x:auto"><table class="rt-table" style="font-size:11px;min-width:760px"><thead><tr><th>Cluster</th><th>Yay-form</th><th>Email</th><th>WhatsApp</th><th>AwSales</th><th>Área de Membros</th><th>Instagram</th><th>YouTube</th><th style="color:#C9A84C">Total</th></tr></thead><tbody>
-      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>21</td><td>2</td><td>18</td><td>9</td><td>37</td><td>—</td><td>—</td><td style="color:#F2EFE8;font-weight:500">87</td></tr>
-      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>20</td><td>5</td><td>37</td><td>10</td><td>23</td><td>—</td><td>—</td><td style="color:#F2EFE8;font-weight:500">95</td></tr>
-      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>8</td><td>8</td><td>32</td><td>21</td><td>23</td><td>—</td><td>—</td><td style="color:#F2EFE8;font-weight:500">92</td></tr>
-      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>1</td><td>3</td><td>17</td><td>19</td><td>8</td><td>1</td><td>1</td><td style="color:#F2EFE8;font-weight:500">49</td></tr>
-      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>1</td><td>2</td><td>21</td><td>8</td><td>2</td><td>7</td><td>2</td><td style="color:#F2EFE8;font-weight:500">44</td></tr>
-      <tr class="rt-total"><td>Total</td><td>52</td><td>21</td><td>124</td><td>67</td><td>93</td><td>8</td><td>3</td><td>367</td></tr>
-    </tbody></table></div>
-    <p class="rt-sec" style="margin-top:24px">Faturamento e conversão projetados por cluster</p>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>28</td><td>2</td><td>9</td><td>5</td><td>22</td><td>—</td><td>—</td><td style="color:#B09EE8;font-weight:500">65</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>9</td><td>4</td><td>33</td><td>11</td><td>15</td><td>—</td><td>—</td><td style="color:#B09EE8;font-weight:500">72</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>—</td><td>18</td><td>22</td><td>8</td><td>11</td><td>—</td><td>—</td><td style="color:#B09EE8;font-weight:500">58</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>—</td><td>2</td><td>8</td><td>12</td><td>3</td><td>—</td><td>1</td><td style="color:#B09EE8;font-weight:500">26</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>1</td><td>—</td><td>5</td><td>8</td><td>—</td><td>3</td><td>1</td><td style="color:#B09EE8;font-weight:500">18</td></tr>
+      <tr class="rt-total"><td>Total</td><td>38</td><td>26</td><td>77</td><td>44</td><td>50</td><td>3</td><td>1</td><td>239</td></tr></tbody></table></div>
+    <p class="rt-sec" style="margin-top:20px">Faturamento e conversão Cartão+PIX por cluster</p>
     <table class="rt-table" style="font-size:12px;max-width:680px"><thead><tr><th>Cluster</th><th>Leads</th><th>Compradores</th><th>Conversão</th><th>Faturamento</th></tr></thead><tbody>
-      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>1.470</td><td>87</td><td>5,9%</td><td>R$ 148.540,27</td></tr>
-      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>1.575</td><td>95</td><td>6,0%</td><td>R$ 187.899,16</td></tr>
-      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>1.519</td><td>92</td><td>6,1%</td><td>R$ 183.157,22</td></tr>
-      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>1.967</td><td>49</td><td>2,5%</td><td>R$ 78.305,42</td></tr>
-      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>2.800</td><td>44</td><td>1,6%</td><td>R$ 48.614,57</td></tr>
-      <tr class="rt-total"><td>Total</td><td>9.331</td><td>367</td><td>3,9%</td><td>R$ 646.516,64</td></tr></tbody></table>
-    <p class="rt-sec" style="margin-top:24px">Do faturamento ao resultado real</p>
-    <table class="rt-table" style="font-size:12px;max-width:520px"><tbody>
-      <tr><td>Faturamento bruto</td><td style="text-align:right;color:#F2EFE8;font-weight:400">R$ 646.516,64</td></tr>
-      <tr><td>Taxas (−12%)</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 77.582,00</td></tr>
-      <tr><td>Disparos + AwSales</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 40.000,00</td></tr>
-      <tr><td>SMS Flash + Ligação</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 3.500,00</td></tr>
-      <tr class="rt-total"><td>Resultado em margem</td><td style="text-align:right;color:#82D490;font-weight:600">R$ 525.434,64</td></tr>
-      <tr><td>Imposto (−11%)</td><td style="text-align:right;color:#E07070;font-weight:400">−R$ 71.116,83</td></tr>
-      <tr class="rt-total"><td>Resultado real</td><td style="text-align:right;color:#82D490;font-weight:600">R$ 454.317,81</td></tr>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>1.470</td><td>65</td><td>4,4%</td><td>R$ 179.581,89</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>1.575</td><td>72</td><td>4,6%</td><td>R$ 201.446,24</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>1.519</td><td>58</td><td>3,8%</td><td>R$ 156.938,82</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>1.967</td><td>26</td><td>1,3%</td><td>R$ 72.638,26</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>2.800</td><td>18</td><td>0,6%</td><td>R$ 49.530,40</td></tr>
+      <tr class="rt-total"><td>Total</td><td>9.331</td><td>239</td><td>2,6%</td><td>R$ 660.135,61</td></tr></tbody></table>
+    <div style="background:#131313;border:.5px solid rgba(144,200,240,.25);border-radius:12px;padding:14px 18px;margin:28px 0 16px"><span style="font-size:11px;color:#90C8F0;font-weight:500;letter-spacing:.06em;text-transform:uppercase">📄 Projeção Boleto (TMB)</span></div>
+    <p class="rt-sec" style="margin-top:24px">Compradores Boleto — cluster × canal</p>
+    <div style="overflow-x:auto"><table class="rt-table" style="font-size:11px;min-width:760px"><thead><tr><th>Cluster</th><th>Yay-form</th><th>Email</th><th>WhatsApp</th><th>AwSales</th><th>Área de Membros</th><th>Instagram</th><th>YouTube</th><th style="color:#C9A84C">Total</th></tr></thead><tbody>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>15</td><td>2</td><td>13</td><td>6</td><td>29</td><td>—</td><td>—</td><td style="color:#90C8F0;font-weight:500">65</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>15</td><td>4</td><td>28</td><td>8</td><td>11</td><td>—</td><td>—</td><td style="color:#90C8F0;font-weight:500">66</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>—</td><td>—</td><td>12</td><td>16</td><td>19</td><td>—</td><td>—</td><td style="color:#90C8F0;font-weight:500">47</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>6</td><td>2</td><td>16</td><td>14</td><td>6</td><td>1</td><td>—</td><td style="color:#90C8F0;font-weight:500">45</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>1</td><td>—</td><td>31</td><td>4</td><td>1</td><td>5</td><td>1</td><td style="color:#90C8F0;font-weight:500">42</td></tr>
+      <tr class="rt-total"><td>Total</td><td>36</td><td>8</td><td>100</td><td>47</td><td>66</td><td>6</td><td>1</td><td>265</td></tr></tbody></table></div>
+    <p class="rt-sec" style="margin-top:20px">Entrada (cash) e conversão Boleto por cluster</p>
+    <table class="rt-table" style="font-size:12px;max-width:680px"><thead><tr><th>Cluster</th><th>Leads</th><th>Compradores</th><th>Conversão</th><th>Entrada (cash)</th></tr></thead><tbody>
+      <tr><td><span style="color:#82D490;font-weight:500">Aluno 7D</span></td><td>1.470</td><td>65</td><td>4,4%</td><td>R$ 14.336,18</td></tr>
+      <tr><td><span style="color:#B0D88A;font-weight:500">Aluno 14D</span></td><td>1.575</td><td>66</td><td>4,2%</td><td>R$ 13.885,20</td></tr>
+      <tr><td><span style="color:#E8C97B;font-weight:500">Aluno 30D</span></td><td>1.519</td><td>47</td><td>3,1%</td><td>R$ 9.729,29</td></tr>
+      <tr><td><span style="color:#E8B07B;font-weight:500">Aluno Antigo</span></td><td>1.967</td><td>45</td><td>2,3%</td><td>R$ 9.336,07</td></tr>
+      <tr><td><span style="color:#A4A09C;font-weight:500">NA</span></td><td>2.800</td><td>42</td><td>1,5%</td><td>R$ 8.872,08</td></tr>
+      <tr class="rt-total"><td>Total</td><td>9.331</td><td>265</td><td>2,8%</td><td>R$ 56.158,82</td></tr></tbody></table>
+    <p class="rt-sec" style="margin-top:24px">📈 Projeção de recebíveis futuros — Boleto</p>
+    <div style="font-size:12px;color:#A4A09C;padding:0 2px 12px;line-height:1.7">A receber = nominal (R$ 2.388,27) × 265 pedidos − entrada projetada. Mesma lógica dos lançamentos realizados (sem juro da TMB, sem adiantamento).</div>
+    <div class="rt-grid rt-grid-3" style="margin-bottom:14px">
+      <div class="rt-card"><div class="rt-lbl">Entrada projetada (cash)</div><div class="rt-val">R$ 56.158,82</div><div class="rt-sub">já no cash collected</div></div>
+      <div class="rt-card win"><div class="rt-lbl">A receber futuro (bruto)</div><div class="rt-val gd">R$ 576.732,73</div><div class="rt-sub">nominal − entrada · risco nosso</div></div>
+      <div class="rt-card"><div class="rt-lbl">Nominal total dos contratos</div><div class="rt-val" style="color:#90C8F0">R$ 632.891,55</div><div class="rt-sub">265 × R$ 2.388,27</div></div>
+    </div>
+    <table class="rt-table" style="font-size:12px;max-width:820px"><thead><tr><th>Cenário</th><th>Inadimplência</th><th>Perda (para no meio)</th><th>A receber futuro (líq. imposto)</th></tr></thead><tbody>
+      <tr class="rt-total"><td style="color:#82D490;font-weight:500">Realista</td><td>10%</td><td style="color:#E07070">-R$ 28.836,64</td><td style="color:#82D490;font-weight:500">R$ 487.627,52</td></tr>
+      <tr><td style="color:#E8B07B;font-weight:500">Pessimista</td><td>20%</td><td style="color:#E07070">-R$ 57.673,27</td><td style="color:#82D490;font-weight:500">R$ 461.962,92</td></tr>
     </tbody></table>
+    <p class="rt-sec" style="margin-top:24px">🎯 Fechamento projetado total (cash + recebíveis futuros)</p>
+    <div class="rt-grid rt-grid-3" style="margin-bottom:8px">
+      <div class="rt-card"><div class="rt-lbl">Resultado real (cash)</div><div class="rt-val">R$ 508.046,71</div><div class="rt-sub">após custos e imposto</div></div>
+      <div class="rt-card"><div class="rt-lbl">+ Recebíveis futuros (realista 10%)</div><div class="rt-val" style="color:#82D490">R$ 487.627,52</div><div class="rt-sub">líq. de imposto</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Fechamento projetado total</div><div class="rt-val gd">R$ 995.674,23</div><div class="rt-sub">pessimista (20%): R$ 970.009,63</div></div>
+    </div>
+    <div style="font-size:11px;color:#A4A09C;padding:6px 2px;line-height:1.6">Cash = Cartão+PIX integral + entrada do Boleto, já líquido de custos/imposto. Recebíveis futuros = parcelas do Boleto, líquidas de inadimplência e imposto. Custo de disparos+AwSales atualizado para R$40.000.</div>
   </div>
   <div class="rt-subview" id="rt-p4traf">
     <div style="background:#131313;border:.5px dashed rgba(201,168,76,.35);border-radius:12px;padding:40px;text-align:center;margin-top:20px">
