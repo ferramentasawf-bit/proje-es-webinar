@@ -156,6 +156,24 @@ body{
 </style>
 </head>
 <body>
+<style>
+#tri-sidebar{position:fixed;left:0;top:0;bottom:0;width:210px;background:#080808;border-right:1px solid rgba(255,255,255,.08);padding:26px 14px;z-index:200;display:flex;flex-direction:column;gap:9px;box-sizing:border-box}
+.tri-brand{font-size:13px;color:#F2EFE8;font-weight:600;letter-spacing:-.01em;margin-bottom:18px;padding:0 8px}
+.tri-brand span{display:block;font-size:9px;color:#C9A84C;font-weight:400;letter-spacing:.12em;text-transform:uppercase;margin-top:3px}
+.tri-btn{display:flex;align-items:center;gap:11px;background:transparent;border:.5px solid rgba(255,255,255,.08);border-radius:10px;padding:13px 11px;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;transition:all .15s;color:#A4A09C}
+.tri-btn:hover{border-color:rgba(201,168,76,.3);color:#F2EFE8}
+.tri-btn.active{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.4);color:#F2EFE8}
+.tri-num{font-size:19px;font-weight:600;color:#C9A84C;line-height:1}
+.tri-txt{font-size:12.5px;font-weight:500;display:flex;flex-direction:column;line-height:1.25}
+.tri-txt small{font-size:9.5px;color:#8A8680;font-weight:300;margin-top:3px;letter-spacing:.02em}
+body{padding-left:210px}
+@media(max-width:820px){#tri-sidebar{width:150px;padding:20px 10px}body{padding-left:150px}.tri-txt small{display:none}}
+</style>
+<aside id="tri-sidebar">
+  <div class="tri-brand">Paulo Aguiar<span>Monetização</span></div>
+  <button class="tri-btn active" data-tri="2" onclick="goTri('2')"><span class="tri-num">2°</span><span class="tri-txt">Trimestre<small>W1 · W2 · W3 — realizado</small></span></button>
+  <button class="tri-btn" data-tri="3" onclick="goTri('3')"><span class="tri-num">3°</span><span class="tri-txt">Trimestre<small>W4 — projeção</small></span></button>
+</aside>
 <div class="page">
 
   <!-- HEADER -->
@@ -308,15 +326,18 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
 </style>
 
 <div id="tab-bar">
-  <button class="tb on" data-tab="p" onclick="goTab('p')">Projeção W1</button>
-  <button class="tb" data-tab="conv" onclick="goTab('conv')">Matriz de Conversão</button>
-  <button class="tb" data-tab="proj" onclick="goTab('proj')">Projeções</button>
-  <button class="tb" data-tab="s" onclick="goTab('s')">Análise de Estresse</button>
-  <button class="tb" data-tab="result" onclick="goTab('result')">Resultado W1</button>
-  <button class="tb" data-tab="resultw2" onclick="goTab('resultw2')">Resultado W2</button>
+  <button class="tb on" data-tab="p" data-tri="2" onclick="goTab('p')">Projeção W1</button>
+  <button class="tb" data-tab="conv" data-tri="2" onclick="goTab('conv')">Matriz de Conversão</button>
+  <button class="tb" data-tab="proj" data-tri="2" onclick="goTab('proj')">Projeções</button>
+  <button class="tb" data-tab="s" data-tri="2" onclick="goTab('s')">Análise de Estresse</button>
+  <button class="tb" data-tab="result" data-tri="2" onclick="goTab('result')">Resultado W1</button>
+  <button class="tb" data-tab="resultw2" data-tri="2" onclick="goTab('resultw2')">Resultado W2</button>
   
-  <button class="tb" data-tab="resultw3" onclick="goTab('resultw3')">Resultado W03</button>
-  <button class="tb" data-tab="projw4" onclick="goTab('projw4')">Projeção W4</button>
+  <button class="tb" data-tab="resultw3" data-tri="2" onclick="goTab('resultw3')">Resultado W03</button>
+  <button class="tb" data-tab="tri3" data-tri="3" onclick="goTab('tri3')">Visão do TRI</button>
+  <button class="tb" data-tab="cal3" data-tri="3" onclick="goTab('cal3')">Calendário 3° TRI</button>
+  <button class="tb" data-tab="proj3" data-tri="3" onclick="goTab('proj3')">Projeções</button>
+  <button class="tb" data-tab="projw4" data-tri="3" onclick="goTab('projw4')">Projeção W4</button>
 </div>
 <div id="tc-p" class="tc on"></div>
 <div id="tc-conv" class="tc"></div>
@@ -324,6 +345,220 @@ input[type=range].ss{width:100%;accent-color:#C9A84C;cursor:pointer}
 <div id="tc-result" class="tc"></div>
 <div id="tc-resultw2" class="tc"></div>
 <div id="tc-resultw3" class="tc"></div>
+<div id="tc-proj3" class="tc">
+<div id="proj3-page" style="max-width:1100px;margin:0 auto;padding:48px 48px 100px">
+  <div class="proj-header"><h2>Projeções <em>3° Trimestre</em></h2><p>Projeção isolada por webinar e por fonte de recebimento. Cada campanha com sua linha de raciocínio. Os números macro somados do trimestre entram depois — primeiro quebrado por campanha.</p></div>
+  <div class="rt-subtabs">
+    <button class="rt-subtab active" data-sub="pj3geral" onclick="goSubPj3('pj3geral')">📊 Visão Geral</button>
+    <button class="rt-subtab" data-sub="pj3card" onclick="goSubPj3('pj3card')">💳 Interno · Cartão + PIX</button>
+    <button class="rt-subtab" data-sub="pj3bol" onclick="goSubPj3('pj3bol')">📄 Interno · Boleto</button>
+    <button class="rt-subtab" data-sub="pj3traf" onclick="goSubPj3('pj3traf')">🎯 Tráfego Pago</button>
+  </div>
+    <div class="rt-subview active" id="rt-pj3geral">
+    <div class="proj-header" style="margin-bottom:20px"><h2>Visão Geral <em>3° Trimestre</em></h2><p>Tudo cruzado: base interna (Cartão+PIX e Boleto) + tráfego pago. Projeção de monetização do trimestre, separada por fonte.</p></div>
+    <div class="tri-summary" style="margin-bottom:24px">
+      <div class="ts-card gold"><div class="ts-lbl">Faturamento projetado</div><div class="ts-val gold">R$ 5.180.663</div><div class="ts-sub">cash + realizável + tráfego</div></div>
+      <div class="ts-card"><div class="ts-lbl">Vendas totais</div><div class="ts-val" style="color:#B09EE8">2.279</div><div class="ts-sub">5 webinars · 3 fontes</div></div>
+      <div class="ts-card"><div class="ts-lbl">Margem projetada</div><div class="ts-val green">R$ 3.221.481</div><div class="ts-sub">meta de monetização do tri</div></div>
+    </div>
+    <p class="rt-sec">Por fonte de recebimento</p>
+    <div style="overflow-x:auto"><table class="wb-cluster-table" style="min-width:720px;margin-bottom:6px"><thead><tr><th style="text-align:left">Fonte</th><th>Vendas</th><th>Faturamento</th><th>Margem (65%)</th><th>% da margem</th></tr></thead><tbody>
+      <tr class="ct-new"><td style="text-align:left"><span style="color:#B09EE8;font-weight:600">💳 Interno · Cartão + PIX</span></td><td>945</td><td>R$ 2.610.160</td><td>R$ 1.696.604</td><td>53%</td></tr>
+      <tr class="ct-new"><td style="text-align:left"><span style="color:#90C8F0;font-weight:600">📄 Interno · Boleto</span></td><td>1.031</td><td>R$ 2.058.419</td><td>R$ 1.337.973</td><td>42%</td></tr>
+      <tr class="ct-new"><td style="text-align:left"><span style="color:#C9A84C;font-weight:600">🎯 Tráfego Pago</span></td><td>303</td><td>R$ 512.084</td><td>R$ 186.904</td><td>6%</td></tr>
+      <tr class="ct-total"><td style="text-align:left">Total 3° Tri</td><td>2.279</td><td>R$ 5.180.663</td><td>R$ 3.221.481</td><td>100%</td></tr>
+    </tbody></table></div>
+    <div style="font-size:11px;color:#A4A09C;padding:6px 2px 4px;line-height:1.7">Faturamento: Cartão+PIX = cash na janela · Boleto = <strong>realizável</strong> (entrada + parcelas pós-inadimplência 20%) · Tráfego = faturamento de mídia. Margem sempre a 65%, e no tráfego já descontado o custo de mídia.</div>
+    <p class="rt-sec" style="margin-top:22px">Margem por webinar × fonte</p>
+    <div style="overflow-x:auto"><table class="wb-cluster-table" style="min-width:720px"><thead><tr><th style="text-align:left">Webinar</th><th>💳 Cartão+PIX</th><th>📄 Boleto</th><th>🎯 Tráfego</th><th>Total</th></tr></thead><tbody>
+      <tr class="ct-new"><td style="text-align:left">W04</td><td>R$ 429.088</td><td>R$ 343.902</td><td>R$ 4.368</td><td style="color:#F2EFE8;font-weight:600">R$ 777.358</td></tr>
+      <tr class="ct-new"><td style="text-align:left">W05</td><td>R$ 411.135</td><td>R$ 323.138</td><td>R$ 12.221</td><td style="color:#F2EFE8;font-weight:600">R$ 746.493</td></tr>
+      <tr class="ct-new"><td style="text-align:left">W06</td><td>R$ 305.209</td><td>R$ 242.678</td><td>R$ 26.541</td><td style="color:#F2EFE8;font-weight:600">R$ 574.428</td></tr>
+      <tr class="ct-new"><td style="text-align:left">W07</td><td>R$ 283.665</td><td>R$ 221.914</td><td>R$ 51.553</td><td style="color:#F2EFE8;font-weight:600">R$ 557.132</td></tr>
+      <tr class="ct-new"><td style="text-align:left">W08</td><td>R$ 267.507</td><td>R$ 206.341</td><td>R$ 92.222</td><td style="color:#F2EFE8;font-weight:600">R$ 566.069</td></tr>
+      <tr class="ct-total"><td style="text-align:left">Total</td><td>R$ 1.696.604</td><td>R$ 1.337.973</td><td>R$ 186.904</td><td>R$ 3.221.481</td></tr>
+    </tbody></table></div>
+    <div style="font-size:11px;color:#A4A09C;padding:8px 2px;line-height:1.7">O interno carrega a margem hoje (Cartão + Boleto = R$ 3.034.576); o tráfego entra crescendo (R$ 186.904) como ensaio pro Q4. <strong>Meta de monetização do trimestre: R$ 3.221.481 de margem.</strong></div>
+  </div>
+  <div class="rt-subview" id="rt-pj3card"><div class="tri-summary" style="margin-bottom:28px"><div class="ts-card gold"><div class="ts-lbl">Vendas totais (5 webinars)</div><div class="ts-val gold">945</div><div class="ts-sub">W4 → W8</div></div><div class="ts-card gold"><div class="ts-lbl">Faturamento cash</div><div class="ts-val gold">R$ 2.610.160</div><div class="ts-sub">Cartão + PIX</div></div><div class="ts-card"><div class="ts-lbl">Margem estimada (65%)</div><div class="ts-val green">R$ 1.696.604</div><div class="ts-sub">sobre o cash</div></div></div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w4">W4</span><div><div class="wb-title">Quarto Webinar · Cartão + PIX</div><div class="wb-dates">Captação 11/07 · Live 25/07 (Sex)</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Peso no W3</strong> (boleto aberto desde o dia 1). Base de 9.331 leads (premissas por cluster). Cartão+PIX isolado; todo valor entra como cash.</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">9.331</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,56%</div><div class="wp-sub">239 vendas Cartão+PIX</div></div><div class="wp-card"><div class="wp-lbl">Ticket médio</div><div class="wp-val">R$ 2.762,07</div><div class="wp-sub">cash na janela</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Faturamento</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.470</td><td>4,42%</td><td>65</td><td>R$ 179.535</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>1.575</td><td>4,57%</td><td>72</td><td>R$ 198.869</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>1.519</td><td>3,82%</td><td>58</td><td>R$ 160.200</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.967</td><td>1,32%</td><td>26</td><td>R$ 71.814</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>2.800</td><td>0,64%</td><td>18</td><td>R$ 49.717</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>9.331</td><td>2,56%</td><td>239</td><td>R$ 660.136</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Faturamento (cash)</div><div class="wf-val gold">R$ 660.136</div><div class="wf-sub">239 vendas</div></div><div class="wf-card fat" style="background:rgba(176,158,232,.06);border:.5px solid rgba(176,158,232,.2)"><div class="wf-lbl">Vendas</div><div class="wf-val" style="color:#B09EE8">239</div><div class="wf-sub">Cartão+PIX</div></div><div class="wf-card fat" style="background:#111;border:.5px solid rgba(255,255,255,.08)"><div class="wf-lbl">Ticket médio</div><div class="wf-val blue">R$ 2.762,07</div><div class="wf-sub">por venda</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 429.088</div><div class="wf-sub">sobre o cash</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w5">W5</span><div><div class="wb-title">Quinto Webinar · Cartão + PIX</div><div class="wb-dates">Captação 29/07 · Live 12/08 ou 15/08</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação de 14 dias → ~8.626 leads.</strong> Aquisição <strong>230/dia</strong> nos recentes (7D ≈ 1.610 · 14D ≈ 1.610). Bases antigas <strong>esgotando</strong> (30D/Antigos/NA já receberam nos webinars anteriores) — captação cai a cada rodada. Conversão levemente estressada vs W3 (fadiga de pitch + sobreposição crescente).</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">8.626</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,65%</div><div class="wp-sub">229 vendas Cartão+PIX</div></div><div class="wp-card"><div class="wp-lbl">Ticket médio</div><div class="wp-val">R$ 2.762,07</div><div class="wp-sub">cash na janela</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Faturamento</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 196.107</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>1.610</td><td>4,60%</td><td>74</td><td>R$ 204.393</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>1.306</td><td>3,75%</td><td>49</td><td>R$ 135.342</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.692</td><td>1,24%</td><td>21</td><td>R$ 58.004</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>2.408</td><td>0,58%</td><td>14</td><td>R$ 38.669</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>8.626</td><td>2,65%</td><td>229</td><td>R$ 632.515</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Faturamento (cash)</div><div class="wf-val gold">R$ 632.515</div><div class="wf-sub">229 vendas</div></div><div class="wf-card fat" style="background:rgba(176,158,232,.06);border:.5px solid rgba(176,158,232,.2)"><div class="wf-lbl">Vendas</div><div class="wf-val" style="color:#B09EE8">229</div><div class="wf-sub">Cartão+PIX</div></div><div class="wf-card fat" style="background:#111;border:.5px solid rgba(255,255,255,.08)"><div class="wf-lbl">Ticket médio</div><div class="wf-val blue">R$ 2.762,07</div><div class="wf-sub">por venda</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 411.135</div><div class="wf-sub">sobre o cash</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w6">W6</span><div><div class="wb-title">Sexto Webinar · Cartão + PIX</div><div class="wb-dates">Captação 17/08 · Live 27/08 ou 29/08</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação de 10 dias → ~6.826 leads.</strong> Aquisição <strong>230/dia</strong> nos recentes (7D ≈ 1.610 · 14D ≈ 690). Bases antigas <strong>esgotando</strong> (30D/Antigos/NA já receberam nos webinars anteriores) — captação cai a cada rodada. Conversão mais estressada vs W3 (fadiga de pitch + sobreposição crescente).</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">6.826</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,49%</div><div class="wp-sub">170 vendas Cartão+PIX</div></div><div class="wp-card"><div class="wp-lbl">Ticket médio</div><div class="wp-val">R$ 2.762,07</div><div class="wp-sub">cash na janela</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Faturamento</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 196.107</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>690</td><td>4,49%</td><td>31</td><td>R$ 85.624</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>1.094</td><td>3,66%</td><td>40</td><td>R$ 110.483</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.416</td><td>1,20%</td><td>17</td><td>R$ 46.955</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>2.016</td><td>0,55%</td><td>11</td><td>R$ 30.383</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>6.826</td><td>2,49%</td><td>170</td><td>R$ 469.553</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Faturamento (cash)</div><div class="wf-val gold">R$ 469.553</div><div class="wf-sub">170 vendas</div></div><div class="wf-card fat" style="background:rgba(176,158,232,.06);border:.5px solid rgba(176,158,232,.2)"><div class="wf-lbl">Vendas</div><div class="wf-val" style="color:#B09EE8">170</div><div class="wf-sub">Cartão+PIX</div></div><div class="wf-card fat" style="background:#111;border:.5px solid rgba(255,255,255,.08)"><div class="wf-lbl">Ticket médio</div><div class="wf-val blue">R$ 2.762,07</div><div class="wf-sub">por venda</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 305.209</div><div class="wf-sub">sobre o cash</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w7">W7</span><div><div class="wb-title">Sétimo Webinar · Cartão + PIX</div><div class="wb-dates">Captação 31/08 · Live 10/09 ou 12/09</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação de 10 dias → ~6.198 leads.</strong> Aquisição <strong>230/dia</strong> nos recentes (7D ≈ 1.610 · 14D ≈ 690). Bases antigas <strong>esgotando</strong> (30D/Antigos/NA já receberam nos webinars anteriores) — captação cai a cada rodada. Conversão bem estressada vs W3 (fadiga de pitch + sobreposição crescente).</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">6.198</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,55%</div><div class="wp-sub">158 vendas Cartão+PIX</div></div><div class="wp-card"><div class="wp-lbl">Ticket médio</div><div class="wp-val">R$ 2.762,07</div><div class="wp-sub">cash na janela</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Faturamento</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 196.107</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>690</td><td>4,49%</td><td>31</td><td>R$ 85.624</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>942</td><td>3,50%</td><td>33</td><td>R$ 91.148</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.220</td><td>1,15%</td><td>14</td><td>R$ 38.669</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>1.736</td><td>0,52%</td><td>9</td><td>R$ 24.859</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>6.198</td><td>2,55%</td><td>158</td><td>R$ 436.408</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Faturamento (cash)</div><div class="wf-val gold">R$ 436.408</div><div class="wf-sub">158 vendas</div></div><div class="wf-card fat" style="background:rgba(176,158,232,.06);border:.5px solid rgba(176,158,232,.2)"><div class="wf-lbl">Vendas</div><div class="wf-val" style="color:#B09EE8">158</div><div class="wf-sub">Cartão+PIX</div></div><div class="wf-card fat" style="background:#111;border:.5px solid rgba(255,255,255,.08)"><div class="wf-lbl">Ticket médio</div><div class="wf-val blue">R$ 2.762,07</div><div class="wf-sub">por venda</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 283.665</div><div class="wf-sub">sobre o cash</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w8">W8</span><div><div class="wb-title">Oitavo Webinar · Cartão + PIX</div><div class="wb-dates">Captação 14/09–30/09 · Live 01/10 ou 03/10 (evento presencial 26-27/09)</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação de 10 dias → ~5.694 leads.</strong> Aquisição <strong>230/dia</strong> nos recentes (7D ≈ 1.610 · 14D ≈ 690). Bases antigas <strong>esgotando</strong> (30D/Antigos/NA já receberam nos webinars anteriores) — captação cai a cada rodada. Conversão fortemente estressada vs W3 (fadiga de pitch + sobreposição crescente).</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">5.694</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,62%</div><div class="wp-sub">149 vendas Cartão+PIX</div></div><div class="wp-card"><div class="wp-lbl">Ticket médio</div><div class="wp-val">R$ 2.762,07</div><div class="wp-sub">cash na janela</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Faturamento</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 196.107</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>690</td><td>4,49%</td><td>31</td><td>R$ 85.624</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>820</td><td>3,41%</td><td>28</td><td>R$ 77.338</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.062</td><td>1,04%</td><td>11</td><td>R$ 30.383</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>1.512</td><td>0,53%</td><td>8</td><td>R$ 22.097</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>5.694</td><td>2,62%</td><td>149</td><td>R$ 411.549</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Faturamento (cash)</div><div class="wf-val gold">R$ 411.549</div><div class="wf-sub">149 vendas</div></div><div class="wf-card fat" style="background:rgba(176,158,232,.06);border:.5px solid rgba(176,158,232,.2)"><div class="wf-lbl">Vendas</div><div class="wf-val" style="color:#B09EE8">149</div><div class="wf-sub">Cartão+PIX</div></div><div class="wf-card fat" style="background:#111;border:.5px solid rgba(255,255,255,.08)"><div class="wf-lbl">Ticket médio</div><div class="wf-val blue">R$ 2.762,07</div><div class="wf-sub">por venda</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 267.507</div><div class="wf-sub">sobre o cash</div></div></div>
+</div></div>
+  <div class="rt-subview" id="rt-pj3bol"><div style="background:#131313;border:.5px solid rgba(232,165,116,.25);border-radius:12px;padding:14px 18px;margin-bottom:20px;font-size:12px;color:#D4D0CA;line-height:1.7">
+  <span style="color:#E8A574;font-weight:500;letter-spacing:.04em;text-transform:uppercase;font-size:10px">📄 Modelo de inadimplência (base TMB · relatório 17/07)</span><br>
+  Inadimplência atual da carteira ~<strong>1,48%</strong> (Alto 0,45% · Médio 0,78% · Baixo 0,25%), com atraso concentrado em <strong>1-30 dias (80,8%)</strong> e 31-60 (19,2%) — nada além de 60 dias, carteira jovem (~15% recebido). Como a amostra ainda é curta, adotamos <strong>cenário pessimista de 20%</strong> de pedidos inadimplentes, com a <strong>vacância começando cedo (~2ª parcela)</strong>: cada inadimplente paga entrada + ~1 parcela e para. Resultado: recupera-se <strong>~82%</strong> das parcelas futuras. Margem de cada webinar = (entrada + recuperável) × 65% — e a soma dos webinars bate com o total abaixo.
+</div><div class="tri-summary" style="margin-bottom:10px"><div class="ts-card gold"><div class="ts-lbl">Vendas totais (5 webinars)</div><div class="ts-val gold">1.031</div><div class="ts-sub">W4 → W8</div></div><div class="ts-card gold"><div class="ts-lbl">Faturamento realizável</div><div class="ts-val gold">R$ 2.058.419</div><div class="ts-sub">entrada R$ 218.490 + recuperável R$ 1.839.930</div></div><div class="ts-card"><div class="ts-lbl">Margem estimada (65%)</div><div class="ts-val green">R$ 1.337.973</div><div class="ts-sub">= soma dos webinars</div></div></div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w4">W4</span><div><div class="wb-title">Quarto Webinar · Boleto (TMB)</div><div class="wb-dates">Captação 11/07 · Live 25/07 (Sex)</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Peso no W3</strong> (boleto aberto desde o dia 1). Base 9.331 leads. Entrada = cash; parcelas futuras à parte. <strong>Inadimplência pessimista 20%</strong> com vacância começando ~na 2ª parcela (base TMB) → recupera-se ~82% das parcelas futuras.</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">9.331</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,84%</div><div class="wp-sub">265 vendas Boleto</div></div><div class="wp-card"><div class="wp-lbl">Ticket entrada</div><div class="wp-val">R$ 211,92</div><div class="wp-sub">nominal R$ 2.388,27</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Entrada (cash)</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.470</td><td>4,42%</td><td>65</td><td>R$ 13.775</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>1.575</td><td>4,19%</td><td>66</td><td>R$ 13.987</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>1.519</td><td>3,09%</td><td>47</td><td>R$ 9.960</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.967</td><td>2,29%</td><td>45</td><td>R$ 9.536</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>2.800</td><td>1,50%</td><td>42</td><td>R$ 8.901</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>9.331</td><td>2,84%</td><td>265</td><td>R$ 56.159</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Entrada (cash)</div><div class="wf-val gold">R$ 56.159</div><div class="wf-sub">265 vendas · na janela</div></div><div class="wf-card fat" style="background:rgba(144,200,240,.06);border:.5px solid rgba(144,200,240,.2)"><div class="wf-lbl">A receber futuro (bruto)</div><div class="wf-val blue">R$ 576.733</div><div class="wf-sub">nominal − entrada</div></div><div class="wf-card fat" style="background:rgba(232,165,116,.08);border:.5px solid rgba(232,165,116,.25)"><div class="wf-lbl">Recuperável (pess. 20%)</div><div class="wf-val" style="color:#E8A574">R$ 472.921</div><div class="wf-sub">vacância ~2ª parcela</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 343.902</div><div class="wf-sub">s/ entrada + recuperável</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w5">W5</span><div><div class="wb-title">Quinto Webinar · Boleto (TMB)</div><div class="wb-dates">Captação 29/07 · Live 12/08 ou 15/08</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação 14 dias → ~8.626 leads.</strong> 230/dia nos recentes; bases antigas <strong>esgotando</strong> (já receberam) e conversão levemente estressada vs W3. Boleto incremental desde o dia 1. <strong>Inadimplência pessimista 20%</strong> com vacância começando ~na 2ª parcela (base TMB) → recupera-se ~82% das parcelas futuras.</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">8.626</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,89%</div><div class="wp-sub">249 vendas Boleto</div></div><div class="wp-card"><div class="wp-lbl">Ticket entrada</div><div class="wp-val">R$ 211,92</div><div class="wp-sub">nominal R$ 2.388,27</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Entrada (cash)</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 15.046</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>1.610</td><td>4,16%</td><td>67</td><td>R$ 14.199</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>1.306</td><td>3,06%</td><td>40</td><td>R$ 8.477</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.692</td><td>2,19%</td><td>37</td><td>R$ 7.841</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>2.408</td><td>1,41%</td><td>34</td><td>R$ 7.205</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>8.626</td><td>2,89%</td><td>249</td><td>R$ 52.768</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Entrada (cash)</div><div class="wf-val gold">R$ 52.768</div><div class="wf-sub">249 vendas · na janela</div></div><div class="wf-card fat" style="background:rgba(144,200,240,.06);border:.5px solid rgba(144,200,240,.2)"><div class="wf-lbl">A receber futuro (bruto)</div><div class="wf-val blue">R$ 541.911</div><div class="wf-sub">nominal − entrada</div></div><div class="wf-card fat" style="background:rgba(232,165,116,.08);border:.5px solid rgba(232,165,116,.25)"><div class="wf-lbl">Recuperável (pess. 20%)</div><div class="wf-val" style="color:#E8A574">R$ 444.367</div><div class="wf-sub">vacância ~2ª parcela</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 323.138</div><div class="wf-sub">s/ entrada + recuperável</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w6">W6</span><div><div class="wb-title">Sexto Webinar · Boleto (TMB)</div><div class="wb-dates">Captação 17/08 · Live 27/08 ou 29/08</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação 10 dias → ~6.826 leads.</strong> 230/dia nos recentes; bases antigas <strong>esgotando</strong> (já receberam) e conversão mais estressada vs W3. Boleto incremental desde o dia 1. <strong>Inadimplência pessimista 20%</strong> com vacância começando ~na 2ª parcela (base TMB) → recupera-se ~82% das parcelas futuras.</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">6.826</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,74%</div><div class="wp-sub">187 vendas Boleto</div></div><div class="wp-card"><div class="wp-lbl">Ticket entrada</div><div class="wp-val">R$ 211,92</div><div class="wp-sub">nominal R$ 2.388,27</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Entrada (cash)</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 15.046</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>690</td><td>4,20%</td><td>29</td><td>R$ 6.146</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>1.094</td><td>2,93%</td><td>32</td><td>R$ 6.781</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.416</td><td>2,05%</td><td>29</td><td>R$ 6.146</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>2.016</td><td>1,29%</td><td>26</td><td>R$ 5.510</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>6.826</td><td>2,74%</td><td>187</td><td>R$ 39.629</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Entrada (cash)</div><div class="wf-val gold">R$ 39.629</div><div class="wf-sub">187 vendas · na janela</div></div><div class="wf-card fat" style="background:rgba(144,200,240,.06);border:.5px solid rgba(144,200,240,.2)"><div class="wf-lbl">A receber futuro (bruto)</div><div class="wf-val blue">R$ 406.977</div><div class="wf-sub">nominal − entrada</div></div><div class="wf-card fat" style="background:rgba(232,165,116,.08);border:.5px solid rgba(232,165,116,.25)"><div class="wf-lbl">Recuperável (pess. 20%)</div><div class="wf-val" style="color:#E8A574">R$ 333.722</div><div class="wf-sub">vacância ~2ª parcela</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 242.678</div><div class="wf-sub">s/ entrada + recuperável</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w7">W7</span><div><div class="wb-title">Sétimo Webinar · Boleto (TMB)</div><div class="wb-dates">Captação 31/08 · Live 10/09 ou 12/09</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação 10 dias → ~6.198 leads.</strong> 230/dia nos recentes; bases antigas <strong>esgotando</strong> (já receberam) e conversão bem estressada vs W3. Boleto incremental desde o dia 1. <strong>Inadimplência pessimista 20%</strong> com vacância começando ~na 2ª parcela (base TMB) → recupera-se ~82% das parcelas futuras.</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">6.198</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,76%</div><div class="wp-sub">171 vendas Boleto</div></div><div class="wp-card"><div class="wp-lbl">Ticket entrada</div><div class="wp-val">R$ 211,92</div><div class="wp-sub">nominal R$ 2.388,27</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Entrada (cash)</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 15.046</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>690</td><td>4,06%</td><td>28</td><td>R$ 5.934</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>942</td><td>2,87%</td><td>27</td><td>R$ 5.722</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.220</td><td>1,97%</td><td>24</td><td>R$ 5.086</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>1.736</td><td>1,21%</td><td>21</td><td>R$ 4.450</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>6.198</td><td>2,76%</td><td>171</td><td>R$ 36.238</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Entrada (cash)</div><div class="wf-val gold">R$ 36.238</div><div class="wf-sub">171 vendas · na janela</div></div><div class="wf-card fat" style="background:rgba(144,200,240,.06);border:.5px solid rgba(144,200,240,.2)"><div class="wf-lbl">A receber futuro (bruto)</div><div class="wf-val blue">R$ 372.156</div><div class="wf-sub">nominal − entrada</div></div><div class="wf-card fat" style="background:rgba(232,165,116,.08);border:.5px solid rgba(232,165,116,.25)"><div class="wf-lbl">Recuperável (pess. 20%)</div><div class="wf-val" style="color:#E8A574">R$ 305.168</div><div class="wf-sub">vacância ~2ª parcela</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 221.914</div><div class="wf-sub">s/ entrada + recuperável</div></div></div>
+</div><div class="webinar-block">
+  <div class="wb-header"><div class="wb-badge"><span class="wb-pill w8">W8</span><div><div class="wb-title">Oitavo Webinar · Boleto (TMB)</div><div class="wb-dates">Captação 14/09–30/09 · Live 01/10 ou 03/10 (evento presencial 26-27/09)</div></div></div></div>
+  <div class="wb-rationale"><strong>Linha de raciocínio:</strong> <strong>Captação 10 dias → ~5.694 leads.</strong> 230/dia nos recentes; bases antigas <strong>esgotando</strong> (já receberam) e conversão fortemente estressada vs W3. Boleto incremental desde o dia 1. <strong>Inadimplência pessimista 20%</strong> com vacância começando ~na 2ª parcela (base TMB) → recupera-se ~82% das parcelas futuras.</div>
+  <div class="wb-premissas"><div class="wp-card"><div class="wp-lbl">Leads projetados</div><div class="wp-val">5.694</div><div class="wp-sub">base do webinar</div></div><div class="wp-card"><div class="wp-lbl">Conversão geral</div><div class="wp-val">2,79%</div><div class="wp-sub">159 vendas Boleto</div></div><div class="wp-card"><div class="wp-lbl">Ticket entrada</div><div class="wp-val">R$ 211,92</div><div class="wp-sub">nominal R$ 2.388,27</div></div></div>
+  <table class="wb-cluster-table"><thead><tr><th style="text-align:left">Cluster</th><th>Leads</th><th>Conversão</th><th>Vendas est.</th><th>Entrada (cash)</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left"><span style="color:#82D490">7D</span></td><td>1.610</td><td>4,41%</td><td>71</td><td>R$ 15.046</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A">14D</span></td><td>690</td><td>4,06%</td><td>28</td><td>R$ 5.934</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B">30D</span></td><td>820</td><td>2,80%</td><td>23</td><td>R$ 4.874</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B">Antigos</span></td><td>1.062</td><td>1,79%</td><td>19</td><td>R$ 4.026</td></tr><tr class="ct-new"><td style="text-align:left"><span style="color:#A4A09C">NA / Bases Antigas</span></td><td>1.512</td><td>1,19%</td><td>18</td><td>R$ 3.815</td></tr><tr class="ct-total"><td style="text-align:left">Total</td><td>5.694</td><td>2,79%</td><td>159</td><td>R$ 33.695</td></tr></tbody></table>
+  <div class="wb-financeiro"><div class="wf-card fat" style="background:rgba(201,168,76,.06);border:.5px solid rgba(201,168,76,.2)"><div class="wf-lbl">Entrada (cash)</div><div class="wf-val gold">R$ 33.695</div><div class="wf-sub">159 vendas · na janela</div></div><div class="wf-card fat" style="background:rgba(144,200,240,.06);border:.5px solid rgba(144,200,240,.2)"><div class="wf-lbl">A receber futuro (bruto)</div><div class="wf-val blue">R$ 346.040</div><div class="wf-sub">nominal − entrada</div></div><div class="wf-card fat" style="background:rgba(232,165,116,.08);border:.5px solid rgba(232,165,116,.25)"><div class="wf-lbl">Recuperável (pess. 20%)</div><div class="wf-val" style="color:#E8A574">R$ 283.753</div><div class="wf-sub">vacância ~2ª parcela</div></div><div class="wf-card fat" style="background:rgba(90,158,106,.06);border:.5px solid rgba(90,158,106,.2)"><div class="wf-lbl">Margem estimada (65%)</div><div class="wf-val green">R$ 206.341</div><div class="wf-sub">s/ entrada + recuperável</div></div></div>
+</div></div>
+      <div class="rt-subview" id="rt-pj3traf">
+    <div class="wb-rationale" style="margin-bottom:20px"><strong>Objetivo:</strong> validar o tráfego por faixa pra sustentar um <strong>launch grande no Q4</strong>. O que podemos pagar de mídia por lead = <strong>CPL Máx (ROAS 3) − R$2,00</strong> de API + disparo (custo fixo por lead capturado). O W03 rodou só um <strong>teste pequeno</strong> — serve de direção, não de validação.</div>
+    <p class="rt-sec">Resultado real do Tráfego no W03 (teste — amostra pequena)</p>
+    <div class="rt-grid rt-grid-3" style="margin-bottom:10px">
+      <div class="rt-card"><div class="rt-lbl">Leads de tráfego (Meta)</div><div class="rt-val">344</div><div class="rt-sub">4 vendas · conv 1,16%</div></div>
+      <div class="rt-card"><div class="rt-lbl">CPL observado (mídia)</div><div class="rt-val" style="color:#90C8F0">R$ 3,55</div><div class="rt-sub">+ R$2 API = R$ 5,55 total/lead</div></div>
+      <div class="rt-card"><div class="rt-lbl">ROAS bruto (mídia)</div><div class="rt-val" style="color:#E8B07B">2,46x</div><div class="rt-sub">com API/disparo: 1,57x</div></div>
+    </div>
+    <div style="font-size:11px;color:#A4A09C;padding:2px 2px 8px;line-height:1.6">Investido R$ 1.220,68 · faturamento R$ 3.004,41 (4 vendas · ticket R$ 751,10). Só na mídia o ROAS (2,46x) já fica abaixo de 3; somando o R$2 de API/disparo cai pra <strong>1,57x</strong>. Ou seja: <strong>ainda não está validado pra escalar</strong> — 344 leads / 4 vendas é amostra curta demais e o retorno agregado ficou apertado. A decisão do Q4 depende de bater os CPLs por faixa abaixo.</div>
+    <p class="rt-sec" style="margin-top:22px">Projeção de tráfego no 3° Tri (rampa de validação → Q4)</p>
+    <div class="wb-rationale" style="margin-bottom:12px">Ancorado no W03, projetando <strong>crescimento forte</strong>: mais campanhas rodando → mais leads a cada webinar (1.000 → 15.000), preparando o launch gigante do Q4. Ticket = <strong>TMF histórico da base Meta scorada (R$ 1.692,00)</strong>, não os 4 vendas do teste. CPL total <strong>melhora ao longo do tri</strong> (R$ 5,20 → R$ 4,30) com otimização por faixa. Margem = faturamento × 65% − custo de tráfego.</div>
+    <div class="rt-grid rt-grid-3" style="margin-bottom:10px">
+      <div class="rt-card"><div class="rt-lbl">Leads de tráfego (5 webinars)</div><div class="rt-val">32.500</div><div class="rt-sub">~303 vendas · TMF R$ 1.692</div></div>
+      <div class="rt-card"><div class="rt-lbl">Faturamento tráfego</div><div class="rt-val gd">R$ 512.084</div><div class="rt-sub">Ads R$ 80.950 + API R$ 65.000 · ROAS 3,5x</div></div>
+      <div class="rt-card win"><div class="rt-lbl">Margem (65% − tráfego)</div><div class="rt-val" style="color:#82D490">R$ 186.904</div><div class="rt-sub">cresce rumo ao Q4</div></div>
+    </div>
+    <div style="overflow-x:auto"><table class="wb-cluster-table" style="min-width:720px;margin-bottom:6px"><thead><tr><th style="text-align:left">Webinar</th><th>Leads</th><th>Conv.</th><th>Faturamento</th><th>CPL total</th><th>Custo</th><th>ROAS</th><th>Margem</th></tr></thead><tbody><tr class="ct-new"><td style="text-align:left">W04</td><td>1.000</td><td>0,87%</td><td>R$ 14.720</td><td>R$ 5,20</td><td>R$ 5.200</td><td>2,8x</td><td>R$ 4.368</td></tr><tr class="ct-new"><td style="text-align:left">W05</td><td>2.500</td><td>0,89%</td><td>R$ 37.647</td><td>R$ 4,90</td><td>R$ 12.250</td><td>3,1x</td><td>R$ 12.221</td></tr><tr class="ct-new"><td style="text-align:left">W06</td><td>5.000</td><td>0,91%</td><td>R$ 76.986</td><td>R$ 4,70</td><td>R$ 23.500</td><td>3,3x</td><td>R$ 26.541</td></tr><tr class="ct-new"><td style="text-align:left">W07</td><td>9.000</td><td>0,93%</td><td>R$ 141.620</td><td>R$ 4,50</td><td>R$ 40.500</td><td>3,5x</td><td>R$ 51.553</td></tr><tr class="ct-new"><td style="text-align:left">W08</td><td>15.000</td><td>0,95%</td><td>R$ 241.110</td><td>R$ 4,30</td><td>R$ 64.500</td><td>3,7x</td><td>R$ 92.222</td></tr><tr class="ct-total"><td style="text-align:left">Total 3° Tri</td><td>32.500</td><td>0,93%</td><td>R$ 512.084</td><td>—</td><td>R$ 145.950</td><td>3,5x</td><td>R$ 186.904</td></tr></tbody></table></div>
+    <div style="font-size:11px;color:#A4A09C;padding:6px 2px 4px;line-height:1.7">Rampa forte de leads + TMF histórico + CPL otimizando levam a margem de <strong>R$ 186.904</strong> no 3° Tri — <strong>já descontado o investimento em Ads (~R$ 80.950)</strong> e o API/disparo (R$ 65.000). O CPL total = mídia (Ads) + R$2 de API por lead. O W08 já chega em 15 mil leads de tráfego — porta de entrada pro volume do Q4. Se a captação de A/B segurar os CPLs da tabela abaixo, o Q4 escala em cima disso. <em>Parâmetros ajustáveis: volume por webinar, TMF e curva de CPL.</em></div>
+    <p class="rt-sec" style="margin-top:20px">CPL de mídia pagável por faixa (base Meta scorada · ROAS 3)</p>
+    <div style="overflow-x:auto"><table class="wb-cluster-table" style="min-width:720px"><thead><tr><th style="text-align:left">Faixa</th><th>Conv. Meta</th><th>Valor/Lead</th><th>CPL Máx (ROAS 3)</th><th>API+disparo</th><th>CPL mídia pagável</th><th>Teto interno*</th></tr></thead><tbody>
+    <tr class="ct-new"><td style="text-align:left"><span style="color:#82D490;font-weight:600">A</span></td><td>1,69%</td><td>R$ 27,60</td><td>R$ 9,20</td><td>−R$ 2,00</td><td><span style="color:#82D490;font-weight:600">R$ 7,20</span></td><td style="color:#8A8680">R$ 50,31</td></tr>
+    <tr class="ct-new"><td style="text-align:left"><span style="color:#B0D88A;font-weight:600">B</span></td><td>1,20%</td><td>R$ 24,81</td><td>R$ 8,27</td><td>−R$ 2,00</td><td><span style="color:#B0D88A;font-weight:600">R$ 6,27</span></td><td style="color:#8A8680">R$ 34,71</td></tr>
+    <tr class="ct-new"><td style="text-align:left"><span style="color:#E8C97B;font-weight:600">C</span></td><td>0,94%</td><td>R$ 12,31</td><td>R$ 4,10</td><td>−R$ 2,00</td><td><span style="color:#E8C97B;font-weight:600">R$ 2,10</span></td><td style="color:#8A8680">R$ 29,24</td></tr>
+    <tr class="ct-new"><td style="text-align:left"><span style="color:#E8B07B;font-weight:600">D</span></td><td>0,74%</td><td>R$ 13,38</td><td>R$ 4,46</td><td>−R$ 2,00</td><td><span style="color:#E8B07B;font-weight:600">R$ 2,46</span></td><td style="color:#8A8680">R$ 18,15</td></tr>
+    <tr class="ct-new"><td style="text-align:left"><span style="color:#E89B84;font-weight:600">E</span></td><td>0,74%</td><td>R$ 13,27</td><td>R$ 4,42</td><td>−R$ 2,00</td><td><span style="color:#E89B84;font-weight:600">R$ 2,42</span></td><td style="color:#8A8680">R$ 15,96</td></tr>
+    <tr class="ct-new"><td style="text-align:left"><span style="color:#E07070;font-weight:600">F</span></td><td>0,32%</td><td>R$ 2,46</td><td>R$ 0,82</td><td>−R$ 2,00</td><td><span style="color:#E07070">inviável</span></td><td style="color:#8A8680">R$ 6,61</td></tr>
+    </tbody></table></div>
+    <div style="font-size:11px;color:#A4A09C;padding:8px 2px;line-height:1.7">Vem da base Meta scorada (amostra maior que o teste do W03), não dos 344 leads. *Teto interno = CPL Máx se o lead de tráfego convertesse como a base interna. <strong>Operacional:</strong> pagar mídia só onde sobra margem — <span style="color:#82D490">A (R$7,20)</span> e <span style="color:#B0D88A">B (R$6,27)</span> aguentam; C/D/E ficam apertados (R$2–2,5); <span style="color:#E07070">F é inviável</span> via tráfego frio. Como o teste do W03 rendeu ROAS ~1,6x com API, o Q4 só se paga se o Meta entregar volume de A/B abaixo desses tetos.</div>
+    <div style="background:#131313;border:.5px solid rgba(201,168,76,.25);border-radius:12px;padding:16px 18px;margin-top:16px">
+      <span style="font-size:10px;color:#C9A84C;font-weight:500;letter-spacing:.06em;text-transform:uppercase">🎯 Uso desta view — validação pro Q4</span>
+      <div style="font-size:12px;color:#D4D0CA;line-height:1.7;margin-top:6px">Antes de escalar tráfego pesado no Q4: (1) confirmar a <strong>captação por faixa</strong> (Meta trazendo A/B suficientes, não só C-F); (2) fixar os <strong>CPLs alvo</strong> desta tabela como teto por campanha; (3) acompanhar no Dash o CPL real vs alvo por faixa a cada rodada. O teste do W03 (344 leads, ROAS ~1,6x com API) diz que ainda não estamos lá — precisa de mais volume controlado pra validar.</div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="tc-tri3" class="tc">
+<div id="tri3-page" style="max-width:1100px;margin:0 auto;padding:48px 48px 100px">
+  <div class="eyebrow" style="margin-bottom:20px"><div class="eyebrow-line"></div><span class="eyebrow-text">AWFunnels × Paulo Aguiar · Plano do trimestre</span><div class="eyebrow-line"></div></div>
+  <h1 style="font-family:'DM Serif Display',serif;font-size:38px;font-weight:400;color:#F2EFE8;margin:0;letter-spacing:-.02em">Visão do Trimestre <em style="color:#C9A84C;font-style:italic">3° TRI</em></h1>
+  <p style="font-size:13px;color:#A4A09C;margin:8px 0 34px;max-width:640px">O caminho da monetização do 3° Tri: onde estamos, os <strong>2 gargalos</strong> a destravar (previsibilidade do tráfego + capacidade operacional) e onde miramos. Números detalhados na aba Projeções.</p>
+<div class="jrn">
+  <div class="jrn-stage">
+    <div class="jrn-rail"><div class="jrn-node" style="background:rgba(130,212,144,.12);border:.5px solid #82D49055;color:#82D490">✓</div><div class="jrn-line"></div></div>
+    <div class="jrn-body"><div class="jrn-tag" style="color:#82D490">Onde estamos</div><div class="jrn-title">Base interna validada</div><div class="jrn-desc">Os webinars de base interna já rodam com previsibilidade — conversão e margem conhecidas por cluster. É a fundação que garante o trimestre.</div></div>
+  </div>
+  <div class="jrn-stage">
+    <div class="jrn-rail"><div class="jrn-node" style="background:rgba(201,168,76,.12);border:.5px solid #C9A84C55;color:#C9A84C">◎</div><div class="jrn-line"></div></div>
+    <div class="jrn-body"><div class="jrn-tag" style="color:#C9A84C">O desafio do trimestre</div><div class="jrn-title">Validar o tráfego pago como canal de aquisição</div><div class="jrn-desc">Provar que dá pra trazer lead de fora batendo <strong>ROAS 3</strong>. Sem isso não existe o launch gigante do Q4 — é a grande aposta do 3° Tri.</div></div>
+  </div>
+  <div class="jrn-stage">
+    <div class="jrn-rail"><div class="jrn-node" style="background:rgba(176,158,232,.12);border:.5px solid #B09EE855;color:#B09EE8">🎯</div><div class="jrn-line"></div></div>
+    <div class="jrn-body"><div class="jrn-tag" style="color:#B09EE8">Como provamos</div><div class="jrn-title">Score de devolutivas por faixa (A · B · C)</div><div class="jrn-desc">Cada lead é qualificado por score a partir das devolutivas do evento. Isso define o <strong>CPL que podemos pagar por faixa</strong> — caro em A/B, barato ou nada em C-F.</div></div>
+  </div>
+  <div class="jrn-stage">
+    <div class="jrn-rail"><div class="jrn-node" style="background:rgba(201,168,76,.18);border:.5px solid #C9A84C55;color:#C9A84C">⚡</div><div class="jrn-line"></div></div>
+    <div class="jrn-body"><div class="jrn-tag" style="color:#C9A84C">Gargalo 1 · previsibilidade do tráfego</div><div class="jrn-title">Aumentar a taxa de resposta na pesquisa</div><div class="jrn-desc">É como eu alavanco a <strong>previsibilidade de gasto/receita do tráfego</strong>. Só quem responde recebe score — mais respostas = mais leads por faixa = dá pra prever quanto gasto e quanto volta, validar o canal e otimizar pro launch futuro.</div><div class="jrn-foco">
+      <div style="font-size:12px;color:#C9A84C;font-weight:500;margin-bottom:12px">Caminho escolhido: <strong>incentivo pra responder</strong></div>
+      <div style="background:rgba(201,168,76,.1);border:.5px solid rgba(201,168,76,.3);border-radius:10px;padding:13px 15px;margin-bottom:10px">
+        <div style="font-size:13px;color:#F2EFE8;font-weight:500">🎁 Incentivo — dar algo em troca da resposta</div>
+        <div style="font-size:11px;color:#A4A09C;margin-top:3px">A alavanca principal pra destravar a taxa de resposta. Falta definir o quê (oferta · mecânica · custo).</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+        <span class="chip" style="border-color:rgba(130,212,144,.45);color:#82D490">✓ Copy da página — já ajustada</span>
+        <span class="chip">✂️ Menos fricção</span>
+        <span class="chip">⏱️ Timing & canal</span>
+        <span class="chip">🔒 Gate suave</span>
+      </div>
+      <div style="font-size:11px;color:#8A8680;margin-top:12px;line-height:1.6">👉 Me diz qual incentivo você tá pensando que eu estruturo — oferta, mecânica, custo por resposta e o impacto no CPL.</div>
+    </div></div>
+  </div>
+  <div class="jrn-stage">
+    <div class="jrn-rail"><div class="jrn-node" style="background:rgba(224,112,112,.14);border:.5px solid #E0707055;color:#E07070">🔧</div><div class="jrn-line"></div></div>
+    <div class="jrn-body"><div class="jrn-tag" style="color:#E8A574">Gargalo 2 · capacidade operacional</div><div class="jrn-title">Repor o braço operacional (playbooker)</div><div class="jrn-desc">Preciso trazer um playbooker pra repor o braço operacional. Hoje o operacional recai sobre mim — tarefas que tomam tempo e não têm sistema pronto (uso a API, crio código e rodo no terminal pra tapar buracos). Semi-automatizei muito, mas ainda sobra trabalho manual e coisas que ninguém atualiza sozinho.</div><div class="jrn-foco" style="background:rgba(224,112,112,.06);border-color:rgba(224,112,112,.3)">
+      <div style="font-size:12px;color:#E8A574;font-weight:500;margin-bottom:12px">O que uma contratação destrava</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+        <div class="hab-card"><div class="hc-t" style="color:#82D490">↑ Eu subo pro estratégico</div><div class="hc-s">Saio do operacional que toma tempo e assumo mais responsabilidade no tráfego (o canal que precisa ser validado).</div></div>
+        <div class="hab-card"><div class="hc-t" style="color:#E07070">2 funis no Q4 = inviável sozinho</div><div class="hc-s">Com um possível 2º expert no Q4, rodar Paulo + novo expert sozinho é inviável — mesmo automatizado e validado.</div></div>
+      </div>
+      <div style="font-size:11px;color:#A4A09C;line-height:1.6;padding-top:2px;border-top:.5px solid rgba(255,255,255,.06);margin-top:2px">
+        <strong style="color:#D4D0CA">Status da vaga:</strong> form criado e divulgado (grupo da faculdade / turma de formatura — <em>sem retorno até agora</em>); indicação da Lulu com o perfil a puxar. Treino ~30d após contratar. Enquanto isso, a semi-automação segura os buracos, mas não substitui o braço.
+      </div>
+    </div></div>
+  </div>
+  <div class="jrn-stage">
+    <div class="jrn-rail"><div class="jrn-node" style="background:rgba(144,200,240,.12);border:.5px solid #90C8F055;color:#90C8F0">🧩</div><div class="jrn-line"></div></div>
+    <div class="jrn-body"><div class="jrn-tag" style="color:#90C8F0">O que sustenta o plano</div><div class="jrn-title">Calendário · Automação</div><div class="jrn-desc">Os habilitadores que seguram o caminho enquanto os dois gargalos são destravados.</div><div class="hab-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+      <div class="hab-card"><div class="hc-t">📅 Calendário</div><div class="hc-s">5 webinars mapeados (W04–W08, Jul→Set) com captação e datas definidas.</div></div>
+      <div class="hab-card"><div class="hc-t">⚙️ Automação (segura o intervalo)</div><div class="hc-s">SendFlow · ActiveCampaign · n8n + código próprio na API. Reduz a carga enquanto não tem braço — mas exige revisão e não atualiza tudo sozinho.</div></div>
+    </div></div>
+  </div>
+  <div class="jrn-stage">
+    <div class="jrn-rail"><div class="jrn-node" style="background:rgba(130,212,144,.12);border:.5px solid #82D49055;color:#82D490">🚀</div></div>
+    <div class="jrn-body"><div class="jrn-tag" style="color:#82D490">Onde miramos</div><div class="jrn-title">Q4: launch gigante em escala, com 2 experts</div><div class="jrn-desc">O 3° Tri é o ensaio: valida o tráfego e resolve a capacidade. No Q4 escalamos — dois funis rodando com tráfego validado. O faturamento é <strong>consequência do caminho</strong>, não o ponto de partida.</div><div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap">
+      <div style="background:rgba(201,168,76,.08);border:.5px solid rgba(201,168,76,.3);border-radius:11px;padding:12px 18px"><div style="font-size:10px;color:#C9A84C;text-transform:uppercase;letter-spacing:.06em">Meta de margem · 3° Tri</div><div style="font-size:22px;color:#C9A84C;font-weight:600;margin-top:2px">R$ 3,22M</div><div style="font-size:11px;color:#A4A09C">faturamento R$ 5,18M · detalhe na aba Projeções</div></div>
+      <div style="background:rgba(130,212,144,.06);border:.5px solid rgba(130,212,144,.25);border-radius:11px;padding:12px 18px"><div style="font-size:10px;color:#82D490;text-transform:uppercase;letter-spacing:.06em">Q4</div><div style="font-size:22px;color:#82D490;font-weight:600;margin-top:2px">Escala · 2 experts</div><div style="font-size:11px;color:#A4A09C">tráfego validado + braço operacional</div></div>
+    </div></div>
+  </div>
+</div>
+</div>
+</div>
+<div id="tc-cal3" class="tc">
+  <div style="max-width:1080px;margin:0 auto;padding:48px 48px 100px">
+    <div class="eyebrow" style="margin-bottom:22px"><div class="eyebrow-line"></div><span class="eyebrow-text">AWFunnels × Paulo Aguiar · 2026</span><div class="eyebrow-line"></div></div>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:40px;font-weight:400;color:#F2EFE8;margin:0;letter-spacing:-.02em">Calendário <em style="color:#C9A84C;font-style:italic">3° TRI</em></h1>
+    <p style="font-size:11px;color:#C9A84C;letter-spacing:.14em;text-transform:uppercase;margin:26px 0 18px">Calendário — Julho a Setembro (+ início Out) de 2026</p>
+    <div class="cal-months" id="cals3" style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+    <div class="cal-legend">
+      <div class="leg"><div class="leg-sq" style="background:var(--blue-bg);border:.5px solid var(--blue-border)"></div>Captação webinar</div>
+      <div class="leg"><div class="leg-ci" style="background:var(--blue)"></div>Live webinar (confirmada)</div>
+      <div class="leg"><div class="leg-ci" style="background:transparent;border:1.5px dashed var(--blue-border)"></div>Live a definir (2 datas possíveis)</div>
+      <div class="leg"><div class="leg-sq" style="background:rgba(224,112,112,.18);border:.5px solid rgba(224,112,112,.4)"></div>Evento presencial — bloqueio de agenda</div>
+    </div>
+  </div>
+</div>
 <div id="tc-projw4" class="tc">
 <div id="projw4-page" style="max-width:1100px;margin:0 auto;padding:48px 48px 100px">
   <div style="margin-bottom:28px"><div style="font-size:26px;color:#F2EFE8;font-weight:600;letter-spacing:-.02em">Projeção W4</div><div style="font-size:13px;color:#A4A09C;margin-top:6px">Projeção pré-lançamento do W4 — canais internos e tráfego pago. Vira histórico depois que o W4 rodar.</div></div>
@@ -3065,5 +3300,118 @@ input[type=range].fsl{flex:1;accent-color:#C9A84C;cursor:pointer}
 })();
 </script>
 <script>window.goSubP4=function(sub){var page=document.getElementById("projw4-page");if(!page)return;page.querySelectorAll(".rt-subtab").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-sub")===sub);});page.querySelectorAll(".rt-subview").forEach(function(v){v.classList.toggle("active",v.id==="rt-"+sub);});};</script>
+<script>
+window.goTri=function(tri){
+  document.querySelectorAll('#tri-sidebar .tri-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tri')===tri);});
+  var hd=document.querySelector('.page > .header');if(hd)hd.style.display=(tri==='2')?'':'none';
+  var first=null;
+  document.querySelectorAll('#tab-bar .tb').forEach(function(b){
+    var show=b.getAttribute('data-tri')===tri;
+    b.style.display=show?'':'none';
+    if(show&&!first)first=b.getAttribute('data-tab');
+  });
+  if(first&&window.goTab)goTab(first);
+};
+(function(){document.querySelectorAll('#tab-bar .tb[data-tri="3"]').forEach(function(b){b.style.display='none';});})();
+</script>
+<style>.cal-day.live-maybe{background:transparent;color:#90C8F0;font-weight:500;border-radius:50%;border:1.5px dashed var(--blue-border)}.cal-day.block{background:rgba(224,112,112,.18);color:#E07070;font-weight:500;border-radius:9px;border:.5px solid rgba(224,112,112,.4)}.cal-day.nextmonth{opacity:.5}</style>
+<script>
+(function(){
+  const ev3={
+  "2026-07-07":{t:"live",lbl:"W3"},"2026-07-11":{t:"cap"},"2026-07-12":{t:"cap"},
+  "2026-07-13":{t:"cap"},"2026-07-14":{t:"cap"},"2026-07-15":{t:"cap"},
+  "2026-07-16":{t:"cap"},"2026-07-17":{t:"cap"},"2026-07-18":{t:"cap"},
+  "2026-07-19":{t:"cap"},"2026-07-20":{t:"cap"},"2026-07-21":{t:"cap"},
+  "2026-07-22":{t:"cap"},"2026-07-23":{t:"cap"},"2026-07-24":{t:"cap"},
+  "2026-07-25":{t:"live",lbl:"W4"},"2026-07-29":{t:"cap"},"2026-07-30":{t:"cap"},
+  "2026-07-31":{t:"cap"},"2026-08-01":{t:"cap"},"2026-08-02":{t:"cap"},
+  "2026-08-03":{t:"cap"},"2026-08-04":{t:"cap"},"2026-08-05":{t:"cap"},
+  "2026-08-06":{t:"cap"},"2026-08-07":{t:"cap"},"2026-08-08":{t:"cap"},
+  "2026-08-09":{t:"cap"},"2026-08-10":{t:"cap"},"2026-08-11":{t:"cap"},
+  "2026-08-12":{t:"live-maybe",lbl:"W5"},"2026-08-13":{t:"cap"},"2026-08-14":{t:"cap"},
+  "2026-08-15":{t:"live-maybe",lbl:"W5"},"2026-08-17":{t:"cap"},"2026-08-18":{t:"cap"},
+  "2026-08-19":{t:"cap"},"2026-08-20":{t:"cap"},"2026-08-21":{t:"cap"},
+  "2026-08-22":{t:"cap"},"2026-08-23":{t:"cap"},"2026-08-24":{t:"cap"},
+  "2026-08-25":{t:"cap"},"2026-08-26":{t:"cap"},"2026-08-27":{t:"live-maybe",lbl:"W6"},
+  "2026-08-28":{t:"cap"},"2026-08-29":{t:"live-maybe",lbl:"W6"},"2026-08-31":{t:"cap"},
+  "2026-09-01":{t:"cap"},"2026-09-02":{t:"cap"},"2026-09-03":{t:"cap"},
+  "2026-09-04":{t:"cap"},"2026-09-05":{t:"cap"},"2026-09-06":{t:"cap"},
+  "2026-09-07":{t:"cap"},"2026-09-08":{t:"cap"},"2026-09-09":{t:"cap"},
+  "2026-09-10":{t:"live-maybe",lbl:"W7"},"2026-09-11":{t:"cap"},"2026-09-12":{t:"live-maybe",lbl:"W7"},
+  "2026-09-14":{t:"cap"},"2026-09-15":{t:"cap"},"2026-09-16":{t:"cap"},
+  "2026-09-17":{t:"cap"},"2026-09-18":{t:"cap"},"2026-09-19":{t:"cap"},
+  "2026-09-20":{t:"cap"},"2026-09-21":{t:"cap"},"2026-09-22":{t:"cap"},
+  "2026-09-23":{t:"cap"},"2026-09-24":{t:"cap"},"2026-09-25":{t:"cap"},
+  "2026-09-26":{t:"block",lbl:"Evento"},"2026-09-27":{t:"block",lbl:"Evento"},"2026-09-28":{t:"cap"},
+  "2026-09-29":{t:"cap"},"2026-09-30":{t:"cap"},"2026-10-01":{t:"live-maybe",lbl:"W8"},
+  "2026-10-03":{t:"live-maybe",lbl:"W8"}
+};
+  function key(y,m,d){return y+"-"+String(m).padStart(2,"0")+"-"+String(d).padStart(2,"0")}
+  function cell(grid,ev,label,extraCls){
+    const el=document.createElement("div");el.textContent=label;let cls="cal-day"+(extraCls||"");
+    if(ev){
+      if(ev.t==="cap")cls+=" cap";
+      else if(ev.t==="live")cls+=" live";
+      else if(ev.t==="live-maybe")cls+=" live-maybe";
+      else if(ev.t==="block")cls+=" block";
+      if(ev.lbl){const dot=document.createElement("div");dot.className="dot";el.appendChild(dot)}
+    }
+    el.className=cls;grid.appendChild(el);
+  }
+  function bm(year,month,name,extra){
+    const wrap=document.createElement("div");wrap.className="cal-month";
+    const t=document.createElement("div");t.className="cal-month-name";t.textContent=name;wrap.appendChild(t);
+    const grid=document.createElement("div");grid.className="cal-grid";
+    ["D","S","T","Q","Q","S","S"].forEach(function(d){const l=document.createElement("div");l.className="cal-day-lbl";l.textContent=d;grid.appendChild(l)});
+    const first=new Date(year,month-1,1).getDay();
+    const total=new Date(year,month,0).getDate();
+    for(let i=0;i<first;i++){const e=document.createElement("div");e.className="cal-day empty";grid.appendChild(e)}
+    for(let d=1;d<=total;d++){cell(grid,ev3[key(year,month,d)],d,"")}
+    if(extra){extra.forEach(function(e){cell(grid,ev3[key(e[0],e[1],e[2])],e[2]," nextmonth")})}
+    wrap.appendChild(grid);return wrap;
+  }
+  const c=document.getElementById("cals3");
+  [[2026,7,"Julho",null],[2026,8,"Agosto",null],[2026,9,"Setembro / Outubro",[[2026,10,1],[2026,10,2],[2026,10,3]]]].forEach(function(a){c.appendChild(bm(a[0],a[1],a[2],a[3]))});
+})();
+</script>
+<style>.wb-pill.w4{background:rgba(176,158,232,.15);color:#B09EE8;border:.5px solid rgba(176,158,232,.3)}</style>
+<script>window.goSubPj3=function(sub){var p=document.getElementById("proj3-page");if(!p)return;p.querySelectorAll(".rt-subtab").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-sub")===sub);});p.querySelectorAll(".rt-subview").forEach(function(v){v.classList.toggle("active",v.id==="rt-"+sub);});};</script>
+<style>.wb-pill.w5{background:rgba(127,212,232,.15);color:#7FD4E8;border:.5px solid rgba(127,212,232,.3)}.wb-pill.w6{background:rgba(232,155,176,.15);color:#E89BB0;border:.5px solid rgba(232,155,176,.3)}.wb-pill.w7{background:rgba(232,165,116,.15);color:#E8A574;border:.5px solid rgba(232,165,116,.3)}.wb-pill.w8{background:rgba(155,176,232,.15);color:#9BB0E8;border:.5px solid rgba(155,176,232,.3)}</style>
+<style>
+.tri3-hero{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px;margin-bottom:8px}
+.tl-track{display:flex;gap:8px;margin:14px 0 6px}
+.tl-step{flex:1;background:#111;border:.5px solid rgba(255,255,255,.08);border-radius:10px;padding:13px 14px;position:relative}
+.tl-step .tls-tag{font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.tl-step .tls-t{font-size:13px;color:#F2EFE8;font-weight:500;margin:5px 0 3px}
+.tl-step .tls-s{font-size:11px;color:#A4A09C;line-height:1.5}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.oc-box{background:#111;border:.5px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 18px}
+.oc-box h4{font-size:12px;font-weight:600;margin:0 0 10px;letter-spacing:.03em}
+.oc-box ul{margin:0;padding-left:16px}
+.oc-box li{font-size:12px;color:#D4D0CA;line-height:1.7;margin-bottom:5px}
+.kpi-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:.5px solid rgba(255,255,255,.06)}
+.kpi-row:last-child{border-bottom:none}
+.kpi-ic{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;background:rgba(201,168,76,.12)}
+.kpi-tx{font-size:12.5px;color:#D4D0CA;line-height:1.5}
+.kpi-tx strong{color:#F2EFE8}
+@media(max-width:760px){.tri3-hero,.two-col{grid-template-columns:1fr}.tl-track{flex-direction:column}}
+</style>
+<style>
+#tri3-page .jrn{margin-top:8px}
+.jrn-stage{display:flex;gap:20px}
+.jrn-rail{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:48px}
+.jrn-node{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+.jrn-line{width:2px;flex:1;min-height:24px;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.05))}
+.jrn-body{flex:1;padding-bottom:30px;min-width:0}
+.jrn-tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.jrn-title{font-size:18px;color:#F2EFE8;font-weight:500;margin:4px 0 6px;letter-spacing:-.01em}
+.jrn-desc{font-size:13px;color:#A4A09C;line-height:1.65;max-width:640px}
+.jrn-foco{background:rgba(201,168,76,.07);border:.5px solid rgba(201,168,76,.35);border-radius:14px;padding:18px 20px;margin-top:2px}
+.chip{font-size:11px;color:#D4D0CA;background:#161616;border:.5px solid rgba(255,255,255,.1);border-radius:20px;padding:6px 12px;white-space:nowrap}
+.hab-card{background:#111;border:.5px solid rgba(255,255,255,.08);border-radius:11px;padding:13px 14px}
+.hab-card .hc-t{font-size:13px;color:#F2EFE8;font-weight:500;margin-bottom:4px}
+.hab-card .hc-s{font-size:11px;color:#A4A09C;line-height:1.55}
+@media(max-width:720px){.hab-grid{grid-template-columns:1fr!important}}
+</style>
 </body>
 </html>
